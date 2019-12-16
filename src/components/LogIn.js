@@ -7,9 +7,12 @@ import { login } from '../redux/actions'
 class LogIn extends React.Component {
     
   state = {
-    logIn: true,
+    logIn: false,
     username: "",
     password: "",
+    email: "",
+    image_url: "",
+    bio: "",
     errors: []
   }
 
@@ -37,22 +40,28 @@ class LogIn extends React.Component {
               errors: data.errors
             })
           } else {
+        console.log(data)
         localStorage.setItem("token", data.token)
-        localStorage.setItem("user", this.state.username)
+        localStorage.setItem("user_id", data.user_id)
         this.props.login(data)
           }
       }
 
   signUpSubmitted = async (event) => {
     event.preventDefault() 
+
     let rawData = await fetch("http://localhost:3000/authors", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({user:
+      body: JSON.stringify({author:
         {username: this.state.username,
-        password: this.state.password}
+        password: this.state.password,
+        email: this.state.email,
+        image_url: this.state.image_url,
+        bio: this.state.bio
+    }
       })
     })
     let data = await rawData.json()
@@ -60,19 +69,9 @@ class LogIn extends React.Component {
         alert(data.errors)
       } else {
     localStorage.setItem("token", data.token)
-    localStorage.setItem("user", this.state.username)
+    localStorage.setItem("user_id", data.user_id)
     this.props.login(data)
       }
-
-        if (data.errors) {
-          this.setState({
-            errors: data.errors
-          })
-        } else {
-            localStorage.setItem("token", data.token)
-            localStorage.setItem("user", this.state.username)
-            this.props.login(data)
-        }
   }
 
 
@@ -135,7 +134,31 @@ class LogIn extends React.Component {
                     name="password" 
                     value={ this.state.password } />
                     <br></br><br></br>
-            <input type="submit" />
+            <label  htmlFor="sign_up_email">email</label>
+            <br></br>
+            <input  id="sign_up_email" 
+                    type="text" 
+                    onChange={ this.onChange } 
+                    name="email" 
+                    value={ this.state.email } />
+                    <br></br> <br></br>
+            <label  htmlFor="sign_up_image_url">Image URL</label>
+            <br></br>
+            <input  id="sign_up_image_url" 
+                    type="text" 
+                    onChange={ this.onChange } 
+                    name="image_url" 
+                    value={ this.state.image_url } />
+                    <br></br><br></br>
+                    <label  htmlFor="sign_up_bio">bio</label>
+            <br></br>
+            <input  id="sign_up_bio" 
+                    type="text" 
+                    onChange={ this.onChange } 
+                    name="bio" 
+                    value={ this.state.bio } />
+                    <br></br><br></br>
+                    <input type="submit" />
           </form>
         </section>
       }
@@ -151,8 +174,8 @@ const mapDispatchToProps = (dispatch) => {
         //     dispatch(setUser(user))
         // }
         // }
-        login: ({token, user}) => {
-            dispatch(login({token, user}))
+        login: ({token, user_id}) => {
+            dispatch(login({token, user_id}))
         }
     }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from './containers/NavBar'
 import MainContainer from './containers/MainContainer'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -12,7 +11,6 @@ class App extends React.Component{
   render(){
     return(
       <Provider store={store}>
-        <NavBar />
         <MainContainer />
       </Provider>
     )
