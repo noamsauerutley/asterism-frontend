@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { set_content } from '../redux/actions'
 import NavBar from './NavBar'
 import LoginContainer from './LoginContainer'
 import FragmentsContainer from './FragmentsContainer'
@@ -8,14 +9,22 @@ import StoriesContainer from './StoriesContainer'
 import AccountContainer from './AccountContainer'
 
 class MainContainer extends React.Component{
+
     isUser = () => {
-        // console.log(this.props)
-       return !!localStorage.user_id? <Redirect to="/account" /> : <Redirect to="/login"/>
+        console.log(this.props.user_id)
+       return !!localStorage.user_id ? <Redirect to="/account" /> : <Redirect to="/login"/>
     }
 
-
     componentDidMount = async () => {
-        // let rawData = await fetch(http://localhost:3000/authors/${localStorage.userId})
+        let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
+            method: "GET",
+            headers: {
+              "Authorization": localStorage.token,
+              "Content-Type": "application/json"
+                 }})
+        let data = await rawData.json()
+        this.props.set_content(data)
+        console.log(data)
     }
 
     render(){return(
@@ -57,4 +66,13 @@ const mapStateToProps = (state) => {
     }
   }
 
-export default connect(mapStateToProps)(MainContainer)
+
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        set_content: ({stories, fragments, username}) => {
+            dispatch(set_content({stories, fragments, username}))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainContainer)

@@ -1,11 +1,24 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import StoryCard from '../components/StoryCard'
+
 
 const StoriesContainer = (props) => {
    return ( <>
-         <div style={{textAlign: "center", marginTop: "20%"}}>
-         <iframe title="Story Of the Year: Until the Day I Die" width="560" height="315" src="https://www.youtube.com/embed/l9WKZpC9UbU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         <div style={{textAlign: "left", marginLeft: "30%", marginTop: "10%"}}>
+            <h1>STORIES:</h1>
+            <ul>
+   {!!props.stories.length ? props.stories.map(story => <StoryCard story={story} />) : "You haven't added any stories yet!"}
+            </ul>        
         </div>
     </>)
 }
 
-export default StoriesContainer
+const mapStateToProps = (state) => {
+    return {
+      stories: state.stories
+    }
+  }
+
+
+  export default connect(mapStateToProps)(StoriesContainer)

@@ -1,15 +1,26 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import FragmentCard from '../components/FragmentCard'
+
 
 class FragmentsContainer extends React.Component{
     
     render(){
    return ( <>
          <div style={{textAlign: "center", marginTop: "30%"}}>
-        <h1>BREAK MY HEART INTO PIECES</h1>
-        <h2>THIS IS MY LAST RESORT</h2>
+        <ul>
+        {!!this.props.fragments.length ? this.props.fragments.map(fragment => <FragmentCard fragment={fragment} />) : "You haven't added any fragments yet!"}
+        </ul>
         </div>
     </>
     )}
 }
 
-export default FragmentsContainer
+const mapStateToProps = (state) => {
+    return {
+      fragments: state.fragments
+    }
+  }
+
+
+  export default connect(mapStateToProps)(FragmentsContainer)

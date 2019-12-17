@@ -168,12 +168,6 @@ class LogIn extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // setToken: (token) => {
-        //     dispatch(setToken(token))
-        // setUser: (user) => {
-        //     dispatch(setUser(user))
-        // }
-        // }
         login: ({token, user_id}) => {
             dispatch(login({token, user_id}))
         }
