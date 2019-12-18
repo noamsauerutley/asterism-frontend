@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+
 
 class StoryDetail extends React.Component{
 
@@ -45,7 +47,7 @@ class StoryDetail extends React.Component{
         return(
         <div style={{textAlign: "center", marginTop: "10%"}}>
             <h2>{this.story.title}</h2>
-            <a href="/stories/edit">✎</a>
+            <NavLink to="/stories/edit">✎</NavLink>
             <p>{this.story.summary}</p>
             
                 <h4>Plot Arcs:</h4>

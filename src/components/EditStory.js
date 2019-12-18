@@ -1,38 +1,40 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { update_story } from '../redux/actions'
 
 class EditStory extends React.Component{
 
   story = this.props.currentStory
 
   state = {
-    title: "this.story.title",
-    summary: "this.story.summary",
+    title: this.story.title,
+    summary: this.story.summary,
     errors: []
 }
 
-newStorySubmitted = async (event) => {
+editStorySubmitted = async (event) => {
     event.preventDefault()
-    let rawStory = await fetch ('http://localhost:3000/stories', 
-    {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": localStorage.token
-        },
-        body: JSON.stringify({story: {
-            author_id: localStorage.user_id,
-            title: this.state.title,
-            summary: this.state.summary
-        }})
-      })
-      let story = await rawStory.json()
-      if (story.errors) {
-        this.setState({
-          errors: story.errors
+    let rawEditedStory = await fetch (`http://localhost:3000/stories/${this.story.id}`, 
+      {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": localStorage.token
+          },
+          body: JSON.stringify({story: {
+              title: this.state.title,
+              summary: this.state.summary
+          }})
         })
-      } else {
-    this.props.set_story(story)
+    let editedStory = await rawEditedStory.json()
+    
+    if (editedStory.errors) {
+      this.setState({
+        errors: editedStory.errors
+      })
+    } else {
+    this.props.update_story(editedStory)
+    
       }
 }
 
@@ -45,7 +47,7 @@ onChange = event => {
     
     render(){
       return(
-      <form onSubmit={ this.newStorySubmitted }>
+      <form onSubmit={ this.editStorySubmitted }>
       <br></br>
       <label  htmlFor="new_story_title">TITLE</label>
       <br></br>
@@ -73,9 +75,16 @@ onChange = event => {
 }
 const mapStateToProps = (state) => {
   return {
-    stories: state.stories,
-    currentStoryId: state.currentStoryId
+    currentStory: state.currentStory
   }
 }
 
-export default connect(mapStateToProps)(EditStory)
+const mapDispatchToProps = (dispatch) => {
+  return {
+      update_story: ({story}) => {
+          dispatch(update_story({story}))
+      }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditStory)

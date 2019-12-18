@@ -5,9 +5,10 @@ import { NavLink } from 'react-router-dom'
 
 class StoryCard extends React.Component{
 
-    currentStory = this.props.currentStory
+    currentStory = this.props.story
 
     handleOnClick = (event) => {
+        console.log(this.currentSTory)
         this.props.set_current_story(this.currentStory);
       }
 
@@ -26,7 +27,7 @@ class StoryCard extends React.Component{
 const mapDispatchToProps = (dispatch) => {
     return {
         set_current_story: currentStory => {
-            dispatch(set_current_story({currentStory}))
+            dispatch(set_current_story(currentStory))
         }
     }
 }
