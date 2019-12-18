@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { update_story } from '../redux/actions'
+import { Redirect } from 'react-router-dom'
 
 class EditStory extends React.Component{
 
@@ -9,6 +10,7 @@ class EditStory extends React.Component{
   state = {
     title: this.story.title,
     summary: this.story.summary,
+    redirectBoolean: false,
     errors: []
 }
 
@@ -34,7 +36,9 @@ editStorySubmitted = async (event) => {
       })
     } else {
     this.props.update_story(editedStory)
-    
+    this.setState({
+      redirectBoolean: true
+    })
       }
 }
 
@@ -44,10 +48,10 @@ onChange = event => {
       [event.target.name]: event.target.value
     })
   }
-    
-    render(){
-      return(
-      <form onSubmit={ this.editStorySubmitted }>
+
+  conditionalRender = () => {
+    if(this.state.redirectBoolean===false){
+      return <form onSubmit={ this.editStorySubmitted }>
       <br></br>
       <label  htmlFor="new_story_title">TITLE</label>
       <br></br>
@@ -70,7 +74,18 @@ onChange = event => {
           value={ this.state.summary } />
           <br></br><br></br>
       <input type="submit" />
-  </form>)
+  </form>
+    } else{
+      return < Redirect to='/stories' />
+    }
+  }
+    
+    render(){
+      return(
+        <>
+        {this.conditionalRender()}
+        </>
+      )
     }
 }
 const mapStateToProps = (state) => {
@@ -81,8 +96,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      update_story: ({story}) => {
-          dispatch(update_story({story}))
+      update_story: (story) => {
+          dispatch(update_story(story))
       }
   }
 }

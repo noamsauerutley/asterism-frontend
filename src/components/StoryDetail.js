@@ -1,23 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
+import { delete_story } from '../redux/actions'
 
 
 class StoryDetail extends React.Component{
 
     story = this.props.currentStory
+    currentId = this.story.id
 
     delete = async () => {
-        await fetch(`http://localhost:3000/stories/${this.props.story.id}`, {
+        this.props.delete_story(this.currentId)
+        await fetch(`http://localhost:3000/stories/${this.story.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.token
             }
         })
+        console.log("deleted!")
     } 
+
     storyPlots = () => {
-        console.log(this.story.title)
         if(this.story.plots){
             return <ul>
                 {this.story.plots.map(plot => {
@@ -36,7 +40,7 @@ class StoryDetail extends React.Component{
                 {this.story.characters.map(character => {
                 return <li style={{listStyle: "none"}}>
                     <h5>{character.name}</h5>
-                    <p>{character.summary}</p>
+                    <p>{character.description}</p>
                 </li>})}
             </ul>
             } else {
@@ -55,7 +59,7 @@ class StoryDetail extends React.Component{
             
             <h3>Characters:</h3>
                 {this.storyCharacters()} 
-            <button  onClick={this.delete}>DELETE STORY</button>
+            <NavLink to='/stories' onClick={this.delete}>DELETE STORY</NavLink>
 
         </div>
     )}
@@ -67,5 +71,13 @@ const mapStateToProps = (state) => {
     }
   }
 
-  export default connect(mapStateToProps)(StoryDetail)
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        delete_story: currentId => {
+            dispatch(delete_story(currentId))
+        }
+    }
+}
+
+  export default connect(mapStateToProps, mapDispatchToProps)(StoryDetail)
 

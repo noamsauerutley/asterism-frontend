@@ -7,7 +7,7 @@ import StoryCard from '../components/StoryCard'
 const StoriesContainer = (props) => {
    return ( 
  
-         <div style={{textAlign: "left", marginLeft: "30%", marginTop: "10%"}}>
+         <div style={{textAlign: "left", marginLeft: "15%", marginTop: "10%"}}>
             <h1 style={{textAlign: "Center"}}>MY LIBRARY:</h1>
             <NavLink to="/stories/new">AD LIBRIS</NavLink>
             <ul>

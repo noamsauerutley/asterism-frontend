@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from '../redux/actions'
 
@@ -33,7 +33,6 @@ const NavBar = (props) => {
                 <NavLink to="/fragments" style={{color: "#343a40", textDecorationColor: "#929ca7"}}>FRAGMENTS </NavLink>
                 <NavLink to="/stories" style={{color: "#343a40", textDecorationColor: "#929ca7"}}>STORIES</NavLink>
                 <NavLink to={`/account`} style={{color: "#343a40", textDecorationColor: "#929ca7"}}>ACCOUNT</NavLink>
-                {/* <NavLink to="/" style={{color: "#343a40", textDecorationColor: "#929ca7"}}>LOGOUT</NavLink> */}
                 {logoutButton()}
           </nav>
     )

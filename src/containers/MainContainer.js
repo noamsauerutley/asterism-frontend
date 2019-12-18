@@ -15,7 +15,7 @@ class MainContainer extends React.Component{
 
     isUser = () => {
         console.log(this.props.user_id)
-       return !!localStorage.user_id ? <Redirect to="/account" /> : <Redirect to="/login"/>
+       return !!localStorage.user_id ? <Redirect to="/stories" /> : <Redirect to="/login"/>
     }
 
     componentDidMount = async () => {
@@ -51,8 +51,8 @@ class MainContainer extends React.Component{
                         <EditStory />
                     </Route>
 
-                    <Route exact path="/stories/:id" component={StoryDetail}>
-                        <StoryDetail />
+                    <Route exact path="/stories/:id" >
+                        <StoryDetail />}
                     </Route>
 
                     <Route path="/login" >
