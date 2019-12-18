@@ -11,28 +11,26 @@ const NavBar = (props) => {
       }
 
     let logoutButton = () => {
-        return !localStorage.token ? <NavLink to="/login" style={{color: "#343a40", textDecorationColor: "#929ca7"}}>LOG IN</NavLink> : <NavLink to="/login" onClick={handleLogOut} style={{color: "#343a40", textDecorationColor: "#929ca7"}}>LOG OUT</NavLink>
+        return !localStorage.token ? <NavLink to="/login" style={{color: "black", textDecorationColor: "black"}}>LOG IN</NavLink> : <NavLink to="/login" onClick={handleLogOut} style={{color: "black", textDecorationColor: "black"}}>LOG OUT</NavLink>
         }
 
     return(
         <nav style={{ 
             position: "-webkit-sticky", 
             position: "sticky",
+            backgroundColor: "white", 
             top: "0", 
             borderBottom: "solid", 
             borderWidth: "1px", 
-            borderColor: "#929ca7", 
             paddingBottom: "25px", 
             textAlign: "Center", 
             fontSize: "20px", 
             marginTop:"3%", 
-            fontWeight: "100", 
-            color: "#343a40", 
             display: "flex", 
             justifyContent: "space-around"}}>
-                <NavLink to="/fragments" style={{color: "#343a40", textDecorationColor: "#929ca7"}}>FRAGMENTS </NavLink>
-                <NavLink to="/stories" style={{color: "#343a40", textDecorationColor: "#929ca7"}}>STORIES</NavLink>
-                <NavLink to={`/account`} style={{color: "#343a40", textDecorationColor: "#929ca7"}}>ACCOUNT</NavLink>
+                <NavLink to="/fragments" style={{color: "black", textDecorationColor: "black"}}>FRAGMENTS </NavLink>
+                <NavLink to="/stories" style={{color: "black", textDecorationColor: "black"}}>STORIES</NavLink>
+                <NavLink to={`/account`} style={{color: "black", textDecorationColor: "black"}}>ACCOUNT</NavLink>
                 {logoutButton()}
           </nav>
     )
