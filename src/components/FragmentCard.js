@@ -2,7 +2,7 @@ import React from 'react'
 
 const FragmentCard = (props) => {
     return (
-        <li><h3>{props.fragment.title}</h3><p>{props.fragment.text}</p></li>
+        <li style={{listStyle: "none"}}><h3>{props.fragment.title}</h3><p>{props.fragment.text}</p></li>
     )
 }
 

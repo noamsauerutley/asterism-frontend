@@ -23,11 +23,25 @@ class StoryDetail extends React.Component{
 
     storyPlots = () => {
         if(this.story.plots){
-            return <ul>
+            return <ul style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "wrap",
+                fontWeight: "100", 
+                textAlign: "center",
+                justifyContent: "space-around"
+              }}>
                 {this.story.plots.map(plot => {
                 return <li style={{listStyle: "none"}}>
+                    <div style={{border: "dashed", borderWidth: "1px", width: "250px", height: "350px", margin: "40px",  overflow: "hidden"}}>
                     <h5>{plot.name}</h5>
                     <p>{plot.summary}</p>
+                    <label>NOTES:</label>
+                <ul>{!!plot.plot_notes ? plot.plot_notes.map(plot_note => <li style={{listStyle: "none"}}>{plot_note.text}</li>) : "You haven't added any notes to this plot arc."}</ul>
+                    <label>SCENES:</label>
+                <ul>{!!plot.scenes ? plot.scenes.map(scene => <li style={{listStyle: "none"}}><h3>{scene.name}</h3><p>{scene.summary}</p></li>) : "You haven't added any scenes to this plot arc."}</ul>
+                </div>
                 </li>})}
             </ul>
             } else {
@@ -40,7 +54,18 @@ class StoryDetail extends React.Component{
                 {this.story.characters.map(character => {
                 return <li style={{listStyle: "none"}}>
                     <h5>{character.name}</h5>
+                    <ul style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          fontWeight: "100", 
+          textAlign: "center",
+          justifyContent: "space-around"
+        }}>{!!character.images ? character.images.map(image => <li style={{listStyle: "none"}}><img src={image.image_url} /></li>) : ""}</ul>
                     <p>{character.description}</p>
+                    <label>NOTES:</label>
+                <ul>{!!character.character_notes ? character.character_notes.map(character_note => <li style={{listStyle: "none"}}>{character_note.text}</li>) : "You haven't added any notes to this character."}</ul>
                 </li>})}
             </ul>
             } else {
@@ -51,19 +76,22 @@ class StoryDetail extends React.Component{
         return(
         <div style={{textAlign: "center", marginTop: "10%"}}>
             <NavLink to="/stories/edit" style={{color: "black", textDecoration: "none"}}>✎</NavLink>
-            <br></br>
-            <label style={{fontWeight: "bold"}}>TITLE: </label>
+            <div style={{ borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
+            {/* <label style={{fontWeight: "bold"}}>TITLE: </label> */}
             <h2>{this.story.title}</h2>
-            <label style={{fontWeight: "bold"}}>SUMMARY:</label>
-            <p>{this.story.summary}</p>
-            
+            {/* <label style={{fontWeight: "bold"}}>SUMMARY:</label> */}
+            <p >{this.story.summary}</p>
+            </div>
+            <div style={{ borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
+
                 <h4>PLOT ARCS:</h4>
                     {this.storyPlots()}
-            
+            </div>
+            <div>
             <h3>CHARACTERS:</h3>
                 {this.storyCharacters()} 
             <NavLink to='/stories' onClick={this.delete} style={{color: "black", textDecoration: "black"}}>DELETE STORY</NavLink>
-
+            </div>
         </div>
     )}
 }

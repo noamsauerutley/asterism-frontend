@@ -12,9 +12,6 @@ class StoryCard extends React.Component{
         this.props.set_current_story(this.currentStory);
       }
 
-    
-
-
     render(){
         return(
             <div style={{boxShadow: "5px 5px #D3D3D3", border: "solid", borderWidth: "1px", borderLeftWidth: "3px", width: "250px", height: "350px", margin: "40px",  overflow: "hidden"}}>

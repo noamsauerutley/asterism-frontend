@@ -9,7 +9,7 @@ const StoriesContainer = (props) => {
  
          <div style={{textAlign: "Center"}}>
             <h1 >MY LIBRARY:</h1>
-            <NavLink to="/stories/new" style={{marginTop: "20px", color: "black", textDecorationColor: "black", fontSize: "24px"}}>AD LIBRIS</NavLink>
+            <NavLink to="/stories/new" style={{marginTop: "20px", color: "black", textDecorationColor: "black", fontSize: "24px"}}>NEW STORY</NavLink>
             <ul style={{
           width: "100%",
           display: "flex",

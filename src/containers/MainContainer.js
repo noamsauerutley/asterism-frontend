@@ -5,6 +5,7 @@ import { set_content } from '../redux/actions'
 import NavBar from './NavBar'
 import LoginContainer from './LoginContainer'
 import FragmentsContainer from './FragmentsContainer'
+import NewFragment from '../components/NewFragment'
 import StoriesContainer from './StoriesContainer'
 import NewStory from '../components/NewStory'
 import EditStory from '../components/EditStory'
@@ -37,6 +38,10 @@ class MainContainer extends React.Component{
             <Switch>
                     <Route exact path="/fragments" >
                         < FragmentsContainer />
+                    </Route>
+
+                    <Route exact path='/fragments/new' >
+                        <NewFragment />
                     </Route>
 
                     <Route exact path="/stories" >
