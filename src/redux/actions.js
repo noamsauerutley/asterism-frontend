@@ -1,5 +1,5 @@
-import { LOGIN, SET_CONTENT, SET_USERNAME} from './actionTypes'
-import { LOGOUT } from './actionTypes'
+import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, SET_CURRENT_STORY} from './actionTypes'
+
 
 export const login = ({token, user_id}) => {
     return {
@@ -23,5 +23,19 @@ export const set_username = (username) => {
     return {
         type: SET_USERNAME,
         payload: {username}
+    }
+}
+
+export const set_story = (story) => {
+    return {
+        type: SET_STORY,
+        payload: {story}
+    }
+}
+
+export const set_current_story = (currentStory) => {
+    return {
+        type: SET_CURRENT_STORY,
+        payload: {currentStory}
     }
 }

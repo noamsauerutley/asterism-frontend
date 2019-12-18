@@ -6,6 +6,9 @@ import NavBar from './NavBar'
 import LoginContainer from './LoginContainer'
 import FragmentsContainer from './FragmentsContainer'
 import StoriesContainer from './StoriesContainer'
+import NewStory from '../components/NewStory'
+import EditStory from '../components/EditStory'
+import StoryDetail from '../components/StoryDetail'
 import AccountContainer from './AccountContainer'
 
 class MainContainer extends React.Component{
@@ -36,8 +39,20 @@ class MainContainer extends React.Component{
                         < FragmentsContainer />
                     </Route>
 
-                    <Route path="/stories" >
+                    <Route exact path="/stories" >
                         < StoriesContainer/>
+                    </Route>
+
+                    <Route exact path="/stories/new" >
+                        < NewStory />                    
+                    </Route>
+
+                    <Route exact path="/stories/edit">
+                        <EditStory />
+                    </Route>
+
+                    <Route exact path="/stories/:id" component={StoryDetail}>
+                        <StoryDetail />
                     </Route>
 
                     <Route path="/login" >

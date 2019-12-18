@@ -1,20 +1,35 @@
 import React from 'react'
+import { connect } from "react-redux"
+import { set_current_story } from '../redux/actions' 
+import { NavLink } from 'react-router-dom'
 
-const StoryCard = (props) => {
-    return(
-        <li style={{listStyle: "none"}}>
-            <h2>{props.story.title}</h2>
-            <p>{props.story.summary}</p>
-            <ul>
-                <h4>Plot Arcs:</h4>
-                {props.story.plots.map(plot=><li style={{listStyle: "none"}}><h5>{plot.name}</h5><p>{plot.summary}</p></li>)}
-            </ul>
-            <h3>Characters:</h3>
-            <ul>
-                {props.story.characters.map(character => <li style={{listStyle: "none"}}><h5>{character.name}</h5><p>{character.description}</p></li>)}
-            </ul>
-        </li>
-    )
+class StoryCard extends React.Component{
+
+    currentStory = this.props.currentStory
+
+    handleOnClick = (event) => {
+        this.props.set_current_story(this.currentStory);
+      }
+
+
+    render(){
+        return(
+            <NavLink to={`/stories/${this.props.story.id}`} style={{color: "#343a40", textDecorationColor: "#929ca7"}} onClick={this.handleOnClick}>
+                 <li style={{listStyle: "none"}}>
+                 <h2>{this.props.story.title}</h2>
+             <p>{this.props.story.summary}</p>
+            </li>
+             </NavLink>
+    )}
 }
 
-export default StoryCard
+const mapDispatchToProps = (dispatch) => {
+    return {
+        set_current_story: currentStory => {
+            dispatch(set_current_story({currentStory}))
+        }
+    }
+}
+
+
+export default connect(null, mapDispatchToProps)(StoryCard)

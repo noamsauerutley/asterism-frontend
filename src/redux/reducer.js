@@ -1,14 +1,13 @@
-import { LOGIN } from './actionTypes'
-import { LOGOUT } from './actionTypes'
-import { SET_CONTENT } from './actionTypes'
-import { SET_USERNAME } from './actionTypes'
+import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, SET_CURRENT_STORY } from './actionTypes'
 
 const initialState = {
     token: "",
     user_id: "",
     stories: [],
     fragments: [],
-    username: ""
+    username: "",
+    story: {},
+    currentStory: {}
 }
 
 export const reducer = (state = initialState, action) => {
@@ -21,6 +20,10 @@ export const reducer = (state = initialState, action) => {
         return {...state, stories: action.payload.stories, fragments: action.payload.fragments, username: action.payload.username}
     case SET_USERNAME:
         return {...state, username: action.payload.username}
+    case SET_STORY:
+        return {...state, story: action.payload.story}
+    case SET_CURRENT_STORY:
+        return {...state, currentStory: action.payload.currentStory}
     default: 
         return state
     }
