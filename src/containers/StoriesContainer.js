@@ -3,14 +3,23 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import StoryCard from '../components/StoryCard'
 
-
 const StoriesContainer = (props) => {
+  
    return ( 
  
-         <div style={{textAlign: "left", marginLeft: "15%", marginTop: "10%"}}>
-            <h1 style={{textAlign: "Center"}}>MY LIBRARY:</h1>
+         <div style={{textAlign: "Center"}}>
+            <h1 >MY LIBRARY:</h1>
             <NavLink to="/stories/new">AD LIBRIS</NavLink>
-            <ul>
+            <ul style={{
+          width: "100%",
+          marginTop:"5%",
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          fontWeight: "100", 
+          textAlign: "center",
+          justifyContent: "space-around"
+        }}>
    {!!props.stories.length ? props.stories.map(story => <StoryCard story={story} />) : "You haven't added any stories yet!"}
             </ul>        
         </div>

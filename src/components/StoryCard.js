@@ -15,13 +15,17 @@ class StoryCard extends React.Component{
 
     render(){
         return(
+            <div style={{width: "200px", height: "300px", margin: "40px",  overflow: "hidden"}}>
             <NavLink to={`/stories/${this.props.story.id}`} style={{color: "#343a40", textDecorationColor: "#929ca7"}} onClick={this.handleOnClick}>
                  <li style={{listStyle: "none"}}>
-                 <h2>{this.props.story.title}</h2>
-             <p>{this.props.story.summary}</p>
-            </li>
+                    
+                        <h2>{this.props.story.title}</h2>
+                        <p>{this.props.story.summary}</p>
+                </li>
              </NavLink>
-    )}
+            </div>
+
+        )}
 }
 
 const mapDispatchToProps = (dispatch) => {
