@@ -50,16 +50,19 @@ class StoryDetail extends React.Component{
     render(){
         return(
         <div style={{textAlign: "center", marginTop: "10%"}}>
+            <NavLink to="/stories/edit" style={{color: "black", textDecoration: "none"}}>✎</NavLink>
+            <br></br>
+            <label style={{fontWeight: "bold"}}>TITLE: </label>
             <h2>{this.story.title}</h2>
-            <NavLink to="/stories/edit">✎</NavLink>
+            <label style={{fontWeight: "bold"}}>SUMMARY:</label>
             <p>{this.story.summary}</p>
             
-                <h4>Plot Arcs:</h4>
+                <h4>PLOT ARCS:</h4>
                     {this.storyPlots()}
             
-            <h3>Characters:</h3>
+            <h3>CHARACTERS:</h3>
                 {this.storyCharacters()} 
-            <NavLink to='/stories' onClick={this.delete}>DELETE STORY</NavLink>
+            <NavLink to='/stories' onClick={this.delete} style={{color: "black", textDecoration: "black"}}>DELETE STORY</NavLink>
 
         </div>
     )}
