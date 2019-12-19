@@ -1,10 +1,17 @@
-import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT} from './actionTypes'
+import { LOGIN, LOAD, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT} from './actionTypes'
 
 
 export const login = ({token, user_id}) => {
     return {
         type: LOGIN,
         payload: {token, user_id}
+    }
+}
+
+export const load = (isLoaded) => {
+    return {
+        type: LOAD,
+        payload: isLoaded
     }
 }
 

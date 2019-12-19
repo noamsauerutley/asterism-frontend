@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { login } from '../redux/actions'
+import { load } from '../redux/actions'
 
 class LogIn extends React.Component {
     
@@ -42,6 +43,7 @@ class LogIn extends React.Component {
         localStorage.setItem("token", data.token)
         localStorage.setItem("user_id", data.user_id)
         this.props.login(data)
+        this.props.load()
           }
       }
 
@@ -69,6 +71,7 @@ class LogIn extends React.Component {
     localStorage.setItem("token", data.token)
     localStorage.setItem("user_id", data.user_id)
     this.props.login(data)
+    this.props.load()
       }
   }
 
@@ -168,6 +171,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         login: ({token, user_id}) => {
             dispatch(login({token, user_id}))
+        },
+        load: () => {
+            dispatch(load())
         }
     }
 }

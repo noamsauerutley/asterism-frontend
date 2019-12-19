@@ -11,7 +11,7 @@ const NavBar = (props) => {
       }
 
     let logoutButton = () => {
-        return !localStorage.token ? <NavLink to="/login" style={{color: "black", textDecorationColor: "black"}}>LOG IN</NavLink> : <NavLink to="/login" onClick={handleLogOut} style={{color: "black", textDecorationColor: "black"}}>LOG OUT</NavLink>
+        return !props.token ? <NavLink to="/login" style={{color: "black", textDecorationColor: "black"}}>LOG IN</NavLink> : <NavLink to="/login" onClick={handleLogOut} style={{color: "black", textDecorationColor: "black"}}>LOG OUT</NavLink>
         }
 
     return(

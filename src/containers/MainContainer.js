@@ -16,20 +16,40 @@ import AccountContainer from './AccountContainer'
 class MainContainer extends React.Component{
 
     isUser = () => {
-        console.log(this.props.user_id)
        return !!localStorage.user_id ? <Redirect to="/stories" /> : <Redirect to="/login"/>
     }
 
-    componentDidMount = async () => {
-        let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
+    getUserData = async () => {
+        if(!!this.props.isLoaded){
+            let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
             method: "GET",
             headers: {
               "Authorization": localStorage.token,
               "Content-Type": "application/json"
                  }})
         let data = await rawData.json()
-        this.props.set_content(data)
         console.log(data)
+        this.props.set_content(data)
+        } 
+    }
+
+    // componentDidMount = async () => {
+    // //    if(this.props.token){
+    // //        this.getUserData()
+    // //    }
+    // let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
+    //     method: "GET",
+    //     headers: {
+    //       "Authorization": localStorage.token,
+    //       "Content-Type": "application/json"
+    //          }})
+    // let data = await rawData.json()
+    // this.props.set_content(data)
+    // console.log(data)
+    // }
+
+    componentDidMount = () => {
+        this.getUserData()
     }
 
     render(){return(
@@ -66,7 +86,7 @@ class MainContainer extends React.Component{
                     </Route>
 
                     <Route path="/login" >
-                        {!!this.props.token ? <Redirect to="/account"/> : <LoginContainer />}
+                        {!!this.props.token ? <Redirect to="/stories"/> : <LoginContainer />}
 
                     </Route>
 
@@ -87,7 +107,8 @@ class MainContainer extends React.Component{
 const mapStateToProps = (state) => {
     return {
       token: state.token,
-      user_id: state.user_id
+      user_id: state.user_id,
+      load: state.load
     }
   }
 
