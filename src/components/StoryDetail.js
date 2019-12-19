@@ -34,14 +34,14 @@ class StoryDetail extends React.Component{
               }}>
                 {this.story.plots.map(plot => {
                 return <li style={{listStyle: "none"}}>
-                    <div style={{border: "dashed", borderWidth: "1px", width: "250px", height: "350px", margin: "40px",  overflow: "hidden"}}>
-                    <h3>{plot.name}</h3>
-                    <p>{plot.summary}</p>
-                    <label>SCENES:</label>
-                <ul>{!!plot.scenes ? plot.scenes.map(scene => <li style={{listStyle: "none"}}><h5>{scene.name}</h5><p>{scene.summary}</p></li>) : "You haven't added any scenes to this plot arc."}</ul>
-                    <label>NOTES:</label>
-                <ul>{!!plot.plot_notes ? plot.plot_notes.map(plot_note => <li style={{listStyle: "none"}}>{plot_note.text}</li>) : "You haven't added any notes to this plot arc."}</ul>
-                </div>
+                    <div style={{border: "dashed", borderWidth: "1px", width: "300px", height: "500px", margin: "40px"}}>
+                        <h3>{plot.name}</h3>
+                        <p style={{marginBottom: "10px"}}>{plot.summary}</p>
+                        <label style={{fontWeight: "bold"}}>SCENES:</label>
+                        <ul>{!!plot.scenes ? plot.scenes.map(scene => <li style={{listStyle: "none"}}><h5>{scene.name}</h5><p>{scene.summary}</p></li>) : "You haven't added any scenes to this plot arc."}</ul>
+                        <label style={{fontWeight: "bold"}}>NOTES:</label>
+                        <ul>{!!plot.plot_notes ? plot.plot_notes.map(plot_note => <li style={{listStyle: "none"}}>{plot_note.text}</li>) : "You haven't added any notes to this plot arc."}</ul>
+                    </div>
                 </li>})}
             </ul>
             } else {
@@ -55,17 +55,20 @@ class StoryDetail extends React.Component{
                 return <li style={{listStyle: "none"}}>
                     <h3>{character.name}</h3>
                     <ul style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          fontWeight: "100", 
-          textAlign: "center",
-          justifyContent: "space-around"
-        }}>{!!character.images ? character.images.map(image => <li style={{listStyle: "none"}}><img src={image.image_url} alt={`${character.name} image`} /></li>) : ""}</ul>
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "row",
+                        flexWrap: "wrap",
+                        fontWeight: "100", 
+                        textAlign: "center",
+                        justifyContent: "space-around"
+                        }}>{!!character.images ? character.images.map(image => <li style={{listStyle: "none"}}><img src={image.image_url} alt={`${character.name} image`} /></li>) : ""}</ul>
                     <p>{character.description}</p>
-                    <label>NOTES:</label>
-                <ul>{!!character.character_notes ? character.character_notes.map(character_note => <li style={{listStyle: "none"}}>{character_note.text}</li>) : "You haven't added any notes to this character."}</ul>
+                    <label style={{fontWeight: "bold"}}>NOTES:</label>
+                    <ul>{!!character.character_notes ? character.character_notes.map(character_note => <li style={{listStyle: "none"}}>{character_note.text}</li>) : "You haven't added any notes to this character."}</ul>
+                    <br></br>
+                    <label style={{fontWeight: "bold"}}>SCENES:</label>
+                    <ul>{!!character.scenes ? character.scenes.map(scene => <li style={{listStyle: "none"}}>{scene.name}</li>) : "This character is not in any scenes yet."}</ul>
                 </li>})}
             </ul>
             } else {
