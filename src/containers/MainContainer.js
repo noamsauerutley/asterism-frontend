@@ -17,6 +17,7 @@ class MainContainer extends React.Component{
 
     isUser = () => {
         console.log(this.props.user_id)
+        console.log(localStorage.user_id)
        return !!localStorage.user_id ? <Redirect to="/stories" /> : <Redirect to="/login"/>
     }
 
@@ -66,7 +67,7 @@ class MainContainer extends React.Component{
                     </Route>
 
                     <Route path="/login" >
-                        {!!this.props.token ? <Redirect to="/account"/> : <LoginContainer />}
+                        {!!this.props.token ? <Redirect to="/stories"/> : <LoginContainer />}
 
                     </Route>
 
@@ -87,7 +88,8 @@ class MainContainer extends React.Component{
 const mapStateToProps = (state) => {
     return {
       token: state.token,
-      user_id: state.user_id
+      user_id: state.user_id,
+      stories: state.stories
     }
   }
 
