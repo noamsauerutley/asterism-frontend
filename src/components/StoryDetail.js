@@ -62,7 +62,7 @@ class StoryDetail extends React.Component{
           fontWeight: "100", 
           textAlign: "center",
           justifyContent: "space-around"
-        }}>{!!character.images ? character.images.map(image => <li style={{listStyle: "none"}}><img src={image.image_url} /></li>) : ""}</ul>
+        }}>{!!character.images ? character.images.map(image => <li style={{listStyle: "none"}}><img src={image.image_url} alt= /></li>) : ""}</ul>
                     <p>{character.description}</p>
                     <label>NOTES:</label>
                 <ul>{!!character.character_notes ? character.character_notes.map(character_note => <li style={{listStyle: "none"}}>{character_note.text}</li>) : "You haven't added any notes to this character."}</ul>

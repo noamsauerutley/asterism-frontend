@@ -5,10 +5,7 @@ import { set_current_fragment } from '../redux/actions'
 import { delete_fragment } from '../redux/actions'
 
 class FragmentCard extends React.Component {
-    state = {
-        updated: false
-    }
-
+  
     currentFragment = this.props.fragment
     currentId = this.currentFragment.id
 
