@@ -1,41 +1,41 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { update_story } from '../redux/actions'
+import { update_fragment } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 
-class EditStory extends React.Component{
+class EditFragment extends React.Component{
 
-  story = this.props.currentStory
+  fragment = this.props.currentFragment
 
   state = {
-    title: this.story.title,
-    summary: this.story.summary,
+    title: this.fragment.title,
+    text: this.fragment.text,
     redirectBoolean: false,
     errors: []
 }
 
-editStorySubmitted = async (event) => {
+editFragmentSubmitted = async (event) => {
     event.preventDefault()
-    let rawEditedStory = await fetch (`http://localhost:3000/stories/${this.story.id}`, 
+    let rawEditedFragment = await fetch (`http://localhost:3000/fragments/${this.fragment.id}`, 
       {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
             "Authorization": localStorage.token
           },
-          body: JSON.stringify({story: {
+          body: JSON.stringify({fragment: {
               title: this.state.title,
-              summary: this.state.summary
+              text: this.state.text
           }})
         })
-    let editedStory = await rawEditedStory.json()
+    let editedFragment = await rawEditedFragment.json()
     
-    if (editedStory.errors) {
+    if (editedFragment.errors) {
       this.setState({
-        errors: editedStory.errors
+        errors: editedFragment.errors
       })
     } else {
-    this.props.update_story(editedStory)
+    this.props.update_fragment(editedFragment)
     this.setState({
       redirectBoolean: true
     })
@@ -43,7 +43,7 @@ editStorySubmitted = async (event) => {
 }
 
 onChange = event => {
-  console.log(this.story)
+  console.log(this.fragment)
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -51,32 +51,32 @@ onChange = event => {
 
   conditionalRender = () => {
     if(this.state.redirectBoolean===false){
-      return <form onSubmit={ this.editStorySubmitted }>
+      return <form onSubmit={ this.editFragmentSubmitted }>
       <br></br>
-      <label  htmlFor="new_story_title">TITLE</label>
+      <label  htmlFor="edit_fragment_title">TITLE</label>
       <br></br>
       <input 
           style={{width: "80%"}} 
-          id="new_story_title" 
+          id="edit_fragment_title" 
           type="text" 
           onChange={ this.onChange /* for controlled form input status */ } 
           name="title" 
           value={ this.state.title /* for controlled form input status */ } />
           <br></br>
           <br></br>
-      <label  htmlFor="new_story_summary">SUMMARY</label>
+      <label  htmlFor="edit_fragment_text">TEXT</label>
       <br></br>
       <textarea  
           style={{width: "80%", height: "300px"}}
-          id="new_story_summary" 
+          id="edit_fragment_text" 
           onChange={ this.onChange } 
-          name="summary" 
-          value={ this.state.summary } />
+          name="text" 
+          value={ this.state.text } />
           <br></br><br></br>
       <input type="submit" />
   </form>
     } else{
-      return < Redirect to='/stories' />
+      return < Redirect to='/fragments' />
     }
   }
     
@@ -90,16 +90,16 @@ onChange = event => {
 }
 const mapStateToProps = (state) => {
   return {
-    currentStory: state.currentStory
+    currentFragment: state.currentFragment
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      update_story: (story) => {
-          dispatch(update_story(story))
+      update_fragment: (fragment) => {
+          dispatch(update_fragment(fragment))
       }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditStory)
+export default connect(mapStateToProps, mapDispatchToProps)(EditFragment)

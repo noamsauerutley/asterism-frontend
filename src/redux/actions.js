@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT} from './actionTypes'
+import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT} from './actionTypes'
 
 
 export const login = ({token, user_id}) => {
@@ -58,5 +58,26 @@ export const set_fragment = (fragment) => {
     return {
         type: SET_FRAGMENT,
         payload: fragment
+    }
+}
+
+export const update_fragment = (fragment) => {
+    return {
+        type: UPDATE_FRAGMENT,
+        payload: fragment
+    }
+}
+
+export const set_current_fragment = (currentFragment) => {
+    return {
+        type: SET_CURRENT_FRAGMENT,
+        payload: currentFragment
+    }
+}
+
+export const delete_fragment = (id) => {
+    return {
+        type: DELETE_FRAGMENT,
+        payload: id
     }
 }

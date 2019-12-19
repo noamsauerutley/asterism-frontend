@@ -81,6 +81,7 @@ class StoryDetail extends React.Component{
             <h2>{this.story.title}</h2>
             {/* <label style={{fontWeight: "bold"}}>SUMMARY:</label> */}
             <p >{this.story.summary}</p>
+            <NavLink to='/stories' onClick={this.delete} style={{color: "black"}}>DELETE STORY</NavLink>
             </div>
             <div style={{ borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
 
@@ -90,7 +91,6 @@ class StoryDetail extends React.Component{
             <div>
             <h3>CHARACTERS:</h3>
                 {this.storyCharacters()} 
-            <NavLink to='/stories' onClick={this.delete} style={{color: "black", textDecoration: "black"}}>DELETE STORY</NavLink>
             </div>
         </div>
     )}
