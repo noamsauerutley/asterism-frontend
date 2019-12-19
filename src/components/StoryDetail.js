@@ -35,12 +35,12 @@ class StoryDetail extends React.Component{
                 {this.story.plots.map(plot => {
                 return <li style={{listStyle: "none"}}>
                     <div style={{border: "dashed", borderWidth: "1px", width: "250px", height: "350px", margin: "40px",  overflow: "hidden"}}>
-                    <h5>{plot.name}</h5>
+                    <h3>{plot.name}</h3>
                     <p>{plot.summary}</p>
+                    <label>SCENES:</label>
+                <ul>{!!plot.scenes ? plot.scenes.map(scene => <li style={{listStyle: "none"}}><h5>{scene.name}</h5><p>{scene.summary}</p></li>) : "You haven't added any scenes to this plot arc."}</ul>
                     <label>NOTES:</label>
                 <ul>{!!plot.plot_notes ? plot.plot_notes.map(plot_note => <li style={{listStyle: "none"}}>{plot_note.text}</li>) : "You haven't added any notes to this plot arc."}</ul>
-                    <label>SCENES:</label>
-                <ul>{!!plot.scenes ? plot.scenes.map(scene => <li style={{listStyle: "none"}}><h3>{scene.name}</h3><p>{scene.summary}</p></li>) : "You haven't added any scenes to this plot arc."}</ul>
                 </div>
                 </li>})}
             </ul>
@@ -53,7 +53,7 @@ class StoryDetail extends React.Component{
             return <ul>
                 {this.story.characters.map(character => {
                 return <li style={{listStyle: "none"}}>
-                    <h5>{character.name}</h5>
+                    <h3>{character.name}</h3>
                     <ul style={{
           width: "100%",
           display: "flex",
