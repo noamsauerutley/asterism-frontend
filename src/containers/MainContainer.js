@@ -22,6 +22,7 @@ class MainContainer extends React.Component{
     }
 
     componentDidMount = async () => {
+        if (!!localStorage.user_id) {
         let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
             method: "GET",
             headers: {
@@ -30,7 +31,7 @@ class MainContainer extends React.Component{
                  }})
         let data = await rawData.json()
         this.props.set_content(data)
-        console.log(data)
+        console.log(data)}
     }
 
     render(){return(
