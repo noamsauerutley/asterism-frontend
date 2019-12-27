@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink} from 'react-router-dom'
-import { delete_story, set_current_plots } from '../redux/actions'
+import { delete_story, set_current_plots, set_current_characters } from '../redux/actions'
 import PlotCard from './PlotCard'
+import CharacterCard from './CharacterCard'
 
 
 class StoryDetail extends React.Component{
@@ -10,7 +11,9 @@ class StoryDetail extends React.Component{
     story = this.props.currentStory
     currentId = this.story.id
 
-    componentDidMount = () => this.props.set_current_plots()
+    componentDidMount = () => {
+        return this.props.set_current_plots(), this.props.set_current_characters()
+    }
     
 
     delete = async () => {
@@ -45,6 +48,7 @@ class StoryDetail extends React.Component{
     storyCharacters = () => {
         if(this.story.characters){
             return <ul>
+<<<<<<< HEAD
                 {this.story.characters.map(character => {
                 return <li style={{listStyle: "none"}}>
                     <h3>{character.name}</h3>
@@ -64,6 +68,9 @@ class StoryDetail extends React.Component{
                     <label style={{fontWeight: "bold"}}>SCENES:</label>
                     <ul>{!!character.scenes ? character.scenes.map(scene => <li style={{listStyle: "none"}}>{scene.name}</li>) : "This character is not in any scenes yet."}</ul>
                 </li>})}
+=======
+                {this.story.characters.map(character => <CharacterCard character={character} />)}
+>>>>>>> staging
             </ul>
             } else {
             return "You haven't added any characters for this story yet"}
@@ -107,6 +114,9 @@ const mapStateToProps = (state) => {
         },
         set_current_plots: () => {
             dispatch(set_current_plots())
+        },
+        set_current_characters: () => {
+            dispatch(set_current_characters())
         }
     }
 }
