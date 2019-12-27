@@ -8,7 +8,7 @@ class StoryCard extends React.Component{
     currentStory = this.props.story
 
     handleOnClick = (event) => {
-        console.log(this.currentSTory)
+        console.log(this.currentStory)
         this.props.set_current_story(this.currentStory);
       }
 

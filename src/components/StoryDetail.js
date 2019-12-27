@@ -1,13 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink} from 'react-router-dom'
-import { delete_story } from '../redux/actions'
+import { delete_story, set_current_plots } from '../redux/actions'
+import PlotCard from './PlotCard'
 
 
 class StoryDetail extends React.Component{
 
     story = this.props.currentStory
     currentId = this.story.id
+
+    componentDidMount = () => this.props.set_current_plots()
+    
 
     delete = async () => {
         this.props.delete_story(this.currentId)
@@ -22,7 +26,7 @@ class StoryDetail extends React.Component{
     } 
 
     storyPlots = () => {
-        if(this.story.plots){
+        if(this.props.plots){
             return <ul style={{
                 width: "100%",
                 display: "flex",
@@ -32,17 +36,7 @@ class StoryDetail extends React.Component{
                 textAlign: "center",
                 justifyContent: "space-around"
               }}>
-                {this.story.plots.map(plot => {
-                return <li style={{listStyle: "none"}}>
-                    <div style={{border: "dashed", borderWidth: "1px", width: "350px", height: "500px", margin: "40px",  overflow: "hidden"}}>
-                    <h5>{plot.name}</h5>
-                    <p>{plot.summary}</p>
-                    <label>NOTES:</label>
-                <ul>{!!plot.plot_notes ? plot.plot_notes.map(plot_note => <li style={{listStyle: "none"}}>{plot_note.text}</li>) : "You haven't added any notes to this plot arc."}</ul>
-                    <label>SCENES:</label>
-                <ul>{!!plot.scenes ? plot.scenes.map(scene => <li style={{listStyle: "none"}}><h3>{scene.name}</h3><p>{scene.summary}</p></li>) : "You haven't added any scenes to this plot arc."}</ul>
-                </div>
-                </li>})}
+                {this.props.plots.map(plot => < PlotCard plot={plot}/>)}
             </ul>
             } else {
             return "You haven't added any plot arcs for this story yet"}
@@ -98,6 +92,7 @@ class StoryDetail extends React.Component{
 const mapStateToProps = (state) => {
     return {
       stories: state.stories,
+      plots: state.plots,
       currentStory: state.currentStory
     }
   }
@@ -106,6 +101,9 @@ const mapStateToProps = (state) => {
     return {
         delete_story: currentId => {
             dispatch(delete_story(currentId))
+        },
+        set_current_plots: () => {
+            dispatch(set_current_plots())
         }
     }
 }
