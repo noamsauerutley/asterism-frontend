@@ -1,7 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { login } from '../redux/actions'
+<<<<<<< HEAD
 import { load } from '../redux/actions'
+=======
+import { set_content } from '../redux/actions'
+
+>>>>>>> auth
 
 class LogIn extends React.Component {
     
@@ -21,6 +26,18 @@ class LogIn extends React.Component {
     })
   }
 
+  getUserData = async () => {
+    let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
+        method: "GET",
+        headers: {
+          "Authorization": localStorage.token,
+          "Content-Type": "application/json"
+             }})
+    let data = await rawData.json()
+    this.props.set_content(data)
+    console.log(data)
+}
+
   logInSubmitted = async (event) => {
     event.preventDefault()
     let rawData = await fetch("http://localhost:3000/login", {
@@ -39,11 +56,14 @@ class LogIn extends React.Component {
               errors: data.errors
             })
           } else {
-        console.log(data)
         localStorage.setItem("token", data.token)
         localStorage.setItem("user_id", data.user_id)
         this.props.login(data)
+<<<<<<< HEAD
         this.props.load()
+=======
+        this.getUserData()
+>>>>>>> auth
           }
       }
 
@@ -71,7 +91,11 @@ class LogIn extends React.Component {
     localStorage.setItem("token", data.token)
     localStorage.setItem("user_id", data.user_id)
     this.props.login(data)
+<<<<<<< HEAD
     this.props.load()
+=======
+    this.getUserData()
+>>>>>>> auth
       }
   }
 
@@ -172,9 +196,15 @@ const mapDispatchToProps = (dispatch) => {
         login: ({token, user_id}) => {
             dispatch(login({token, user_id}))
         },
+<<<<<<< HEAD
         load: () => {
             dispatch(load())
         }
+=======
+        set_content: ({stories, fragments, username}) => {
+          dispatch(set_content({stories, fragments, username}))
+      }
+>>>>>>> auth
     }
 }
 

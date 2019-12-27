@@ -19,15 +19,22 @@ class MainContainer extends React.Component{
        return !!localStorage.user_id ? <Redirect to="/stories" /> : <Redirect to="/login"/>
     }
 
+<<<<<<< HEAD
     getUserData = async () => {
         if(!!this.props.isLoaded){
             let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
+=======
+    componentDidMount = async () => {
+        if (!!localStorage.user_id) {
+        let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
+>>>>>>> auth
             method: "GET",
             headers: {
               "Authorization": localStorage.token,
               "Content-Type": "application/json"
                  }})
         let data = await rawData.json()
+<<<<<<< HEAD
         console.log(data)
         this.props.set_content(data)
         } 
@@ -50,6 +57,10 @@ class MainContainer extends React.Component{
 
     componentDidMount = () => {
         this.getUserData()
+=======
+        this.props.set_content(data)
+        console.log(data)}
+>>>>>>> auth
     }
 
     render(){return(
