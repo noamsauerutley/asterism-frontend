@@ -34,16 +34,6 @@ class StoryDetail extends React.Component{
               }}>
                 {this.story.plots.map(plot => {
                 return <li style={{listStyle: "none"}}>
-<<<<<<< HEAD
-                    <div style={{border: "dashed", borderWidth: "1px", width: "300px", height: "500px", margin: "40px"}}>
-                        <h3>{plot.name}</h3>
-                        <p style={{marginBottom: "10px"}}>{plot.summary}</p>
-                        <label style={{fontWeight: "bold"}}>SCENES:</label>
-                        <ul>{!!plot.scenes ? plot.scenes.map(scene => <li style={{listStyle: "none"}}><h5>{scene.name}</h5><p>{scene.summary}</p></li>) : "You haven't added any scenes to this plot arc."}</ul>
-                        <label style={{fontWeight: "bold"}}>NOTES:</label>
-                        <ul>{!!plot.plot_notes ? plot.plot_notes.map(plot_note => <li style={{listStyle: "none"}}>{plot_note.text}</li>) : "You haven't added any notes to this plot arc."}</ul>
-                    </div>
-=======
                     <div style={{border: "dashed", borderWidth: "1px", width: "350px", height: "500px", margin: "40px",  overflow: "hidden"}}>
                     <h5>{plot.name}</h5>
                     <p>{plot.summary}</p>
@@ -52,7 +42,6 @@ class StoryDetail extends React.Component{
                     <label>SCENES:</label>
                 <ul>{!!plot.scenes ? plot.scenes.map(scene => <li style={{listStyle: "none"}}><h3>{scene.name}</h3><p>{scene.summary}</p></li>) : "You haven't added any scenes to this plot arc."}</ul>
                 </div>
->>>>>>> auth
                 </li>})}
             </ul>
             } else {

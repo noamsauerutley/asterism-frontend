@@ -16,8 +16,6 @@ import AccountContainer from './AccountContainer'
 class MainContainer extends React.Component{
 
     isUser = () => {
-        console.log(this.props.user_id)
-        console.log(localStorage.user_id)
        return !!localStorage.user_id ? <Redirect to="/stories" /> : <Redirect to="/login"/>
     }
 
@@ -90,7 +88,7 @@ const mapStateToProps = (state) => {
     return {
       token: state.token,
       user_id: state.user_id,
-      stories: state.stories
+      load: state.load
     }
   }
 
