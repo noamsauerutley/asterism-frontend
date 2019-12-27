@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOTS} from './actionTypes'
+import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOTS, SET_CURRENT_CHARACTERS, DELETE_CHARACTER} from './actionTypes'
 
 
 export const login = ({token, user_id}) => {
@@ -112,6 +112,18 @@ export const update_plot = (plot) => {
 export const delete_plot = (id) => {
     return {
         type: DELETE_PLOT,
+        payload: id
+    }
+}
+
+export const set_current_characters = () => {
+    return {
+        type: SET_CURRENT_CHARACTERS
+    }
+}
+export const delete_character = (id) => {
+    return {
+        type: DELETE_CHARACTER,
         payload: id
     }
 }

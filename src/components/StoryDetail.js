@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink} from 'react-router-dom'
-import { delete_story, set_current_plots } from '../redux/actions'
+import { delete_story, set_current_plots, set_current_characters } from '../redux/actions'
 import PlotCard from './PlotCard'
+import CharacterCard from './CharacterCard'
 
 
 class StoryDetail extends React.Component{
@@ -10,7 +11,9 @@ class StoryDetail extends React.Component{
     story = this.props.currentStory
     currentId = this.story.id
 
-    componentDidMount = () => this.props.set_current_plots()
+    componentDidMount = () => {
+        return this.props.set_current_plots(), this.props.set_current_characters()
+    }
     
 
     delete = async () => {
@@ -45,22 +48,7 @@ class StoryDetail extends React.Component{
     storyCharacters = () => {
         if(this.story.characters){
             return <ul>
-                {this.story.characters.map(character => {
-                return <li style={{listStyle: "none"}}>
-                    <h5>{character.name}</h5>
-                    <ul style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          fontWeight: "100", 
-          textAlign: "center",
-          justifyContent: "space-around"
-        }}>{!!character.images ? character.images.map(image => <li style={{listStyle: "none"}}><img src={image.image_url} alt={`${character.name} image`} /></li>) : ""}</ul>
-                    <p>{character.description}</p>
-                    <label>NOTES:</label>
-                <ul>{!!character.character_notes ? character.character_notes.map(character_note => <li style={{listStyle: "none"}}>{character_note.text}</li>) : "You haven't added any notes to this character."}</ul>
-                </li>})}
+                {this.story.characters.map(character => <CharacterCard character={character} />)}
             </ul>
             } else {
             return "You haven't added any characters for this story yet"}
@@ -104,6 +92,9 @@ const mapStateToProps = (state) => {
         },
         set_current_plots: () => {
             dispatch(set_current_plots())
+        },
+        set_current_characters: () => {
+            dispatch(set_current_characters())
         }
     }
 }
