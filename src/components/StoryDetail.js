@@ -34,7 +34,7 @@ class StoryDetail extends React.Component{
               }}>
                 {this.story.plots.map(plot => {
                 return <li style={{listStyle: "none"}}>
-                    <div style={{border: "dashed", borderWidth: "1px", width: "250px", height: "350px", margin: "40px",  overflow: "hidden"}}>
+                    <div style={{border: "dashed", borderWidth: "1px", width: "350px", height: "500px", margin: "40px",  overflow: "hidden"}}>
                     <h5>{plot.name}</h5>
                     <p>{plot.summary}</p>
                     <label>NOTES:</label>
