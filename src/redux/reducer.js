@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT } from './actionTypes'
+import { LOGIN, LOAD, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT } from './actionTypes'
 
 const initialState = {
     token: "",
@@ -7,13 +7,16 @@ const initialState = {
     fragments: [],
     username: "",
     story: {},
-    currentStory: {}
+    currentStory: {},
+    isLoaded: false
 }
 
 export const reducer = (state = initialState, action) => {
     switch(action.type){
         case LOGIN:
             return {...state, token: action.payload.token, user_id: action.payload.user_id }
+        case LOAD: 
+            return {...state, isLoaded: true}
         case LOGOUT:
             return initialState
         case SET_CONTENT:
