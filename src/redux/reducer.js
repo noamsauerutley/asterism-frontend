@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOTS, SET_CURRENT_CHARACTERS, DELETE_CHARACTER} from './actionTypes'
+import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, DELETE_CHARACTER} from './actionTypes'
 
 const initialState = {
     token: "",
@@ -8,7 +8,6 @@ const initialState = {
     username: "",
     story: {},
     currentStory: {},
-    plots: [],
     characters: []
 }
 
@@ -32,9 +31,9 @@ export const reducer = (state = initialState, action) => {
                 stories: [updatedStory, ...otherStories]
             }
         case DELETE_STORY:
-        return {
-            ...state,
-            stories: [...state.stories.filter(story => story.id !== action.payload)]}
+            return {
+                ...state,
+                stories: [...state.stories.filter(story => story.id !== action.payload)]}
         case SET_CURRENT_STORY:
             return {...state, currentStory: action.payload}
         case SET_FRAGMENT:
@@ -53,26 +52,37 @@ export const reducer = (state = initialState, action) => {
                 ...state,
             fragments: [...state.fragments.filter(fragment => fragment.id !== action.payload)]}
         case SET_PLOT:
-            return {...state, plots:[action.payload, ...state.plots]}
-        case UPDATE_PLOT:
-            const updatedPlot = action.payload;
-            const otherPlots = state.plots.filter(plot => plot.id !== updatedPlot.id)
             return {
                 ...state, 
-                plots: [updatedPlot, ...otherPlots]
+                currentStory: {
+                    ...state.currentStory,
+                    plots:[action.payload, ...state.currenStory.plots]
+                }
+            }
+        case UPDATE_PLOT:
+            const updatedPlot = action.payload;
+            const otherPlots = state.currentStory.plots.filter(plot => plot.id !== updatedPlot.id)
+            return {
+                ...state, 
+                currentStory: {
+                    ...state.currentStory,
+                    plots: [updatedPlot, ...otherPlots]
+                }
             }
         case DELETE_PLOT:
             return{
                 ...state,
-                plots: [...state.plots.filter(plot => plot.id !== action.payload)]}
-        case SET_CURRENT_PLOTS:
-            return {...state, plots: state.currentStory.plots}
-        case SET_CURRENT_CHARACTERS:
-            return {...state, characters: state.currentStory.characters}
+                currentStory: {
+                    ...state.currentStory,
+                    plots: [...state.currentStory.plots.filter(plot => plot.id !== action.payload)]}
+                }
         case DELETE_CHARACTER: 
             return{
                 ...state,
-                character: [...state.characters.filter(character => character.id !== action.payload)]}
+                currentStory: {
+                    ...state.currentStory,
+                    characters: [...state.currentStory.characters.filter(character => character.id !== action.payload)]}
+                }
         default: 
             return state
     }
