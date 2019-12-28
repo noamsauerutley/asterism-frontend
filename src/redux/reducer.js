@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, DELETE_CHARACTER} from './actionTypes'
+import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, DELETE_CHARACTER} from './actionTypes'
 
 const initialState = {
     token: "",
@@ -8,7 +8,7 @@ const initialState = {
     username: "",
     story: {},
     currentStory: {},
-    characters: []
+    currentPlot: {}
 }
 
 export const reducer = (state = initialState, action) => {
@@ -58,7 +58,7 @@ export const reducer = (state = initialState, action) => {
                 ...state, 
                 currentStory: {
                     ...state.currentStory,
-                    plots:[action.payload, ...state.currenStory.plots]
+                    plots:[action.payload, ...state.currentStory.plots]
                 }
             }
         case UPDATE_PLOT:
@@ -78,6 +78,8 @@ export const reducer = (state = initialState, action) => {
                     ...state.currentStory,
                     plots: [...state.currentStory.plots.filter(plot => plot.id !== action.payload)]}
                 }
+        case SET_CURRENT_PLOT:
+            return {...state, currentPlot: action.payload}
         case DELETE_CHARACTER: 
             return{
                 ...state,
