@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, DELETE_CHARACTER} from './actionTypes'
+import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, DELETE_IMAGE} from './actionTypes'
 
 
 export const login = ({token, user_id}) => {
@@ -110,9 +110,41 @@ export const set_current_plot = (currentPlot) => {
     }
 }
 
+export const set_character = (character) => {
+    return {
+        type: SET_CHARACTER,
+        payload: character
+    }
+}
+
+export const set_current_character = (currentCharacter) => {
+    return {
+        type: SET_CURRENT_CHARACTER,
+        payload: currentCharacter
+    }
+}
+
+export const update_character = (character) => {
+    return {
+        type: UPDATE_CHARACTER,
+        payload: character
+    }
+}
 export const delete_character = (id) => {
     return {
         type: DELETE_CHARACTER,
+        payload: id
+    }
+}
+export const set_image = (image) => {
+    return {
+        type: SET_IMAGE,
+        payload: image
+    }
+}
+export const delete_image = (id) => {
+    return {
+        type: DELETE_IMAGE,
         payload: id
     }
 }

@@ -1,12 +1,17 @@
 import React from 'react'
 import CharacterNoteCard from './CharacterNoteCard'
+import ImageCard from './ImageCard'
 import { connect } from 'react-redux'
-import { delete_character } from '../redux/actions'
+import { set_current_character, delete_character } from '../redux/actions'
 import { NavLink} from 'react-router-dom'
 
 class CharacterCard extends React.Component{
      character = this.props.character
      currentId = this.character.id
+
+     setCurrentCharacter = () => {
+        this.props.set_current_character(this.props.character)
+    }
 
 
      delete = async () => {
@@ -25,6 +30,7 @@ class CharacterCard extends React.Component{
     render(){
         return <li style={{listStyle: "none"}}>
             <h5>{this.character.name}</h5>
+            <NavLink to="/characters/edit" style={{color: "black", textDecoration: "none"}} onClick={this.setCurrentCharacter}>✎</NavLink><br></br>
             <ul style={{
                 width: "100%",
                 display: "flex",
@@ -34,7 +40,8 @@ class CharacterCard extends React.Component{
                 textAlign: "center",
                 justifyContent: "space-around"
             }}>
-                {!!this.character.images ? this.character.images.map(image => <li style={{listStyle: "none"}}><img src={image.image_url} alt={`${this.character.name} image`} /></li>) : ""}</ul>
+                {!!this.character.images ? this.character.images.map(image => <ImageCard image={image} />) : ""}</ul>
+                <NavLink to={`/images/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}} onClick={this.setCurrentCharacter}>ADD IMAGE</NavLink>
                 <p>{this.character.description}</p>
                 <label>NOTES:</label>
             <ul>{!!this.character.character_notes ? this.character.character_notes.map(character_note => < CharacterNoteCard character_note={character_note}/>) : "You haven't added any notes to this character."}</ul>
@@ -47,6 +54,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         delete_character: currentId => {
             dispatch(delete_character(currentId))
+        },
+        set_current_character: currentCharacter => {
+            dispatch(set_current_character(currentCharacter))
         }
     }
 }

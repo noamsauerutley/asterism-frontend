@@ -47,11 +47,12 @@ class StoryDetail extends React.Component{
             <div style={{ borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
                 <h4>PLOT ARCS:</h4>
                     {this.storyPlots()}<br></br>
-                    <NavLink to={`/plots/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}}>NEW PLOT</NavLink>
+                    <NavLink to={`/plots/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}}>ADD PLOT ARC</NavLink>
             </div>
             <div>
             <h3>CHARACTERS:</h3>
-                {this.storyCharacters()} 
+                {this.storyCharacters()} <br></br>
+                <NavLink to={`/characters/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}}>ADD CHARACTER</NavLink>
             </div>
         </div>
     )}

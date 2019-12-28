@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, DELETE_CHARACTER} from './actionTypes'
+import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, DELETE_IMAGE} from './actionTypes'
 
 const initialState = {
     token: "",
@@ -8,7 +8,8 @@ const initialState = {
     username: "",
     story: {},
     currentStory: {},
-    currentPlot: {}
+    currentPlot: {},
+    currentCharacter: {}
 }
 
 export const reducer = (state = initialState, action) => {
@@ -78,12 +79,47 @@ export const reducer = (state = initialState, action) => {
                 }
         case SET_CURRENT_PLOT:
             return {...state, currentPlot: action.payload}
+        case SET_CHARACTER:
+            return {
+                ...state, 
+                currentStory: {
+                    ...state.currentStory,
+                    characters:[action.payload, ...state.currentStory.characters]
+                }
+            }
+        case SET_CURRENT_CHARACTER:
+            return {...state, currentCharacter: action.payload}  
+        case UPDATE_CHARACTER:
+            const updatedCharacter = action.payload;
+            const otherCharacters = state.currentStory.characters.filter(character => character.id !== updatedCharacter.id)
+            return {
+                ...state, 
+                currentStory: {
+                    ...state.currentStory,
+                    characters: [updatedCharacter, ...otherCharacters]
+            }
+        } 
         case DELETE_CHARACTER: 
             return{
                 ...state,
                 currentStory: {
                     ...state.currentStory,
                     characters: [...state.currentStory.characters.filter(character => character.id !== action.payload)]}
+                }
+        case SET_IMAGE:
+            return {
+                ...state, 
+                currentCharacter: {
+                    ...state.currentCharacter,
+                    images: [action.payload, ...state.currentCharacter.images]
+                }
+            }
+        case DELETE_IMAGE:
+            return{
+                ...state,
+                currentCharacter: {
+                    ...state.currentCharacter,
+                    images: [...state.currentCharacter.images.filter(image => image.id !== action.payload)]}
                 }
         default: 
             return state
