@@ -1,13 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { update_plot } from '../redux/actions'
+import { update_plot, set_current_plot } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 
 class EditPlot extends React.Component{
+  
+  currentPlot = this.props.currentStory.plots.find( plot => plot.id === this.props.currentPlot.id)
 
   state = {
-    name: this.props.currentPlot.name,
-    summary: this.props.currentPlot.summary,
+    name: this.currentPlot.name,
+    summary: this.currentPlot.summary,
     redirectBoolean: false,
     errors: []
 }
@@ -34,7 +36,11 @@ editPlotSubmitted = async (event) => {
         errors: editedPlot.errors
       })
     } else {
+      console.log(this.props.currentStory.plots.filter(plot => plot.id !== editedPlot.id))
+      console.log(this.currentPlot)
+      console.log(editedPlot)
     this.props.update_plot(editedPlot)
+    this.props.set_current_plot(editedPlot)
     this.setState({
       redirectBoolean: true
     })
@@ -97,6 +103,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
       update_plot: (plot) => {
           dispatch(update_plot(plot))
+      },
+      set_current_plot: currentPlot => {
+        dispatch(set_current_plot(currentPlot))
       }
   }
 }

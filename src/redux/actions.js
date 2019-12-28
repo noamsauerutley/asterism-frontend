@@ -110,7 +110,6 @@ export const set_current_plot = (currentPlot) => {
     }
 }
 
-
 export const delete_character = (id) => {
     return {
         type: DELETE_CHARACTER,
