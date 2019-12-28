@@ -13,6 +13,7 @@ import EditStory from '../components/EditStory'
 import StoryDetail from '../components/StoryDetail'
 import AccountContainer from './AccountContainer'
 import NewPlot from '../components/NewPlot'
+import EditPlot from '../components/EditPlot'
 
 class MainContainer extends React.Component{
 
@@ -69,6 +70,10 @@ class MainContainer extends React.Component{
 
                     <Route exact path="/plots/new" >
                         <NewPlot />
+                    </Route>
+
+                    <Route exact path="/plots/edit">
+                        <EditPlot />
                     </Route>
 
                     <Route path="/login" >
