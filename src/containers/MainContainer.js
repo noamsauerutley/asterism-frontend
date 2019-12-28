@@ -12,6 +12,7 @@ import NewStory from '../components/NewStory'
 import EditStory from '../components/EditStory'
 import StoryDetail from '../components/StoryDetail'
 import AccountContainer from './AccountContainer'
+import NewPlot from '../components/NewPlot'
 
 class MainContainer extends React.Component{
 
@@ -19,48 +20,17 @@ class MainContainer extends React.Component{
        return !!localStorage.user_id ? <Redirect to="/stories" /> : <Redirect to="/login"/>
     }
 
-<<<<<<< HEAD
-    getUserData = async () => {
-        if(!!this.props.isLoaded){
-            let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
-=======
     componentDidMount = async () => {
         if (!!localStorage.user_id) {
         let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
->>>>>>> auth
             method: "GET",
             headers: {
               "Authorization": localStorage.token,
               "Content-Type": "application/json"
                  }})
         let data = await rawData.json()
-<<<<<<< HEAD
-        console.log(data)
-        this.props.set_content(data)
-        } 
-    }
-
-    // componentDidMount = async () => {
-    // //    if(this.props.token){
-    // //        this.getUserData()
-    // //    }
-    // let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
-    //     method: "GET",
-    //     headers: {
-    //       "Authorization": localStorage.token,
-    //       "Content-Type": "application/json"
-    //          }})
-    // let data = await rawData.json()
-    // this.props.set_content(data)
-    // console.log(data)
-    // }
-
-    componentDidMount = () => {
-        this.getUserData()
-=======
         this.props.set_content(data)
         console.log(data)}
->>>>>>> auth
     }
 
     render(){return(
@@ -94,6 +64,10 @@ class MainContainer extends React.Component{
 
                     <Route exact path="/stories/:id" >
                         <StoryDetail />}
+                    </Route>
+
+                    <Route exact path="/plots/new" >
+                        <NewPlot />
                     </Route>
 
                     <Route path="/login" >
