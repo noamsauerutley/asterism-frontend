@@ -8,7 +8,7 @@ import DeleteStory from './DeleteStory'
 class StoryDetail extends React.Component{
 
     storyPlots = () => {
-        if(this.props.currentStory.plots){
+        if(!!this.props.currentStory.plots && !!this.props.currentStory.plots.length){
             return <ul style={{
                 width: "100%",
                 display: "flex",
@@ -46,8 +46,8 @@ class StoryDetail extends React.Component{
             </div>
             <div style={{ borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
                 <h4>PLOT ARCS:</h4>
-                    {this.storyPlots()}
-                    <NavLink to={`/plots/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black", fontSize: "24px"}}>NEW PLOT</NavLink>
+                    {this.storyPlots()}<br></br>
+                    <NavLink to={`/plots/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}}>NEW PLOT</NavLink>
             </div>
             <div>
             <h3>CHARACTERS:</h3>
