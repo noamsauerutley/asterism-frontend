@@ -20,6 +20,8 @@ import NewImage from '../components/NewImage'
 import EditImage from '../components/EditImage'
 import NewCharacterNote from '../components/NewCharacterNote'
 import EditCharacterNote from '../components/EditCharacterNote'
+import NewFragmentNote from '../components/NewFragmentNote'
+import EditFragmentNote from '../components/EditFragmentNote'
 
 
 class MainContainer extends React.Component{
@@ -104,6 +106,14 @@ class MainContainer extends React.Component{
 
                     <Route exact path="/character_notes/edit">
                         < EditCharacterNote />
+                    </Route>
+
+                    <Route exact path="/fragment_notes/new">
+                        < NewFragmentNote />
+                    </Route>
+
+                    <Route exact path="/fragment_notes/edit">
+                        < EditFragmentNote />
                     </Route>
 
                     <Route path="/login" >

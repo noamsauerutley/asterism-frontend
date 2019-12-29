@@ -1,4 +1,4 @@
-import { LOGIN, LOAD, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE, SET_CHARACTER_NOTE, UPDATE_CHARACTER_NOTE, DELETE_CHARACTER_NOTE, SET_CURRENT_CHARACTER_NOTE} from './actionTypes'
+import { LOGIN, LOAD, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE, SET_CHARACTER_NOTE, UPDATE_CHARACTER_NOTE, DELETE_CHARACTER_NOTE, SET_CURRENT_CHARACTER_NOTE, SET_FRAGMENT_NOTE, UPDATE_FRAGMENT_NOTE, DELETE_FRAGMENT_NOTE, SET_CURRENT_FRAGMENT_NOTE} from './actionTypes'
 
 
 export const login = ({token, user_id}) => {
@@ -192,5 +192,32 @@ export const set_current_character_note = (currentCharacterNote) => {
     return {
         type: SET_CURRENT_CHARACTER_NOTE,
         payload: currentCharacterNote
+    }
+}
+export const set_fragment_note = (fragment_note) => {
+    return {
+        type: SET_FRAGMENT_NOTE,
+        payload: fragment_note
+    }
+}
+
+export const update_fragment_note = (fragment_note) => {
+    return {
+        type: UPDATE_FRAGMENT_NOTE,
+        payload: fragment_note
+    }
+}
+
+export const delete_fragment_note = (id) => {
+    return {
+        type: DELETE_FRAGMENT_NOTE,
+        payload: id
+    }
+}
+
+export const set_current_fragment_note = (currentFragmentNote) => {
+    return {
+        type: SET_CURRENT_FRAGMENT_NOTE,
+        payload: currentFragmentNote
     }
 }

@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, LOAD, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE, SET_CHARACTER_NOTE, UPDATE_CHARACTER_NOTE, DELETE_CHARACTER_NOTE, SET_CURRENT_CHARACTER_NOTE} from './actionTypes'
+import { LOGIN, LOGOUT, LOAD, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE, SET_CHARACTER_NOTE, UPDATE_CHARACTER_NOTE, DELETE_CHARACTER_NOTE, SET_CURRENT_CHARACTER_NOTE, SET_FRAGMENT_NOTE, UPDATE_FRAGMENT_NOTE, DELETE_FRAGMENT_NOTE, SET_CURRENT_FRAGMENT_NOTE} from './actionTypes'
 
 const initialState = {
     token: "",
@@ -8,10 +8,12 @@ const initialState = {
     username: "",
     story: {},
     currentStory: {},
+    currentFragment: {},
     currentPlot: {},
     currentCharacter: {},
     currentImage: {},
-    currentCharacterNote: {}
+    currentCharacterNote: {},
+    currentFragmentNote: {}
 }
 
 export const reducer = (state = initialState, action) => {
@@ -163,7 +165,34 @@ export const reducer = (state = initialState, action) => {
                     character_notes: [...state.currentCharacter.character_notes.filter(character_note => character_note.id !== action.payload)]}
                 }
         case SET_CURRENT_CHARACTER_NOTE:
-            return {...state, currentCharacterNote: action.payload}  
+            return {...state, currentCharacterNote: action.payload} 
+        case SET_FRAGMENT_NOTE:
+            return {
+                ...state, 
+                currentFragment: {
+                    ...state.currentFragment,
+                    fragment_notes:[action.payload, ...state.currentFragment.fragment_notes]
+                }
+            }
+        case UPDATE_FRAGMENT_NOTE:
+            const updatedFragmentNote = action.payload;
+            const otherFragmentNotes = state.currentFragment.fragment_notes.filter(fragment_note => fragment_note.id !== updatedFragmentNote.id)
+            return {
+                ...state, 
+                currentFragment: {
+                    ...state.currentFragment,
+                    fragment_notes: [updatedFragmentNote, ...otherFragmentNotes]
+                }
+            }
+        case DELETE_FRAGMENT_NOTE:
+            return{
+                ...state,
+                currentFragment: {
+                    ...state.currentFragment,
+                    fragment_notes: [...state.currentFragment.fragment_notes.filter(fragment_note => fragment_note.id !== action.payload)]}
+                }
+        case SET_CURRENT_FRAGMENT_NOTE:
+            return {...state, currentFragmentNote: action.payload} 
         default: 
             return state
     }
