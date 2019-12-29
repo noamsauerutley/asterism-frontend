@@ -29,6 +29,7 @@ class CharacterCard extends React.Component{
         return <li style={{listStyle: "none"}}>
             <h5>{this.props.character.name}</h5>
             <NavLink to="/characters/edit" style={{color: "black", textDecoration: "none"}} onClick={this.setCurrentCharacter}>✎</NavLink><br></br>
+            <NavLink to={`/stories/${this.props.character.story_id}`} onClick={this.delete} style={{color: "black"}}>DELETE</NavLink>
             <ul style={{
                 width: "100%",
                 display: "flex",
@@ -43,7 +44,6 @@ class CharacterCard extends React.Component{
                 <p>{this.props.character.description}</p>
                 <label>NOTES:</label>
             <ul>{!!this.props.character.character_notes ? this.props.character.character_notes.map(character_note => < CharacterNoteCard character_note={character_note}/>) : "You haven't added any notes to this character."}</ul>
-            <NavLink to={`/stories/${this.props.character.story_id}`} onClick={this.delete} style={{color: "black"}}>DELETE</NavLink>
 
         </li>
     }
