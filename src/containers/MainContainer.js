@@ -14,6 +14,10 @@ import StoryDetail from '../components/StoryDetail'
 import AccountContainer from './AccountContainer'
 import NewPlot from '../components/NewPlot'
 import EditPlot from '../components/EditPlot'
+import NewCharacter from '../components/NewCharacter'
+import EditCharacter from '../components/EditCharacter'
+import NewImage from '../components/NewImage'
+import EditImage from '../components/EditImage'
 
 class MainContainer extends React.Component{
 
@@ -75,11 +79,11 @@ class MainContainer extends React.Component{
                     </Route>
 
                     <Route exact path='/fragments/new' >
-                        <NewFragment />
+                        < NewFragment />
                     </Route>
 
                     <Route exact path='/fragments/edit' >
-                        <EditFragment />
+                        < EditFragment />
                     </Route>
 
                     <Route exact path="/stories" >
@@ -91,19 +95,35 @@ class MainContainer extends React.Component{
                     </Route>
 
                     <Route exact path="/stories/edit">
-                        <EditStory />
+                        < EditStory />
                     </Route>
 
                     <Route exact path="/stories/:id" >
-                        <StoryDetail />}
+                        < StoryDetail />}
                     </Route>
 
                     <Route exact path="/plots/new" >
-                        <NewPlot />
+                        < NewPlot />
                     </Route>
 
                     <Route exact path="/plots/edit">
-                        <EditPlot />
+                        < EditPlot />
+                    </Route>
+
+                    <Route exact path="/characters/new" >
+                        < NewCharacter />
+                    </Route>
+
+                    <Route exact path="/characters/edit">
+                        < EditCharacter />
+                    </Route>
+
+                    <Route exact path="/images/new">
+                        < NewImage />
+                    </Route>
+
+                    <Route exact path="/images/edit">
+                        < EditImage />
                     </Route>
 
                     <Route path="/login" >
@@ -112,7 +132,7 @@ class MainContainer extends React.Component{
                     </Route>
 
                     <Route exact path="/account">
-                        <AccountContainer/>    
+                        < AccountContainer />    
                     </Route> 
 
                     <Route exact path='/'> 
