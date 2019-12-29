@@ -18,6 +18,9 @@ import NewCharacter from '../components/NewCharacter'
 import EditCharacter from '../components/EditCharacter'
 import NewImage from '../components/NewImage'
 import EditImage from '../components/EditImage'
+import NewCharacterNote from '../components/NewCharacterNote'
+import EditCharacterNote from '../components/EditCharacterNote'
+
 
 class MainContainer extends React.Component{
 
@@ -93,6 +96,14 @@ class MainContainer extends React.Component{
 
                     <Route exact path="/images/edit">
                         < EditImage />
+                    </Route>
+
+                    <Route exact path="/character_notes/new">
+                        < NewCharacterNote />
+                    </Route>
+
+                    <Route exact path="/character_notes/edit">
+                        < EditCharacterNote />
                     </Route>
 
                     <Route path="/login" >

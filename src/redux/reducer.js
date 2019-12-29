@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, LOAD, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE} from './actionTypes'
+import { LOGIN, LOGOUT, LOAD, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE, SET_CHARACTER_NOTE, UPDATE_CHARACTER_NOTE, DELETE_CHARACTER_NOTE, SET_CURRENT_CHARACTER_NOTE} from './actionTypes'
 
 const initialState = {
     token: "",
@@ -10,7 +10,8 @@ const initialState = {
     currentStory: {},
     currentPlot: {},
     currentCharacter: {},
-    currentImage: {}
+    currentImage: {},
+    currentCharacterNote: {}
 }
 
 export const reducer = (state = initialState, action) => {
@@ -136,6 +137,33 @@ export const reducer = (state = initialState, action) => {
                 }
         case SET_CURRENT_IMAGE:
             return {...state, currentImage: action.payload}  
+        case SET_CHARACTER_NOTE:
+            return {
+                ...state, 
+                currentCharacter: {
+                    ...state.currentCharacter,
+                    character_notes: [action.payload, ...state.currentCharacter.character_notes]
+                }
+            }
+        case UPDATE_CHARACTER_NOTE:
+            const updatedCharacterNote = action.payload;
+            const otherCharacterNotes = state.currentCharacter.character_notes.filter(character_note => character_note.id !== updatedCharacterNote.id)
+            return {
+                ...state, 
+                currentCharacter: {
+                    ...state.currentCharacter,
+                    character_notes: [updatedCharacterNote, ...otherCharacterNotes]
+            }
+        } 
+        case DELETE_CHARACTER_NOTE:
+            return{
+                ...state,
+                currentCharacter: {
+                    ...state.currentCharacter,
+                    character_notes: [...state.currentCharacter.character_notes.filter(character_note => character_note.id !== action.payload)]}
+                }
+        case SET_CURRENT_CHARACTER_NOTE:
+            return {...state, currentCharacterNote: action.payload}  
         default: 
             return state
     }

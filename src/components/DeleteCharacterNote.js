@@ -1,21 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink} from 'react-router-dom'
-import { delete_image, update_character } from '../redux/actions'
+import { delete_character_note, update_character } from '../redux/actions'
 
-class DeleteImage extends React.Component {
+class DeleteCharacterNote extends React.Component{
 
-    currentId = !!this.props.image.id ? this.props.image.id : 0
+    currentId = !!this.props.character_note.id ? this.props.character_note.id : 0
 
     delete = async () => {
-        await fetch(`http://localhost:3000/images/${this.currentId}`, {
+        await fetch(`http://localhost:3000/character_notes/${this.currentId}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.token
             }
         })
-        this.props.delete_image(this.currentId)
+        this.props.delete_character_note(this.currentId)
         this.props.update_character(this.props.currentCharacter)
         console.log(this.props.currentCharacter)
         console.log(this.props.image, "deleted!")
@@ -37,8 +37,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        delete_image: currentId => {
-            dispatch(delete_image(currentId))
+        delete_character_note: currentId => {
+            dispatch(delete_character_note(currentId))
         },
         update_character: (currentCharacter) => {
             dispatch(update_character(currentCharacter))
@@ -47,5 +47,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeleteImage)
+export default connect(mapStateToProps, mapDispatchToProps)(DeleteCharacterNote)
 

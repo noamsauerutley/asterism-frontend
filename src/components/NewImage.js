@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_image, update_character } from '../redux/actions'
 import { Redirect } from 'react-router'
+import styled from 'styled-components'
+
 
 class NewImage extends React.Component {
     constructor(props){

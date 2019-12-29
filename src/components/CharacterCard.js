@@ -27,9 +27,12 @@ class CharacterCard extends React.Component{
 
     render(){
         return <li style={{listStyle: "none"}}>
-            <h5>{this.props.character.name}</h5>
             <NavLink to="/characters/edit" style={{color: "black", textDecoration: "none"}} onClick={this.setCurrentCharacter}>✎</NavLink><br></br>
-            <NavLink to={`/stories/${this.props.character.story_id}`} onClick={this.delete} style={{color: "black"}}>DELETE</NavLink>
+            <NavLink to={`/stories/${this.props.character.story_id}`} onClick={this.delete} style={{color: "black"}}>DELETE</NavLink><br></br>
+            <h5>{this.props.character.name}</h5>
+            <p>{this.props.character.description}</p><br></br>
+            <label>GALLERY</label><br></br>
+            <NavLink to={`/images/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}} onClick={this.setCurrentCharacter}>ADD IMAGE</NavLink>
             <ul style={{
                 width: "100%",
                 display: "flex",
@@ -40,9 +43,8 @@ class CharacterCard extends React.Component{
                 justifyContent: "space-around"
             }}>
                 {!!this.props.character.images ? this.props.character.images.map(image => <ImageCard image={image} />) : ""}</ul>
-                <NavLink to={`/images/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}} onClick={this.setCurrentCharacter}>ADD IMAGE</NavLink>
-                <p>{this.props.character.description}</p>
-                <label>NOTES:</label>
+                <label>NOTES:</label><br></br>
+                <NavLink to={`/character_notes/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}} onClick={this.setCurrentCharacter}>ADD NOTE</NavLink>
             <ul>{!!this.props.character.character_notes ? this.props.character.character_notes.map(character_note => < CharacterNoteCard character_note={character_note}/>) : "You haven't added any notes to this character."}</ul>
 
         </li>
