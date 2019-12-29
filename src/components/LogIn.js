@@ -1,12 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { login } from '../redux/actions'
-<<<<<<< HEAD
-import { load } from '../redux/actions'
-=======
 import { set_content } from '../redux/actions'
 
->>>>>>> auth
 
 class LogIn extends React.Component {
     
@@ -59,11 +55,7 @@ class LogIn extends React.Component {
         localStorage.setItem("token", data.token)
         localStorage.setItem("user_id", data.user_id)
         this.props.login(data)
-<<<<<<< HEAD
-        this.props.load()
-=======
         this.getUserData()
->>>>>>> auth
           }
       }
 
@@ -91,11 +83,7 @@ class LogIn extends React.Component {
     localStorage.setItem("token", data.token)
     localStorage.setItem("user_id", data.user_id)
     this.props.login(data)
-<<<<<<< HEAD
-    this.props.load()
-=======
     this.getUserData()
->>>>>>> auth
       }
   }
 
@@ -196,15 +184,9 @@ const mapDispatchToProps = (dispatch) => {
         login: ({token, user_id}) => {
             dispatch(login({token, user_id}))
         },
-<<<<<<< HEAD
-        load: () => {
-            dispatch(load())
-        }
-=======
         set_content: ({stories, fragments, username}) => {
           dispatch(set_content({stories, fragments, username}))
       }
->>>>>>> auth
     }
 }
 

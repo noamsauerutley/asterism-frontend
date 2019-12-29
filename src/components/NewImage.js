@@ -4,6 +4,10 @@ import { set_image, update_character } from '../redux/actions'
 import { Redirect } from 'react-router'
 
 class NewImage extends React.Component {
+    constructor(props){
+        super(props)
+        this.widget = null
+    }
 
     state = {
         image_url: "",
@@ -13,6 +17,7 @@ class NewImage extends React.Component {
     }
     
     newImageSubmitted = async (event) => {
+        console.log('submitting form...');
         event.preventDefault()
         let rawImage = await fetch ('http://localhost:3000/images', 
             {
@@ -41,15 +46,33 @@ class NewImage extends React.Component {
             })
         }
     }
-
+    
     onChange = event => {
         this.setState({
-          [event.target.name]: event.target.value
+            [event.target.name]: event.target.value
         })
         console.log(this.state)
-      }
+    }
+    
+          showWidget = (widget) => {
+              widget.open()
+          }
 
       renderOrRedirect = () => {
+        if(!this.widget){
+            this.widget = window.cloudinary.createUploadWidget({
+                cloudName: "noamesu",
+                uploadPreset: "storyboard"
+            }, (error, result) => {
+                if(result.event ==="success"){
+                    this.setState({
+                        image_url: result.info.secure_url
+                    })
+                    console.log(this.state)
+                }   
+            }) 
+        }
+
         if(this.state.redirectBoolean === true){
            return <Redirect to={`/stories/${this.props.currentStory.id}`} />} 
            else {
@@ -58,15 +81,10 @@ class NewImage extends React.Component {
               <br></br>
               <form onSubmit={ this.newImageSubmitted }>
                   <br></br>
-                  <label  htmlFor="new_image_url">URL</label>
-                  <br></br>
-                  <input 
-                      style={{width: "80%"}} 
-                      id="new_image_url" 
-                      type="text" 
-                      onChange={ this.onChange /* for controlled form input status */ } 
-                      name="image_url" 
-                      value={ this.state.image_url /* for controlled form input status */ } />
+                      <button onClick={(event) => {
+                          event.preventDefault() 
+                          this.showWidget(this.widget)}
+                          }>ADD IMAGE</button>
                       <br></br>
                       <br></br>
                   <label  htmlFor="new_image_note">NOTE</label>
@@ -84,10 +102,13 @@ class NewImage extends React.Component {
       }
 
     render(){
+
+     
         return(
-          <>
+          <div id='photo-form-container'>
+              
          {this.renderOrRedirect()}
-         </>
+         </div>
         )}
 }
 
@@ -109,3 +130,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewImage)
+

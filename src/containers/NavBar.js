@@ -11,11 +11,7 @@ const NavBar = (props) => {
       }
 
     let logoutButton = () => {
-<<<<<<< HEAD
-        return !props.token ? <NavLink to="/login" style={{color: "black", textDecorationColor: "black"}}>LOG IN</NavLink> : <NavLink to="/login" onClick={handleLogOut} style={{color: "black", textDecorationColor: "black"}}>LOG OUT</NavLink>
-=======
         return !props.user_id ? <NavLink to="/login" style={{color: "black", textDecorationColor: "black"}}>LOG IN</NavLink> : <NavLink to="/login" onClick={handleLogOut} style={{color: "black", textDecorationColor: "black"}}>LOG OUT</NavLink>
->>>>>>> auth
         }
 
     return(
