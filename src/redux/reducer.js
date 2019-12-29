@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, DELETE_IMAGE} from './actionTypes'
+import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE} from './actionTypes'
 
 const initialState = {
     token: "",
@@ -9,7 +9,8 @@ const initialState = {
     story: {},
     currentStory: {},
     currentPlot: {},
-    currentCharacter: {}
+    currentCharacter: {},
+    currentImage: {}
 }
 
 export const reducer = (state = initialState, action) => {
@@ -114,6 +115,16 @@ export const reducer = (state = initialState, action) => {
                     images: [action.payload, ...state.currentCharacter.images]
                 }
             }
+        case UPDATE_IMAGE:
+            const updatedImage = action.payload;
+            const otherImages = state.currentCharacter.images.filter(image => image.id !== updatedImage.id)
+            return {
+                ...state, 
+                currentCharacter: {
+                    ...state.currentCharacter,
+                    images: [updatedImage, ...otherImages]
+            }
+        } 
         case DELETE_IMAGE:
             return{
                 ...state,
@@ -121,6 +132,8 @@ export const reducer = (state = initialState, action) => {
                     ...state.currentCharacter,
                     images: [...state.currentCharacter.images.filter(image => image.id !== action.payload)]}
                 }
+        case SET_CURRENT_IMAGE:
+            return {...state, currentImage: action.payload}  
         default: 
             return state
     }

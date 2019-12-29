@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, DELETE_IMAGE} from './actionTypes'
+import { LOGIN, LOGOUT, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE} from './actionTypes'
 
 
 export const login = ({token, user_id}) => {
@@ -142,9 +142,22 @@ export const set_image = (image) => {
         payload: image
     }
 }
+export const update_image = (image) => {
+    return {
+        type: UPDATE_IMAGE,
+        payload: image
+    }
+}
 export const delete_image = (id) => {
     return {
         type: DELETE_IMAGE,
         payload: id
+    }
+}
+
+export const set_current_image = (currentImage) => {
+    return {
+        type: SET_CURRENT_IMAGE,
+        payload: currentImage
     }
 }

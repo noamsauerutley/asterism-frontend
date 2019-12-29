@@ -6,8 +6,6 @@ import { set_current_character, delete_character } from '../redux/actions'
 import { NavLink} from 'react-router-dom'
 
 class CharacterCard extends React.Component{
-    //  character = this.props.character
-    //  currentId = this.character.id
 
      setCurrentCharacter = () => {
         this.props.set_current_character(this.props.character)
