@@ -1,46 +1,46 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { update_plot, set_current_plot } from '../redux/actions'
+import { update_character, set_current_character } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 
-class EditPlot extends React.Component{
+class EditCharacter extends React.Component{
   
-  currentPlot = this.props.currentStory.plots.find( plot => plot.id === this.props.currentPlot.id)
+  currentCharacter = this.props.currentStory.characters.find( character => character.id === this.props.currentCharacter.id)
 
   state = {
-    name: this.currentPlot.name,
-    summary: this.currentPlot.summary,
+    name: this.currentCharacter.name,
+    description: this.currentCharacter.description,
     redirectBoolean: false,
     errors: []
 }
 
-editPlotSubmitted = async (event) => {
+editCharacterSubmitted = async (event) => {
     event.preventDefault()
-    let rawEditedPlot = await fetch (`http://localhost:3000/plots/${this.props.currentPlot.id}`, 
+    let rawEditedCharacter = await fetch (`http://localhost:3000/characters/${this.props.currentCharacter.id}`, 
       {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
             "Authorization": localStorage.token
           },
-          body: JSON.stringify({plot: {
+          body: JSON.stringify({character: {
               story_id: this.props.currentStory.id,
               name: this.state.name,
-              summary: this.state.summary
+              description: this.state.description
           }})
         })
-    let editedPlot = await rawEditedPlot.json()
+    let editedCharacter = await rawEditedCharacter.json()
     
-    if (editedPlot.errors) {
+    if (editedCharacter.errors) {
       this.setState({
-        errors: editedPlot.errors
+        errors: editedCharacter.errors
       })
     } else {
-      console.log(this.props.currentStory.plots.filter(plot => plot.id !== editedPlot.id))
-      console.log(this.currentPlot)
-      console.log(editedPlot)
-    this.props.update_plot(editedPlot)
-    this.props.set_current_plot(editedPlot)
+      console.log(this.props.currentStory.characters.filter(character => character.id !== editedCharacter.id))
+      console.log(this.currentCharacter)
+      console.log(editedCharacter)
+    this.props.update_character(editedCharacter)
+    this.props.set_current_character(editedCharacter)
     this.setState({
       redirectBoolean: true
     })
@@ -55,27 +55,27 @@ onChange = event => {
 
   conditionalRender = () => {
     if(this.state.redirectBoolean===false){
-      return <form onSubmit={ this.editPlotSubmitted }>
+      return <form onSubmit={ this.editCharacterSubmitted }>
       <br></br>
-      <label  htmlFor="edit_plot_name">NAME</label>
+      <label  htmlFor="edit_character_name">NAME</label>
       <br></br>
       <input 
           style={{width: "80%"}} 
-          id="edit_plot_name" 
+          id="edit_character_name" 
           type="text" 
           onChange={ this.onChange /* for controlled form input status */ } 
           name="name" 
           value={ this.state.name /* for controlled form input status */ } />
           <br></br>
           <br></br>
-      <label  htmlFor="edit_plot_summary">SUMMARY</label>
+      <label  htmlFor="edit_character_description">DESCRIPTION</label>
       <br></br>
       <textarea  
           style={{width: "80%", height: "300px"}}
-          id="edit_plot_summary" 
+          id="edit_character_description" 
           onChange={ this.onChange } 
-          name="summary" 
-          value={ this.state.summary } />
+          name="description" 
+          value={ this.state.description } />
           <br></br><br></br>
       <input type="submit" />
   </form>
@@ -95,19 +95,19 @@ onChange = event => {
 const mapStateToProps = (state) => {
   return {
         currentStory: state.currentStory,
-        currentPlot: state.currentPlot
+        currentCharacter: state.currentCharacter
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      update_plot: (plot) => {
-          dispatch(update_plot(plot))
+      update_character: (character) => {
+          dispatch(update_character(character))
       },
-      set_current_plot: currentPlot => {
-        dispatch(set_current_plot(currentPlot))
+      set_current_character: currentCharacter => {
+        dispatch(set_current_character(currentCharacter))
       }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditPlot)
+export default connect(mapStateToProps, mapDispatchToProps)(EditCharacter)
