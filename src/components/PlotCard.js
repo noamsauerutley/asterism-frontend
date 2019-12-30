@@ -20,10 +20,11 @@ class PlotCard extends React.Component{
         <h5>{this.props.plot.name}</h5>
         <p>{this.props.plot.summary}</p>
         <label>SCENES:</label><br></br>
-        <NavLink to={`/scenes/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}} onClick={this.setCurrentPlot}>ADD SCENE</NavLink>
-        <ul>{!!this.props.plot.scenes ? this.props.plot.scenes.map(scene => < SceneCard scene={scene}/>) : "You haven't added any scenes to this plot arc."}</ul>
-        <label>NOTES:</label>
-        <ul>{!!this.props.plot.plot_notes ? this.props.plot.plot_notes.map(plot_note => <PlotNoteCard plot_note = {plot_note} />) : "You haven't added any notes to this plot arc."}</ul>
+        <NavLink to={`/scenes/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}} onClick={this.setCurrentPlot}>ADD SCENE</NavLink><br></br>
+        {(!!this.props.plot.scenes && !!this.props.plot.scenes.length) ? <ul>{this.props.plot.scenes.map(scene => < SceneCard scene={scene}/>)}</ul> : "You haven't added any scenes to this plot arc."}<br></br>
+        <label>NOTES:</label><br></br>
+        <NavLink to={`/plot_notes/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}} onClick={this.setCurrentPlot}>ADD NOTE</NavLink>
+        <ul>{(!!this.props.plot.plot_notes && !!this.props.plot.plot_notes.length) ? this.props.plot.plot_notes.map(plot_note => <PlotNoteCard plot_note = {plot_note} />) : "You haven't added any notes to this plot arc."}</ul>
     </div>
     </li>
     }
