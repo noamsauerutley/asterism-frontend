@@ -18,7 +18,7 @@ class ImageCard extends React.Component {
         <img src={this.props.image.image_url} alt={`character #${this.props.image.character_id} image`} />
         <p>{this.props.image.note}</p>
         <div  onClick={this.setCurrentCharacter}>
-            <NavLink to="/images/edit" style={{color: "black", textDecoration: "none"}} onClick={this.setCurrentImage}>✎</NavLink><br></br>
+            <NavLink to="/images/edit" style={{color: "black", textDecoration: "none"}} onClick={this.setCurrentImage}>✎   </NavLink>
             < DeleteImage image={this.props.image}/>
         </div>
     </li>

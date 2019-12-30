@@ -1,7 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { set_content } from '../redux/actions'
+import styled from 'styled-components'
+import { set_content, set_account_data } from '../redux/actions'
 import NavBar from './NavBar'
 import LoginContainer from './LoginContainer'
 import FragmentsContainer from './FragmentsContainer'
@@ -27,6 +28,18 @@ import EditScene from '../components/EditScene'
 import NewPlotNote from '../components/NewPlotNote'
 import EditPlotNote from '../components/EditPlotNote'
 
+const StyledMainContainer = styled.div`
+width: 92vw;
+heigh: 100vh;
+bottom: 0px;
+border: 1px double;
+outline: 2px solid;
+outline-offset: -10px;
+text-align: center;
+margin: 15px 15px 15px 15px;
+padding: 20px;
+`
+
 
 class MainContainer extends React.Component{
 
@@ -43,12 +56,13 @@ class MainContainer extends React.Component{
               "Content-Type": "application/json"
                  }})
         let data = await rawData.json()
+        this.props.set_account_data(data)
         this.props.set_content(data)
         console.log(data)}
     }
 
     render(){return(
-        <>
+        <StyledMainContainer>
         <Router>
         <NavBar />
             <Switch>
@@ -150,7 +164,7 @@ class MainContainer extends React.Component{
                     </Route>
                 </Switch>
             </Router>
-        </>
+        </StyledMainContainer>
     )}
 }
 
@@ -168,6 +182,9 @@ const mapStateToProps = (state) => {
     return {
         set_content: ({stories, fragments, username}) => {
             dispatch(set_content({stories, fragments, username}))
+        },
+        set_account_data: ({email, image_url, bio}) => {
+            dispatch(set_account_data({email, image_url, bio}))
         }
     }
 }

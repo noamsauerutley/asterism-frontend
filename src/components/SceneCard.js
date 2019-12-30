@@ -15,7 +15,7 @@ class SceneCard extends React.Component{
             <li style={{listStyle: "none"}} onClick={this.setCurrentScene}>
                 <h5>{this.props.scene.name}</h5>
                 <p>{this.props.scene.summary}</p>
-                <NavLink to="/scenes/edit" style={{color: "black", textDecoration: "none"}} >✎</NavLink><br></br>
+                <NavLink to="/scenes/edit" style={{color: "black", textDecoration: "none"}} >✎   </NavLink>
                 < DeleteScene scene={this.props.scene}/>
             </li>
         )

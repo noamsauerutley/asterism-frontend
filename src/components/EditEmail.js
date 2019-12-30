@@ -1,15 +1,15 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { set_username } from '../redux/actions'
+import { update_email } from '../redux/actions'
 
-class EditUsername extends React.Component{
+class EditEmail extends React.Component{
 
     state = {
-        username: this.props.username
+        email: this.props.email
     }
 
-    editUsername = async (newUsername) => {
+    editEmail = async (newEmail) => {
         let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
             method: "PATCH",
             headers: {
@@ -17,13 +17,12 @@ class EditUsername extends React.Component{
                 "Authorization": localStorage.token
             },
             body: JSON.stringify({author:{
-              username: newUsername}
+              email: newEmail}
             })
         })
         let data = await rawData.json()
-        this.props.set_username(data)
-        console.log(data)
-        alert("Your username has been updated.")
+        this.props.update_email(data)
+        alert("Your email has been updated.")
     }
 
     onChange = event => {
@@ -32,15 +31,15 @@ class EditUsername extends React.Component{
         })
       }
 
-      handleChangeUsername = event => {
+      handleChangeEmail = event => {
         event.preventDefault()
-        this.editUsername(this.state.username)
+        this.editEmail(this.state.email)
     }
   
     render(){
         return(
             <div>
-                <form onSubmit={this.handleChangeUsername}>
+                <form onSubmit={this.handleChangeEmail}>
                 <br></br>
                 <input
                 style={{
@@ -48,15 +47,15 @@ class EditUsername extends React.Component{
                     borderColor: "Transparent"
                 }}
                 type="text"
-                autoComplete="new-username"
+                autoComplete="new-email"
                 onChange={ this.onChange /* for controlled form input status */ } 
-                name="username" 
-                value={ this.state.username /* for controlled form input status */ } 
+                name="email" 
+                value={ this.state.email /* for controlled form input status */ } 
                 />
                 <br></br>
                 <input 
                 type="submit" 
-                value="Change Username"
+                value="Change Email"
                 style={{
                     background: "Transparent",
                     borderColor: "Transparent",
@@ -72,18 +71,18 @@ class EditUsername extends React.Component{
     }
 }
 
-const mapStateToProps = (state) => {
-    return{
-    username: state.username
-}}
+    const mapStateToProps = (state) => {
+        return{
+        email: state.email
+    }}
 
 
   const mapDispatchToProps = (dispatch) => {
     return {
-        set_username: (username) => {
-            dispatch(set_username(username))
+        update_email: (email) => {
+            dispatch(update_email(email))
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditUsername)
+export default connect(mapStateToProps, mapDispatchToProps)(EditEmail)

@@ -21,7 +21,7 @@ class DeletePlot extends React.Component{
 
     render(){
         return(
-            <NavLink to={`/stories/${this.props.plot.story_id}`} onClick={this.delete} style={{color: "black"}}>DELETE</NavLink>
+            <NavLink to={`/stories/${this.props.plot.story_id}`} onClick={this.delete} style={{color: "black", textDecoration: "none"}}>✕</NavLink>
         )}
 }
 

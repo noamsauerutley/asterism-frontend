@@ -4,6 +4,12 @@ import ImageCard from './ImageCard'
 import { connect } from 'react-redux'
 import { set_current_character, delete_character } from '../redux/actions'
 import { NavLink} from 'react-router-dom'
+import styled from 'styled-components'
+
+const StyledCharacterCard = styled.li`
+    list-style: none;
+    white-space: pre-wrap;
+`
 
 class CharacterCard extends React.Component{
 
@@ -26,13 +32,13 @@ class CharacterCard extends React.Component{
     } 
 
     render(){
-        return <li style={{listStyle: "none"}}>
-            <NavLink to="/characters/edit" style={{color: "black", textDecoration: "none"}} onClick={this.setCurrentCharacter}>✎</NavLink><br></br>
-            <NavLink to={`/stories/${this.props.character.story_id}`} onClick={this.delete} style={{color: "black"}}>DELETE</NavLink><br></br>
+        return <StyledCharacterCard>
             <h5>{this.props.character.name}</h5>
+            <NavLink to="/characters/edit" style={{color: "black", textDecoration: "none"}} onClick={this.setCurrentCharacter}>✎   </NavLink>
+            <NavLink to={`/stories/${this.props.character.story_id}`} onClick={this.delete} style={{color: "black", textDecoration: "none"}}>✕</NavLink><br></br>
             <p>{this.props.character.description}</p><br></br>
-            <label>GALLERY</label><br></br>
-            <NavLink to={`/images/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}} onClick={this.setCurrentCharacter}>ADD IMAGE</NavLink>
+            <label>IMAGES</label><br></br>
+            <NavLink to={`/images/new`} style={{marginTop: "20px", color: "black", textDecoration: "none", fontSize: "20px"}} onClick={this.setCurrentCharacter}>＋</NavLink>
             <ul style={{
                 width: "100%",
                 display: "flex",
@@ -44,10 +50,10 @@ class CharacterCard extends React.Component{
             }}>
                 {!!this.props.character.images ? this.props.character.images.map(image => <ImageCard image={image} />) : ""}</ul>
                 <label>NOTES:</label><br></br>
-                <NavLink to={`/character_notes/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}} onClick={this.setCurrentCharacter}>ADD NOTE</NavLink>
+                <NavLink to={`/character_notes/new`} style={{marginTop: "20px", color: "black", textDecoration: "none", fontSize: "20px"}} onClick={this.setCurrentCharacter}>＋</NavLink>
             <ul>{!!this.props.character.character_notes ? this.props.character.character_notes.map(character_note => < CharacterNoteCard character_note={character_note}/>) : "You haven't added any notes to this character."}</ul>
 
-        </li>
+        </StyledCharacterCard>
     }
 }
 const mapDispatchToProps = (dispatch) => {

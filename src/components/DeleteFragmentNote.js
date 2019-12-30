@@ -22,7 +22,7 @@ class DeleteFragmentNote extends React.Component{
 
     render(){
         return(
-            <NavLink to='/fragments' onClick={this.delete} style={{color: "black"}}>DELETE</NavLink>
+            <NavLink to='/fragments' onClick={this.delete} style={{color: "black", textDecoration: "none"}}>✕</NavLink>
         )}
 }
 

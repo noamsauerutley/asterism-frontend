@@ -1,10 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { login } from '../redux/actions'
-import { set_content } from '../redux/actions'
+import { set_content, set_account_data } from '../redux/actions'
 
 
 class LogIn extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.widget = null
+}
     
   state = {
     logIn: false,
@@ -22,18 +27,23 @@ class LogIn extends React.Component {
     })
   }
 
+  showWidget = (widget) => {
+    widget.open()
+  }
+  
   getUserData = async () => {
     let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
-        method: "GET",
-        headers: {
-          "Authorization": localStorage.token,
-          "Content-Type": "application/json"
-             }})
+      method: "GET",
+      headers: {
+        "Authorization": localStorage.token,
+        "Content-Type": "application/json"
+      }})
     let data = await rawData.json()
+    this.props.set_account_data(data)
     this.props.set_content(data)
     console.log(data)
-}
-
+  }
+  
   logInSubmitted = async (event) => {
     event.preventDefault()
     let rawData = await fetch("http://localhost:3000/login", {
@@ -47,21 +57,21 @@ class LogIn extends React.Component {
       })
     })
     let data = await rawData.json()
-        if (data.errors) {
-            this.setState({
-              errors: data.errors
-            })
-          } else {
-        localStorage.setItem("token", data.token)
-        localStorage.setItem("user_id", data.user_id)
-        this.props.login(data)
-        this.getUserData()
-          }
-      }
-
+    if (data.errors) {
+      this.setState({
+        errors: data.errors
+      })
+    } else {
+      localStorage.setItem("token", data.token)
+      localStorage.setItem("user_id", data.user_id)
+      this.props.login(data)
+      this.getUserData()
+    }
+  }
+  
   signUpSubmitted = async (event) => {
     event.preventDefault() 
-
+    
     let rawData = await fetch("http://localhost:3000/authors", {
       method: "POST",
       headers: {
@@ -69,27 +79,48 @@ class LogIn extends React.Component {
       },
       body: JSON.stringify({author:
         {username: this.state.username,
-        password: this.state.password,
-        email: this.state.email,
-        image_url: this.state.image_url,
-        bio: this.state.bio
-    }
+          password: this.state.password,
+          email: this.state.email,
+          image_url: this.state.image_url,
+          bio: this.state.bio
+        }
       })
     })
     let data = await rawData.json()
     if (data.errors) {
-        alert(data.errors)
-      } else {
-    localStorage.setItem("token", data.token)
-    localStorage.setItem("user_id", data.user_id)
-    this.props.login(data)
-    this.getUserData()
-      }
+      alert(data.errors)
+    } else {
+      localStorage.setItem("token", data.token)
+      localStorage.setItem("user_id", data.user_id)
+      this.props.login(data)
+      this.getUserData()
+    }
+  }
+  
+  
+  imageUpload = () => {
+    if(!this.widget){
+        this.widget = window.cloudinary.createUploadWidget({
+            cloudName: "noamesu",
+            uploadPreset: "storyboard",
+            sources: ['local', 'url']
+        }, (error, result) => {
+            if(result.event ==="success"){
+                this.setState({
+                    image_url: result.info.secure_url
+                })
+                console.log(this.state)
+            }   
+        }) 
+    }
   }
 
-
-  render(){
+render(){
+  
+  
     return <div style={{textAlign: "Center", marginTop:"10%"}}>
+
+      {this.imageUpload()}
       <ul>
         {
           this.state.errors.map(error => <li style={{listStyle: "none"}}>{ error }</li>)
@@ -157,12 +188,15 @@ class LogIn extends React.Component {
                     <br></br> <br></br>
             <label  htmlFor="sign_up_image_url">Image URL</label>
             <br></br>
-            <input  id="sign_up_image_url" 
+            {/* <input  id="sign_up_image_url" 
                     type="text" 
                     onChange={ this.onChange } 
                     name="image_url" 
-                    value={ this.state.image_url } />
-                    <br></br><br></br>
+                    value={ this.state.image_url } /> */}
+<button onClick={(event) => {
+                          event.preventDefault() 
+                          this.showWidget(this.widget)}
+                          }>ADD IMAGE</button>                    <br></br><br></br>
                     <label  htmlFor="sign_up_bio">bio</label>
             <br></br>
             <input  id="sign_up_bio" 
@@ -186,6 +220,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         set_content: ({stories, fragments, username}) => {
           dispatch(set_content({stories, fragments, username}))
+      },
+      set_account_data: ({email, image_url, bio}) => {
+        dispatch(set_account_data({email, image_url, bio}))
       }
     }
 }

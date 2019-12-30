@@ -19,7 +19,7 @@ class DeleteScene extends React.Component {
 
     render(){
         return(
-            <NavLink to={`/stories/${this.props.currentStory.id}`} onClick={this.delete} style={{color: "black"}}>DELETE</NavLink>
+            <NavLink to={`/stories/${this.props.currentStory.id}`} onClick={this.delete} style={{color: "black", textDecoration: "none"}}>✕</NavLink>
         )}
 }
 

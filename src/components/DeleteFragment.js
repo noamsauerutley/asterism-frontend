@@ -18,7 +18,7 @@ class DeleteFragment extends React.Component {
 
     render(){
         return(
-            <button onClick={this.delete}>DELETE</button>
+            <button onClick={this.delete}>✕</button>
     )}
 }
 const mapDispatchToProps = (dispatch) => {

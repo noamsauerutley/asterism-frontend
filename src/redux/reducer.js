@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, LOAD, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE, SET_CHARACTER_NOTE, UPDATE_CHARACTER_NOTE, DELETE_CHARACTER_NOTE, SET_CURRENT_CHARACTER_NOTE, SET_FRAGMENT_NOTE, UPDATE_FRAGMENT_NOTE, DELETE_FRAGMENT_NOTE, SET_CURRENT_FRAGMENT_NOTE, SET_SCENE, UPDATE_SCENE, DELETE_SCENE, SET_CURRENT_SCENE, SET_PLOT_NOTE, UPDATE_PLOT_NOTE, DELETE_PLOT_NOTE, SET_CURRENT_PLOT_NOTE} from './actionTypes'
+import { LOGIN, LOGOUT, LOAD, SET_CONTENT, SET_ACCOUNT_DATA, SET_USERNAME, UPDATE_EMAIL, UPDATE_BIO, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE, SET_CHARACTER_NOTE, UPDATE_CHARACTER_NOTE, DELETE_CHARACTER_NOTE, SET_CURRENT_CHARACTER_NOTE, SET_FRAGMENT_NOTE, UPDATE_FRAGMENT_NOTE, DELETE_FRAGMENT_NOTE, SET_CURRENT_FRAGMENT_NOTE, SET_SCENE, UPDATE_SCENE, DELETE_SCENE, SET_CURRENT_SCENE, SET_PLOT_NOTE, UPDATE_PLOT_NOTE, DELETE_PLOT_NOTE, SET_CURRENT_PLOT_NOTE} from './actionTypes'
 
 const initialState = {
     token: "",
@@ -6,6 +6,9 @@ const initialState = {
     stories: [],
     fragments: [],
     username: "",
+    email: "",
+    image_url: "",
+    bio: "",
     story: {},
     currentStory: {},
     currentFragment: {},
@@ -29,8 +32,14 @@ export const reducer = (state = initialState, action) => {
             return initialState
         case SET_CONTENT:
             return {...state, stories: action.payload.stories, fragments: action.payload.fragments, username: action.payload.username}
+        case SET_ACCOUNT_DATA:
+            return {...state, email: action.payload.email, image_url: action.payload.image_url, bio: action.payload.bio}
         case SET_USERNAME:
             return {...state, username: action.payload}
+        case UPDATE_EMAIL: 
+            return {...state, email: action.payload}
+        case UPDATE_BIO:
+            return {...state, bio: action.payload}
         case SET_STORY:
             return {...state, stories:[action.payload, ...state.stories]}
         case UPDATE_STORY:

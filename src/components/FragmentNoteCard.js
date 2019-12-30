@@ -3,6 +3,12 @@ import DeleteFragmentNote from './DeleteFragmentNote'
 import { set_current_fragment_note, set_current_fragment } from '../redux/actions'
 import { connect } from 'react-redux'
 import { NavLink} from 'react-router-dom'
+import styled from 'styled-components'
+
+const StyledFragmentNoteCard = styled.li`
+    list-style: none;
+    white-space: pre-wrap;
+`
 
 class FragmentNoteCard extends React.Component{
 
@@ -12,11 +18,11 @@ class FragmentNoteCard extends React.Component{
     }
 
     render(){
-        return <li style={{listStyle: "none"}} onClick={this.setCurrentFragmentNote}>
+        return <StyledFragmentNoteCard onClick={this.setCurrentFragmentNote}>
             <p>{this.props.fragment_note.text}</p>
-            <NavLink to="/fragment_notes/edit" style={{color: "black", textDecoration: "none"}} >✎</NavLink><br></br>
+            <NavLink to="/fragment_notes/edit" style={{color: "black", textDecoration: "none"}} >✎    </NavLink>
             < DeleteFragmentNote fragment_note={this.props.fragment_note} fragment={this.props.fragment}/>
-    </li>
+    </StyledFragmentNoteCard>
     }
 }
 

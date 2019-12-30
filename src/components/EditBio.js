@@ -1,15 +1,23 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { set_username } from '../redux/actions'
+import { update_bio } from '../redux/actions'
+import styled from 'styled-components'
 
-class EditUsername extends React.Component{
+const StyledEditBioTextarea = styled.textarea`
+    width: 150px;
+    border-color: Transparent;
+    resize: none;
+    overflowY: scroll;
+`
+
+class EditBio extends React.Component{
 
     state = {
-        username: this.props.username
+        bio: this.props.bio
     }
 
-    editUsername = async (newUsername) => {
+    editBio = async (newBio) => {
         let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
             method: "PATCH",
             headers: {
@@ -17,13 +25,12 @@ class EditUsername extends React.Component{
                 "Authorization": localStorage.token
             },
             body: JSON.stringify({author:{
-              username: newUsername}
+              bio: newBio}
             })
         })
         let data = await rawData.json()
-        this.props.set_username(data)
-        console.log(data)
-        alert("Your username has been updated.")
+        this.props.update_bio(data)
+        alert("Your bio has been updated.")
     }
 
     onChange = event => {
@@ -32,31 +39,25 @@ class EditUsername extends React.Component{
         })
       }
 
-      handleChangeUsername = event => {
+      handleChangeBio = event => {
         event.preventDefault()
-        this.editUsername(this.state.username)
+        this.editBio(this.state.bio)
     }
   
     render(){
         return(
-            <div>
-                <form onSubmit={this.handleChangeUsername}>
+                <form onSubmit={this.handleChangeBio}>
                 <br></br>
-                <input
-                style={{
-                    width: "150px",
-                    borderColor: "Transparent"
-                }}
-                type="text"
-                autoComplete="new-username"
+                <StyledEditBioTextarea
+                autoComplete="new-bio"
                 onChange={ this.onChange /* for controlled form input status */ } 
-                name="username" 
-                value={ this.state.username /* for controlled form input status */ } 
+                name="bio" 
+                value={ this.state.bio /* for controlled form input status */ } 
                 />
                 <br></br>
                 <input 
                 type="submit" 
-                value="Change Username"
+                value="Edit Bio"
                 style={{
                     background: "Transparent",
                     borderColor: "Transparent",
@@ -67,23 +68,22 @@ class EditUsername extends React.Component{
                 }}
                 />
             </form> 
-          </div> 
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    return{
-    username: state.username
-}}
+    const mapStateToProps = (state) => {
+        return{
+        bio: state.bio
+    }}
 
 
   const mapDispatchToProps = (dispatch) => {
     return {
-        set_username: (username) => {
-            dispatch(set_username(username))
+        update_bio: (bio) => {
+            dispatch(update_bio(bio))
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditUsername)
+export default connect(mapStateToProps, mapDispatchToProps)(EditBio)

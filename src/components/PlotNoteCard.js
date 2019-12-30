@@ -14,7 +14,7 @@ class PlotNoteCard extends React.Component {
 
       return <li style={{listStyle: "none"}} onClick={this.setCurrentPlotNote}>
          {this.props.plot_note.text}<br></br>
-         <NavLink to="/plot_notes/edit" style={{color: "black", textDecoration: "none"}} >✎</NavLink><br></br>
+         <NavLink to="/plot_notes/edit" style={{color: "black", textDecoration: "none"}} >✎   </NavLink>
          < DeletePlotNote plot_note={this.props.plot_note}/><br></br>
          </li>
    }

@@ -4,6 +4,11 @@ import { NavLink} from 'react-router-dom'
 import PlotCard from './PlotCard'
 import CharacterCard from './CharacterCard'
 import DeleteStory from './DeleteStory'
+import styled from 'styled-components'
+
+const StyledStoryDetail = styled.div`
+font-family: "Didot";
+`
 
 class StoryDetail extends React.Component{
 
@@ -35,8 +40,8 @@ class StoryDetail extends React.Component{
     
     render(){
         return(
-        <div style={{textAlign: "center", marginTop: "10%"}}>
-            <NavLink to="/stories/edit" style={{color: "black", textDecoration: "none"}}>✎</NavLink>
+        <StyledStoryDetail style={{textAlign: "center", marginTop: "10%"}}>
+            <NavLink to="/stories/edit" style={{color: "black", textDecoration: "none"}}>✎   </NavLink>
             <div style={{ borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
             {/* <label style={{fontWeight: "bold"}}>TITLE: </label> */}
             <h2>{this.props.currentStory.title}</h2>
@@ -46,15 +51,15 @@ class StoryDetail extends React.Component{
             </div>
             <div style={{ borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
                 <h4>PLOT ARCS:</h4>
+                    <NavLink to={`/plots/new`} style={{marginTop: "20px", color: "black", textDecoration: "none", fontSize:"20px"}}>＋</NavLink><br></br>
                     {this.storyPlots()}<br></br>
-                    <NavLink to={`/plots/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}}>ADD PLOT ARC</NavLink>
             </div>
             <div>
             <h3>CHARACTERS:</h3>
+                <NavLink to={`/characters/new`} style={{marginTop: "20px", color: "black", textDecoration: "none", fontSize:"20px"}}>＋</NavLink><br></br>
                 {this.storyCharacters()} <br></br>
-                <NavLink to={`/characters/new`} style={{marginTop: "20px", color: "black", textDecorationColor: "black"}}>ADD CHARACTER</NavLink>
             </div>
-        </div>
+        </StyledStoryDetail>
     )}
 }
 const mapStateToProps = (state) => {
