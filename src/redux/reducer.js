@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, LOAD, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE, SET_CHARACTER_NOTE, UPDATE_CHARACTER_NOTE, DELETE_CHARACTER_NOTE, SET_CURRENT_CHARACTER_NOTE, SET_FRAGMENT_NOTE, UPDATE_FRAGMENT_NOTE, DELETE_FRAGMENT_NOTE, SET_CURRENT_FRAGMENT_NOTE} from './actionTypes'
+import { LOGIN, LOGOUT, LOAD, SET_CONTENT, SET_USERNAME, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE, SET_CHARACTER_NOTE, UPDATE_CHARACTER_NOTE, DELETE_CHARACTER_NOTE, SET_CURRENT_CHARACTER_NOTE, SET_FRAGMENT_NOTE, UPDATE_FRAGMENT_NOTE, DELETE_FRAGMENT_NOTE, SET_CURRENT_FRAGMENT_NOTE, SET_SCENE, UPDATE_SCENE, DELETE_SCENE, SET_CURRENT_SCENE} from './actionTypes'
 
 const initialState = {
     token: "",
@@ -13,7 +13,9 @@ const initialState = {
     currentCharacter: {},
     currentImage: {},
     currentCharacterNote: {},
-    currentFragmentNote: {}
+    currentFragmentNote: {},
+    currentPlot: {},
+    currentScene: {}
 }
 
 export const reducer = (state = initialState, action) => {
@@ -192,7 +194,34 @@ export const reducer = (state = initialState, action) => {
                     fragment_notes: [...state.currentFragment.fragment_notes.filter(fragment_note => fragment_note.id !== action.payload)]}
                 }
         case SET_CURRENT_FRAGMENT_NOTE:
-            return {...state, currentFragmentNote: action.payload} 
+            return {...state, currentFragmentNote: action.payload}
+        case SET_SCENE:
+            return {
+                ...state, 
+                currentPlot: {
+                    ...state.currentPlot,
+                    scenes: [action.payload, ...state.currentPlot.scenes]
+                }
+            }
+        case UPDATE_SCENE:
+            const updatedScene = action.payload;
+            const otherScenes = state.currentPlot.scenes.filter(scene => scene.id !== updatedScene.id)
+            return {
+                ...state, 
+                currentPlot: {
+                    ...state.currentPlot,
+                    scenes: [updatedScene, ...otherScenes]
+            }
+        } 
+        case DELETE_SCENE:
+            return{
+                ...state,
+                currentPlot: {
+                    ...state.currentPlot,
+                    scenes: [...state.currentPlot.scenes.filter(scene => scene.id !== action.payload)]}
+                }
+        case SET_CURRENT_SCENE:
+            return {...state, currentScene: action.payload}   
         default: 
             return state
     }

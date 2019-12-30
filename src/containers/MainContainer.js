@@ -22,6 +22,8 @@ import NewCharacterNote from '../components/NewCharacterNote'
 import EditCharacterNote from '../components/EditCharacterNote'
 import NewFragmentNote from '../components/NewFragmentNote'
 import EditFragmentNote from '../components/EditFragmentNote'
+import NewScene from '../components/NewScene'
+import EditScene from '../components/EditScene'
 
 
 class MainContainer extends React.Component{
@@ -114,6 +116,14 @@ class MainContainer extends React.Component{
 
                     <Route exact path="/fragment_notes/edit">
                         < EditFragmentNote />
+                    </Route>
+
+                    <Route exact path="/scenes/new" >
+                        < NewScene />
+                    </Route>
+
+                    <Route exact path="/scenes/edit" >
+                        < EditScene />
                     </Route>
 
                     <Route path="/login" >
