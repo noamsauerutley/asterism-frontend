@@ -27,6 +27,7 @@ import NewScene from '../components/NewScene'
 import EditScene from '../components/EditScene'
 import NewPlotNote from '../components/NewPlotNote'
 import EditPlotNote from '../components/EditPlotNote'
+import About from "../components/About"
 
 const StyledMainContainer = styled.div`
 width: 92vw;
@@ -152,12 +153,15 @@ class MainContainer extends React.Component{
 
                     <Route path="/login" >
                         {!!this.props.token ? <Redirect to="/stories"/> : <LoginContainer />}
-
                     </Route>
 
                     <Route exact path="/account">
                         < AccountContainer />    
                     </Route> 
+
+                    <Route exact path="/about">
+                        < About />
+                    </Route>
 
                     <Route exact path='/'> 
                         {this.isUser()}

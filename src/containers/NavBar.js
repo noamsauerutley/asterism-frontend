@@ -38,7 +38,7 @@ const NavBar = (props) => {
         <StyledNav>
                 <NavLink to="/fragments" style={{color: "black", textDecorationColor: "black"}}>FRAGMENTS </NavLink>
                 <NavLink to="/stories" style={{color: "black", textDecorationColor: "black"}}>STORIES</NavLink>
-                <img src={logo}/>
+                <NavLink to="/about"><img src={logo}/></NavLink>
                 <NavLink to={`/account`} style={{color: "black", textDecorationColor: "black"}}>ACCOUNT</NavLink>
                 {logoutButton()}
           </StyledNav>

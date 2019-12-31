@@ -20,7 +20,7 @@ class AccountContainer extends React.Component {
    render(){
       return ( 
          <StyledAccountContainer >
-            <img src={`${this.props.image_url}`} style={{width: "250px"}} alt="user profile picture"/><br></br>
+            <img src={`${this.props.image_url}`} style={{width: "250px", marginTop: "5%"}} alt="user profile picture"/><br></br>
             < EditBio />
             <EditEmail />
             <EditUsername />

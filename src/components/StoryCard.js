@@ -14,7 +14,7 @@ class StoryCard extends React.Component{
 
     render(){
         return(
-            <div style={{boxShadow: "5px 5px #D3D3D3", border: "solid", borderWidth: "1px", borderLeftWidth: "3px", width: "250px", height: "350px", margin: "40px",  overflow: "hidden"}}>
+            <div style={{boxShadow: "5px 5px #A4BA92", border: "solid", borderWidth: "1px", borderLeftWidth: "5px", borderLeftColor: "black", width: "250px", height: "350px", margin: "40px",  overflow: "hidden"}}>
             <NavLink to={`/stories/${this.props.story.id}`} style={{color: "black", textDecoration: "none"}} onClick={this.handleOnClick}>
                  <li style={{listStyle: "none"}}>
                     
