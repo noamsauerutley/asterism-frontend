@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_character, set_current_character } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 class EditCharacter extends React.Component{
   

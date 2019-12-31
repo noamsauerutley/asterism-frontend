@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import StoryCard from '../components/StoryCard'
 import styled from 'styled-components'
+import { colors } from '../assets/colors'
 
 const StyledStoriesContainer = styled.div`
 font-family: "Didot";

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { set_image, update_character } from '../redux/actions'
 import { Redirect } from 'react-router'
 import styled from 'styled-components'
-
+import { colors } from '../assets/colors'
 
 class NewImage extends React.Component {
     constructor(props){

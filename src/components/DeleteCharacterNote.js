@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { NavLink} from 'react-router-dom'
 import { delete_character_note, update_character } from '../redux/actions'
 import styled from 'styled-components'
+import { colors } from '../assets/colors'
 
 const StyledDeleteCharacterNote = styled(NavLink)`
     background-color: Transparent;

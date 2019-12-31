@@ -2,6 +2,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { update_email } from '../redux/actions'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 class EditEmail extends React.Component{
 

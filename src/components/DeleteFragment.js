@@ -1,6 +1,13 @@
 import React from 'react'
 import { connect } from "react-redux"
 import { delete_fragment } from '../redux/actions'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
+const StyledDeleteFragmentButton = styled.button`
+    background: Transparent;
+    border: Transparent
+`
 
 class DeleteFragment extends React.Component {
 
@@ -18,7 +25,7 @@ class DeleteFragment extends React.Component {
 
     render(){
         return(
-            <button onClick={this.delete}>✕</button>
+            <StyledDeleteFragmentButton onClick={this.delete}>✕</StyledDeleteFragmentButton>
     )}
 }
 const mapDispatchToProps = (dispatch) => {

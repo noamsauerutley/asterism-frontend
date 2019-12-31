@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink} from 'react-router-dom'
 import { delete_fragment_note, update_fragment } from '../redux/actions'
+import { colors } from '../assets/colors'
 
 class DeleteFragmentNote extends React.Component{
 
@@ -22,7 +23,7 @@ class DeleteFragmentNote extends React.Component{
 
     render(){
         return(
-            <NavLink to='/fragments' onClick={this.delete} style={{color: "black", textDecoration: "none"}}>✕</NavLink>
+            <NavLink to='/fragments' onClick={this.delete} style={{color: `${colors.black}`, textDecoration: "none"}}>✕</NavLink>
         )}
 }
 

@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_scene, set_current_scene, update_plot } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 class EditScene extends React.Component{
   

@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_story } from '../redux/actions'
 import { Redirect } from 'react-router'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 class NewStory extends React.Component {
 

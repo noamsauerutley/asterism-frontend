@@ -4,6 +4,8 @@ import DeleteImage from './DeleteImage'
 import { set_current_character, set_current_image } from '../redux/actions'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 const StyledImageCard = styled.li`
 text-align: center;

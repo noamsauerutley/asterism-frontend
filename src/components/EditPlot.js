@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_plot, set_current_plot } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 class EditPlot extends React.Component{
   

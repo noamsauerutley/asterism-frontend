@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink} from 'react-router-dom'
 import { delete_image, update_character } from '../redux/actions'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
 
 class DeleteImage extends React.Component {
 

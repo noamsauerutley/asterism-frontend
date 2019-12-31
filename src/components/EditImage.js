@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_image, set_current_image, update_character} from '../redux/actions'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 class EditImage extends React.Component{
   

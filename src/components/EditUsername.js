@@ -2,6 +2,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { set_username } from '../redux/actions'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 class EditUsername extends React.Component{
 

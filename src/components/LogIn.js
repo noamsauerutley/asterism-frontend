@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { login } from '../redux/actions'
 import { set_content, set_account_data } from '../redux/actions'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 
 class LogIn extends React.Component {

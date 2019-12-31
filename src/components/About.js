@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { colors } from '../assets/colors'
 const StyledParagraph = styled.p`
 font-family: "Didot";
 text-align: center;

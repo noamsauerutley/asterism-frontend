@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import DeleteCharacterNote from './DeleteCharacterNote'
 import { set_current_character_note, set_current_character } from '../redux/actions'
 import styled from 'styled-components'
+import { colors } from '../assets/colors'
 
 const StyledCharacterNoteCard = styled.div`
 white-space: pre-wrap;
@@ -20,7 +21,7 @@ class CharacterNoteCard extends React.Component{
       return(
       <StyledCharacterNoteCard  onClick={this.setCurrentCharacter}>
          <li style={{listStyle: "none"}}>{this.props.character_note.text}</li>
-         <NavLink to="/character_notes/edit" style={{color: "black", textDecoration: "none"}} onClick={this.setCurrentCharacterNote}>✎   </NavLink>
+         <NavLink to="/character_notes/edit" style={{color: `${colors.black}`, textDecoration: "none"}} onClick={this.setCurrentCharacterNote}>✎   </NavLink>
          < DeleteCharacterNote character_note={this.props.character_note}/>
       </StyledCharacterNoteCard>
    )

@@ -5,6 +5,8 @@ import PlotCard from './PlotCard'
 import CharacterCard from './CharacterCard'
 import DeleteStory from './DeleteStory'
 import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 const StyledStoryDetail = styled.div`
 font-family: "Didot";

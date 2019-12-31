@@ -5,6 +5,9 @@ import SceneCard from './SceneCard'
 import { set_current_plot } from '../redux/actions'
 import { connect } from 'react-redux'
 import { NavLink} from 'react-router-dom'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 class PlotCard extends React.Component{
 

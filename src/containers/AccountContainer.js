@@ -6,6 +6,8 @@ import EditEmail from '../components/EditEmail'
 import EditBio from '../components/EditBio'
 import EditPassword from '../components/EditPassword'
 import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 const StyledAccountContainer = styled.div`
 font-family: "Didot";

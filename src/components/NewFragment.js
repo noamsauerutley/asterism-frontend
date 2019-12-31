@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_fragment } from '../redux/actions'
 import { Redirect } from 'react-router'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 class NewFragment extends React.Component {
 

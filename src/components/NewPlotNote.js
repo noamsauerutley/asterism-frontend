@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_plot_note, set_current_plot_note, update_plot } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 class NewPlotNote extends React.Component{
   

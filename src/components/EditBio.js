@@ -3,6 +3,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_bio } from '../redux/actions'
 import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 const StyledEditBioTextarea = styled.textarea`
     width: 150px;

@@ -4,6 +4,8 @@ import { set_current_fragment_note, set_current_fragment } from '../redux/action
 import { connect } from 'react-redux'
 import { NavLink} from 'react-router-dom'
 import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 const StyledFragmentNoteCard = styled.li`
     list-style: none;

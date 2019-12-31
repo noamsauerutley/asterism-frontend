@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from '../redux/actions'
 import styled from 'styled-components'
+import { colors } from '../assets/colors'
 import logo from '../assets/logo32.png'
 
 const StyledNav = styled.nav `

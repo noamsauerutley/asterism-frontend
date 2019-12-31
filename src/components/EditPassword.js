@@ -1,4 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
+import { colors } from '../assets/colors'
+
 
 class EditPassword extends React.Component{
 
