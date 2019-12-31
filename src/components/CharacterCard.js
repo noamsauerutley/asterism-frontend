@@ -9,6 +9,7 @@ import styled from 'styled-components'
 const StyledCharacterCard = styled.li`
     list-style: none;
     white-space: pre-wrap;
+    margin: 0 auto;
 `
 
 class CharacterCard extends React.Component{
