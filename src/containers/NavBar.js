@@ -7,6 +7,7 @@ import { colors } from '../assets/colors'
 import logo from '../assets/logo32.png'
 
 const StyledNav = styled.nav `
+    z-index: 1;
     background: white;
     width: 95%;
     margin: 0 auto;

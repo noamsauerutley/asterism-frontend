@@ -31,6 +31,7 @@ import EditPlotNote from '../components/EditPlotNote'
 import About from "../components/About"
 
 const StyledMainContainer = styled.div`
+z-index: 2;
 width: 92vw;
 heigh: 100vh;
 bottom: 0px;

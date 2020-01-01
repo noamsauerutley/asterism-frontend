@@ -43,22 +43,20 @@ class StoryDetail extends React.Component{
     render(){
         return(
         <StyledStoryDetail style={{textAlign: "center", marginTop: "10%"}}>
+            <div style={{ width: "95%", borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
+            <h2>{this.props.currentStory.title}</h2>
             <StyledNavLink activeClassName="active" to="/stories/edit" >✎   </StyledNavLink>
             < DeleteStory story={this.props.currentStory} />
-            <div style={{ borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
-            {/* <label style={{fontWeight: "bold"}}>TITLE: </label> */}
-            <h2>{this.props.currentStory.title}</h2>
-            {/* <label style={{fontWeight: "bold"}}>SUMMARY:</label> */}
             <p >{this.props.currentStory.summary}</p>
             </div>
-            <div style={{ borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
+            <div style={{ width: "95%", borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
                 <h4>PLOT ARCS:</h4>
-                    <StyledNavLink activeClassName="active" to={`/plots/new`} style={{marginTop: "20px", color: "black", textDecoration: "none", fontSize:"20px"}}>＋</StyledNavLink><br></br>
+                    <StyledNavLink activeClassName="active" to={`/plots/new`} style={{marginTop: "20px", fontSize:"20px"}}>＋</StyledNavLink><br></br>
                     {this.storyPlots()}<br></br>
             </div>
             <div>
             <h3>CHARACTERS:</h3>
-                <StyledNavLink activeClassName="active" to={`/characters/new`} style={{marginTop: "20px", color: "black", textDecoration: "none", fontSize:"20px"}}>＋</StyledNavLink><br></br>
+                <StyledNavLink activeClassName="active" to={`/characters/new`} style={{marginTop: "20px", fontSize:"20px"}}>＋</StyledNavLink><br></br>
                 {this.storyCharacters()} <br></br>
             </div>
         </StyledStoryDetail>
