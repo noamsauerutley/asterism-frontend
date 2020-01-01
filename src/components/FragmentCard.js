@@ -15,12 +15,19 @@ const StyledFragmentLi = styled.li`
     border-color: ${colors.black};
     margin: 5px;
     display: block;
-    width: 325px;
-    height: 325px;
+    width: 375px;
+    height: 375px;
     padding: 20px;
     outline: 2px solid;
     outline-color: ${colors.black};
     outline-offset: -10px;
+`
+
+const StyledUl =  styled.ul`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 `
 
 const StyledFragmentDiv = styled.div`
@@ -46,14 +53,14 @@ class FragmentCard extends React.Component {
         <StyledFragmentLi >
             <StyledFragmentDiv>
             <h3>{this.props.fragment.title}</h3>
+            <StyledNavLink activeClassName="active" to={`/fragments/edit`} onClick={this.handleOnClick}>✎    </StyledNavLink>
+            < DeleteFragment />
             <p
             style={{whiteSpace: "pre-wrap"}}
             >{this.props.fragment.text}</p>
-            <StyledNavLink activeClassName="active" to={`/fragments/edit`} onClick={this.handleOnClick}>✎    </StyledNavLink>
-            < DeleteFragment /><br></br><br></br>
             <label>NOTES</label><br></br>
             <StyledNavLink activeClassName="active" to={`/fragment_notes/new`} style={{marginTop: "20px", fontSize: "18px", fontWeight: "bold"}} onClick={this.handleOnClick}>＋</StyledNavLink>
-            <ul>{!!this.props.fragment.fragment_notes ? this.props.fragment.fragment_notes.map(fragment_note => < FragmentNoteCard fragment_note={fragment_note} fragment={this.props.fragment}/>) : "You haven't added any notes to this fragment."}</ul>
+            <StyledUl>{!!this.props.fragment.fragment_notes ? this.props.fragment.fragment_notes.map(fragment_note => < FragmentNoteCard fragment_note={fragment_note} fragment={this.props.fragment}/>) : "You haven't added any notes to this fragment."}</StyledUl>
             </StyledFragmentDiv>
         </StyledFragmentLi>
     )}

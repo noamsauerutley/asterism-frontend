@@ -2,18 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_image, set_current_image, update_character} from '../redux/actions'
 import { Redirect } from 'react-router-dom'
-import { StyledButton } from '../assets/StyledComponents'
+import { StyledButton, StyledSubmit } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
-const StyledSubmitInput = styled.input`
-background: Transparent
-    border-color: lightGrey;
-    font-family: Didot;
-    font-size: 16px;
-    margin: 40px;
-    color: \`${colors.black}\`
-`
+
 class EditImage extends React.Component{
   
   state = {
@@ -91,18 +84,18 @@ onChange = event => {
             onClick={(event) => {
               event.preventDefault() 
               this.showWidget(this.widget)}
-            }>New Image</ StyledButton>    
+            }>＋</ StyledButton>    
           <br></br>
       <label  htmlFor="edit_image_note" style={{fontFamily: "Didot", color: `${colors.black}`}}>EDIT NOTE:</label>
       <br></br>
       <textarea  
-          style={{width: "80%", height: "300px", borderColor: "lightGrey", resize: "none"}}
+          style={{fontFamily: "Didot", width: "80%", height: "300px", borderColor: "lightGrey", resize: "none"}}
           id="edit_image_note" 
           onChange={ this.onChange } 
           name="note" 
           value={ this.state.note } />
           <br></br><br></br>
-      <StyledSubmitInput type="submit" value="SAVE IMAGE"/>
+      <StyledSubmit type="submit" value="✓"/>
   </form>
     } else{
       return < Redirect to={`/stories/${this.props.currentStory.id}`} />

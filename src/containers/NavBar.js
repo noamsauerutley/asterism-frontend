@@ -9,7 +9,7 @@ import logo from '../assets/logo32.png'
 const StyledNav = styled.nav `
     z-index: 1;
     background: white;
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     font-family: Didot;
     color: ${colors.black};

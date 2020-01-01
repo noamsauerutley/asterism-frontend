@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_image, update_character } from '../redux/actions'
 import { Redirect } from 'react-router'
+import { StyledButton, StyledSubmit } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -83,10 +84,12 @@ class NewImage extends React.Component {
               <br></br>
               <form onSubmit={ this.newImageSubmitted }>
                   <br></br>
-                      <button onClick={(event) => {
+                      <StyledButton 
+                        style={{fontWeight: "bold"}}
+                        onClick={(event) => {
                           event.preventDefault() 
                           this.showWidget(this.widget)}
-                          }>ADD IMAGE</button>
+                          }>＋</StyledButton>
                       <br></br>
                       <br></br>
                   <label  htmlFor="new_image_note">NOTE</label>
@@ -98,7 +101,7 @@ class NewImage extends React.Component {
                       name="note" 
                       value={ this.state.note } />
                       <br></br><br></br>
-                  <input type="submit" />
+                  <StyledSubmit type="submit" value="✓"/>
               </form>
               </section>}
       }

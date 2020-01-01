@@ -49,11 +49,12 @@ class EditUsername extends React.Component{
                 <br></br>
                 <input
                 style={{
-                    width: "150px",
-                    borderStyle: "solid",
+                    width: "50%",
+                    borderStyle: "dotted",
                     borderWidth: "1px",
                     borderColor: "lightGrey",
                     fontFamily: "Didot",
+                    fontSize: "14px",
                     color: `${colors.black}`,
                     textAlign: "center"
                 }}

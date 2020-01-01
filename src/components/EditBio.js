@@ -10,8 +10,10 @@ import { colors } from '../assets/colors'
 const StyledEditBioTextarea = styled.textarea`
     text-align: center;
     font-family: Didot;
-    width: 150px;
-    border-style: solid;
+    font-size: 14px;
+    width: 80%;
+    height: 200px;
+    border-style: dotted;
     border-width: 1px;
     border-color: lightGrey;
     resize: none;

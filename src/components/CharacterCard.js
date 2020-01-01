@@ -44,7 +44,7 @@ class CharacterCard extends React.Component{
             <label>IMAGES</label><br></br>
             <StyledNavLink activeClassName="active" to={`/images/new`} style={{marginTop: "20px", fontSize: "16px"}} onClick={this.setCurrentCharacter}>＋</StyledNavLink>
             <ul style={{
-                width: "100%",
+                width: "95%",
                 display: "flex",
                 flexDirection: "row",
                 flexWrap: "wrap",
