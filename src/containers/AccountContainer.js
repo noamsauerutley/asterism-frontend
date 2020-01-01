@@ -20,7 +20,6 @@ justify: space-around;
 const StyledProfilePicture = styled.img`
 width: 100%;
 margin-bottom: 10px;
-opacity: .9;
 `
 
 const StyledProfilePictureContainer = styled.div`
@@ -28,10 +27,16 @@ margin: 0 auto;
 text-align: center;
 width: 250px;
 height: 300px;
-overflow: hidden;
+overflow-x: hidden;
+overflow-y: hidden;
 margin-top: 5%;
-border: double;
-border-color: ${colors.black}
+border: 1px double;
+outline: 2px solid;
+outline-offset: -10px;
+text-align: center;
+padding: 20px;
+opacity: .9;
+
 `
 
  
@@ -42,7 +47,9 @@ class AccountContainer extends React.Component {
       return ( 
          <StyledAccountContainer >
             <StyledProfilePictureContainer>
+               <div style={{width:"100%", height: "100%", overflowX: "hidden", overflowY: "hidden", textAlign: "center", margin: "0 auto"}}>
                <StyledProfilePicture src={`${this.props.image_url}`}  alt="user profile picture"/>
+               </div >
             </StyledProfilePictureContainer>
             < EditProfilePicture />
             < EditBio />

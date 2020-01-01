@@ -64,16 +64,18 @@ export const StyledSubmit = styled.input`
 
 export const StyledNoteCard = styled.li`
 margin: 5px;
-width: 45%;
+width: 40%;
 height: 200px;
 word-break: break-all;
 white-space: pre-wrap;
+padding: 15px;
 overflow: hidden;
 overflow-y: scroll;
 list-style: none;
 border: dotted;
 border-width: 1px;
 border-color: silver;
+text-align: center;
 `
 
 export const StyledUl =  styled.ul`

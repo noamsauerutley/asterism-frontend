@@ -15,8 +15,8 @@ const StyledFragmentLi = styled.li`
     border-color: ${colors.black};
     margin: 5px;
     display: block;
-    width: 375px;
-    height: 375px;
+    width: 425px;
+    height: auto;
     padding: 20px;
     outline: 2px solid;
     outline-color: ${colors.black};
@@ -25,7 +25,7 @@ const StyledFragmentLi = styled.li`
 
 
 const StyledFragmentDiv = styled.div`
-    height: 300px;
+    height: 95%;
     overflow: hidden;
     overflow-y: scroll;
 

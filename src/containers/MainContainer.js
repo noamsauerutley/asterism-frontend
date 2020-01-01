@@ -28,6 +28,7 @@ import NewScene from '../components/NewScene'
 import EditScene from '../components/EditScene'
 import NewPlotNote from '../components/NewPlotNote'
 import EditPlotNote from '../components/EditPlotNote'
+import NewAppearance from '../components/NewAppearance'
 import About from "../components/About"
 
 const StyledMainContainer = styled.div`
@@ -153,6 +154,10 @@ class MainContainer extends React.Component{
 
                     <Route exact path="/plot_notes/edit" >
                         < EditPlotNote />
+                    </Route>
+
+                    <Route exact path="/appearances/new" >
+                        <NewAppearance />
                     </Route>
 
                     <Route path="/login" >

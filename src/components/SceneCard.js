@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { StyledNavLink } from '../assets/StyledComponents'
+import { StyledNavLink, StyledNoteCard, StyledLabel, StyledUl } from '../assets/StyledComponents'
 import {set_current_scene, set_current_plot } from '../redux/actions'  
 import DeleteScene from './DeleteScene'
 import styled from 'styled-components'
@@ -15,12 +15,15 @@ class SceneCard extends React.Component{
    }
     render(){
         return(
-            <li style={{listStyle: "none"}} onClick={this.setCurrentScene}>
+            <StyledNoteCard onClick={this.setCurrentScene}>
                 <h5>{this.props.scene.name}</h5>
-                <p>{this.props.scene.summary}</p>
                 <StyledNavLink activeClassName="active" to="/scenes/edit" >✎   </StyledNavLink>
                 < DeleteScene scene={this.props.scene}/>
-            </li>
+                <p>{this.props.scene.summary}</p>
+                <StyledLabel>Appearances</StyledLabel><br></br>
+                <StyledNavLink activeClassName="active" to={`/appearances/new`} style={{marginTop: "20px", fontSize: "20px"}} >＋</StyledNavLink><br></br>
+                {(!!this.props.scene.characters && !!this.props.scene.characters.length) ? <StyledUl>{this.props.scene.characters.map(character => <li style={{listStyle: "none"}}>{character.name}</li>)}</StyledUl> : "None"}
+            </StyledNoteCard>
         )
     }
 }

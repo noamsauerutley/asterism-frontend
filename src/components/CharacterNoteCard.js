@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledNavLink } from '../assets/StyledComponents'
+import { StyledNavLink, StyledNoteCard } from '../assets/StyledComponents'
 import { connect } from 'react-redux'
 import DeleteCharacterNote from './DeleteCharacterNote'
 import { set_current_character_note, set_current_character } from '../redux/actions'
@@ -19,11 +19,11 @@ class CharacterNoteCard extends React.Component{
 }
    render(){
       return(
-      <StyledCharacterNoteCard  onClick={this.setCurrentCharacter}>
-         <li style={{listStyle: "none"}}>{this.props.character_note.text}</li>
+      <StyledNoteCard  onClick={this.setCurrentCharacter}>
+         <p>{this.props.character_note.text}</p>
          <StyledNavLink activeClassName="active" to="/character_notes/edit" onClick={this.setCurrentCharacterNote}>✎   </StyledNavLink>
          < DeleteCharacterNote character_note={this.props.character_note}/>
-      </StyledCharacterNoteCard>
+      </StyledNoteCard>
    )
 }}
 

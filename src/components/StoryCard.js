@@ -50,7 +50,7 @@ class StoryCard extends React.Component{
         return(
             <StyledStoryCard>
                     <StyledNavLink activeClassName="active" to={`/stories/${this.props.story.id}`} onClick={this.handleOnClick}>                            
-                        <h2>{this.props.story.title}</h2>
+                        <h2 style={{color: `${colors.black}`}}>{this.props.story.title}</h2>
                         <StyledStoryCardContent>{this.props.story.summary}</StyledStoryCardContent>
                     </StyledNavLink>
             </StyledStoryCard>
