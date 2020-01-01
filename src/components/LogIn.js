@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { login } from '../redux/actions'
 import { set_content, set_account_data } from '../redux/actions'
+import { StyledLabel, StyledTextInput } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -151,24 +152,27 @@ render(){
           <br></br>
           <form onSubmit={ this.logInSubmitted }>
             <br></br>
-            <label  htmlFor="log_in_username">Username</label>
+            <StyledLabel htmlFor="log_in_username">Username</StyledLabel>
             <br></br>
-            <input  id="log_in_username" 
-                    type="text" 
-                    onChange={ this.onChange /* for controlled form input status */ } 
-                    name="username" 
-                    value={ this.state.username /* for controlled form input status */ } />
-                    <br></br>
-                    <br></br>
-            <label  htmlFor="log_in_password">Password</label>
+            <StyledTextInput  
+              id="log_in_username" 
+              type="text" 
+              onChange={ this.onChange /* for controlled form input status */ } 
+              name="username" 
+              value={ this.state.username /* for controlled form input status */ } />
             <br></br>
-            <input  id="log_in_password" 
+            <br></br>
+            <StyledLabel htmlFor="log_in_password">Password</StyledLabel>
+            <br></br>
+            <StyledTextInput
+              id="log_in_password" 
                     type="password" 
                     onChange={ this.onChange } 
                     name="password" 
                     value={ this.state.password } />
                     <br></br><br></br>
-            <input type="submit" />
+            <StyledTextInput
+             type="submit" />
           </form>
         </section>
         :
@@ -178,33 +182,37 @@ render(){
           <br></br>
           <form onSubmit={ this.signUpSubmitted }>
           <br></br>
-            <label  htmlFor="sign_up_username">Username</label>
+            <StyledLabel  htmlFor="sign_up_username">Username</StyledLabel>
             <br></br>
-            <input  id="sign_up_username" 
+            <StyledTextInput
+              id="sign_up_username" 
                     type="text" 
                     onChange={ this.onChange } 
                     name="username" 
                     value={ this.state.username } />
                     <br></br><br></br>
-            <label  htmlFor="sign_up_password">Password</label>
+            <StyledLabel  htmlFor="sign_up_password">Password</StyledLabel>
             <br></br>
-            <input  id="sign_up_password" 
+            <StyledTextInput
+              id="sign_up_password" 
                     type="password" 
                     onChange={ this.onChange } 
                     name="password" 
                     value={ this.state.password } />
                     <br></br><br></br>
-            <label  htmlFor="sign_up_email">Email</label>
+            <StyledLabel  htmlFor="sign_up_email">Email</StyledLabel>
             <br></br>
-            <input  id="sign_up_email" 
+            <StyledTextInput
+              id="sign_up_email" 
                     type="text" 
                     onChange={ this.onChange } 
                     name="email" 
                     value={ this.state.email } />
                     <br></br> <br></br>
-            {/* <label  htmlFor="sign_up_image_url">Image URL</label> */}
+            {/* <StyledLabel  htmlFor="sign_up_image_url">Image URL</StyledLabel> */}
             {/* <br></br> */}
-            {/* <input  id="sign_up_image_url" 
+            {/* <StyledTextInput
+              id="sign_up_image_url" 
                     type="text" 
                     onChange={ this.onChange } 
                     name="image_url" 
@@ -213,9 +221,10 @@ render(){
                           event.preventDefault() 
                           this.showWidget(this.widget)}
                           }>Profile Picture</StyledButton>                    <br></br><br></br>
-                    <label  htmlFor="sign_up_bio">About Me</label>
+                    <StyledLabel  htmlFor="sign_up_bio">About Me</StyledLabel>
             <br></br>
-            <input  id="sign_up_bio" 
+            <StyledTextInput
+              id="sign_up_bio" 
                     type="text" 
                     onChange={ this.onChange } 
                     name="bio" 

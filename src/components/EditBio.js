@@ -2,25 +2,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { update_bio } from '../redux/actions'
-import { StyledSubmit } from '../assets/StyledComponents'
+import { StyledSubmit, StyledTextArea, StyledLabel } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
-
-const StyledEditBioTextarea = styled.textarea`
-    text-align: center;
-    font-family: Didot;
-    font-size: 14px;
-    width: 80%;
-    height: 200px;
-    border-style: dotted;
-    border-width: 1px;
-    border-color: lightGrey;
-    resize: none;
-    overflow-y: scroll;
-    white-space: pre-wrap;
-    color: ${colors.black}
-`
 
 class EditBio extends React.Component{
 
@@ -58,9 +43,10 @@ class EditBio extends React.Component{
     render(){
         return(
                 <form onSubmit={this.handleChangeBio}>
-                    <label style={{fontFamily: "Didot", color: `${colors.black}`}}>Change Bio</label>
+                    <StyledLabel style={{fontFamily: "Didot", color: `${colors.black}`}}>Change Bio</StyledLabel>
                     <br></br>
-                    <StyledEditBioTextarea
+                    <StyledTextArea
+                    style={{height: "200px", width: "60%"}}
                     autoComplete="new-bio"
                     onChange={ this.onChange /* for controlled form input status */ } 
                     name="bio" 

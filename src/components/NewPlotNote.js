@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_plot_note, set_current_plot_note, update_plot } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
+import { StyledTextArea, StyledSubmit, StyledLabel } from '../assets/StyledComponents'
+
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -54,17 +56,19 @@ onChange = event => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.newPlotNoteSubmitted }>
           <br></br>
-      <label  htmlFor="new_plot_note">NOTE</label>
+      <StyledLabel  htmlFor="new_plot_note">NOTE</StyledLabel>
       <br></br>
-      <textarea  
+      <StyledTextArea  
           style={{width: "80%", height: "300px"}}
           id="new_plot_note" 
           onChange={ this.onChange } 
           name="text" 
           value={ this.state.text } />
           <br></br><br></br>
-      <input type="submit" />
-  </form>
+          <StyledSubmit 
+                    type="submit" 
+                    value="✓"
+                    />  </form>
     } else{
       return < Redirect to={`/stories/${this.props.currentStory.id}`} />
     }

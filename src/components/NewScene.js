@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_scene, set_current_scene, update_plot } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -56,10 +57,9 @@ onChange = event => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.newSceneSubmitted }>
       <br></br>
-      <label  htmlFor="new_scene_name">NAME</label>
+      <StyledLabel  htmlFor="new_scene_name">NAME</StyledLabel>
       <br></br>
-      <input 
-          style={{width: "80%"}} 
+      <StyledTextInput 
           id="new_scene_name" 
           type="text" 
           onChange={ this.onChange /* for controlled form input status */ } 
@@ -67,17 +67,19 @@ onChange = event => {
           value={ this.state.name /* for controlled form input status */ } />
           <br></br>
           <br></br>
-      <label  htmlFor="new_scene_summary">SUMMARY</label>
+      <StyledLabel  htmlFor="new_scene_summary">SUMMARY</StyledLabel>
       <br></br>
-      <textarea  
+      <StyledTextArea  
           style={{width: "80%", height: "300px"}}
           id="new_scene_summary" 
           onChange={ this.onChange } 
           name="summary" 
           value={ this.state.summary } />
           <br></br><br></br>
-      <input type="submit" />
-  </form>
+          <StyledSubmit 
+                    type="submit" 
+                    value="✓"
+                    />  </form>
     } else{
       return < Redirect to={`/stories/${this.props.currentStory.id}`} />
     }

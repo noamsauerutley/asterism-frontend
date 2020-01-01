@@ -4,6 +4,7 @@ import { set_fragment } from '../redux/actions'
 import { Redirect } from 'react-router'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
 
 
 class NewFragment extends React.Component {
@@ -62,9 +63,9 @@ class NewFragment extends React.Component {
               <br></br>
               <form onSubmit={ this.newFragmentSubmitted }>
                   <br></br>
-                  <label  htmlFor="new_fragment_title">TITLE</label>
+                  <StyledLabel  htmlFor="new_fragment_title">TITLE</StyledLabel>
                   <br></br>
-                  <input 
+                  <StyledTextInput 
                       style={{width: "80%"}} 
                       id="new_fragment_title" 
                       type="text" 
@@ -73,17 +74,19 @@ class NewFragment extends React.Component {
                       value={ this.state.title /* for controlled form input status */ } />
                       <br></br>
                       <br></br>
-                  <label  htmlFor="new_fragment_text">TEXT</label>
+                  <StyledLabel  htmlFor="new_fragment_text">TEXT</StyledLabel>
                   <br></br>
-                  <textarea  
+                  <StyledTextArea  
                       style={{width: "80%", height: "300px"}}
                       id="new_fragment_text" 
                       onChange={ this.onChange } 
                       name="text" 
                       value={ this.state.text } />
                       <br></br><br></br>
-                  <input type="submit" />
-              </form>
+                      <StyledSubmit 
+                    type="submit" 
+                    value="✓"
+                    />              </form>
               </section>}
       }
 

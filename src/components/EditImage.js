@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_image, set_current_image, update_character} from '../redux/actions'
 import { Redirect } from 'react-router-dom'
-import { StyledButton, StyledSubmit } from '../assets/StyledComponents'
+import { StyledButton, StyledSubmit, StyledTextArea, StyledLabel } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -86,9 +86,9 @@ onChange = event => {
               this.showWidget(this.widget)}
             }>＋</ StyledButton>    
           <br></br>
-      <label  htmlFor="edit_image_note" style={{fontFamily: "Didot", color: `${colors.black}`}}>EDIT NOTE:</label>
+      <StyledLabel  htmlFor="edit_image_note" style={{fontFamily: "Didot", color: `${colors.black}`}}>EDIT NOTE:</StyledLabel>
       <br></br>
-      <textarea  
+      <StyledTextArea  
           style={{fontFamily: "Didot", width: "80%", height: "300px", borderColor: "lightGrey", resize: "none"}}
           id="edit_image_note" 
           onChange={ this.onChange } 

@@ -4,6 +4,8 @@ import { set_story } from '../redux/actions'
 import { Redirect } from 'react-router'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
+import { StyledTextArea, StyledSubmit, StyledLabel } from '../assets/StyledComponents'
+
 
 
 class NewStory extends React.Component {
@@ -62,10 +64,9 @@ class NewStory extends React.Component {
               <br></br>
               <form onSubmit={ this.newStorySubmitted }>
                   <br></br>
-                  <label  htmlFor="new_story_title">TITLE</label>
+                  <StyledLabel  htmlFor="new_story_title">TITLE</StyledLabel>
                   <br></br>
-                  <input 
-                      style={{width: "80%"}} 
+                  <StyledTextArea 
                       id="new_story_title" 
                       type="text" 
                       onChange={ this.onChange /* for controlled form input status */ } 
@@ -73,17 +74,19 @@ class NewStory extends React.Component {
                       value={ this.state.title /* for controlled form input status */ } />
                       <br></br>
                       <br></br>
-                  <label  htmlFor="new_story_summary">SUMMARY</label>
+                  <StyledLabel  htmlFor="new_story_summary">SUMMARY</StyledLabel>
                   <br></br>
-                  <textarea  
+                  <StyledTextArea  
                       style={{width: "80%", height: "300px"}}
                       id="new_story_summary" 
                       onChange={ this.onChange } 
                       name="summary" 
                       value={ this.state.summary } />
                       <br></br><br></br>
-                  <input type="submit" />
-              </form>
+                      <StyledSubmit 
+                    type="submit" 
+                    value="✓"
+                    />              </form>
               </section>}
       }
 

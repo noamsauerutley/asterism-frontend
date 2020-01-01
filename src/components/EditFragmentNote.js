@@ -4,6 +4,7 @@ import { update_fragment_note, set_current_fragment_note, update_fragment} from 
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
+import { StyledTextArea, StyledSubmit, StyledLabel } from '../assets/StyledComponents'
 
 
 class EditFragmentNote extends React.Component{
@@ -56,17 +57,19 @@ onChange = event => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.editFragmentNoteSubmitted }>
           <br></br>
-      <label  htmlFor="edit_fragment_note">NOTE</label>
+      <StyledLabel  htmlFor="edit_fragment_note">NOTE</StyledLabel>
       <br></br>
-      <textarea  
+      <StyledTextArea  
           style={{width: "80%", height: "300px"}}
           id="edit_fragment_note" 
           onChange={ this.onChange } 
           name="text" 
           value={ this.state.text } />
           <br></br><br></br>
-      <input type="submit" />
-  </form>
+          <StyledSubmit 
+                    type="submit" 
+                    value="✓"
+                    />  </form>
     } else{
       return < Redirect to='/fragments' />
     }

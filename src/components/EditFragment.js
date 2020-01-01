@@ -4,6 +4,7 @@ import { update_fragment } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
 
 
 class EditFragment extends React.Component{
@@ -56,10 +57,9 @@ onChange = event => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.editFragmentSubmitted }>
       <br></br>
-      <label  htmlFor="edit_fragment_title">TITLE</label>
+      <StyledLabel  htmlFor="edit_fragment_title">TITLE</StyledLabel>
       <br></br>
-      <input 
-          style={{width: "80%"}} 
+      <StyledTextInput
           id="edit_fragment_title" 
           type="text" 
           onChange={ this.onChange /* for controlled form input status */ } 
@@ -67,17 +67,19 @@ onChange = event => {
           value={ this.state.title /* for controlled form input status */ } />
           <br></br>
           <br></br>
-      <label  htmlFor="edit_fragment_text">TEXT</label>
+      <StyledLabel  htmlFor="edit_fragment_text">TEXT</StyledLabel>
       <br></br>
-      <textarea  
+      <StyledTextArea  
           style={{width: "80%", height: "300px"}}
           id="edit_fragment_text" 
           onChange={ this.onChange } 
           name="text" 
           value={ this.state.text } />
           <br></br><br></br>
-      <input type="submit" />
-  </form>
+          <StyledSubmit 
+                    type="submit" 
+                    value="✓"
+                    />  </form>
     } else{
       return < Redirect to='/fragments' />
     }

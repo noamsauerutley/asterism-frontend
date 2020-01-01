@@ -4,6 +4,7 @@ import { set_character } from '../redux/actions'
 import { Redirect } from 'react-router'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
 
 
 class NewCharacter extends React.Component {
@@ -58,9 +59,9 @@ class NewCharacter extends React.Component {
               <br></br>
               <form onSubmit={ this.newCharacterSubmitted }>
                   <br></br>
-                  <label  htmlFor="new_character_name">NAME</label>
+                  <StyledLabel  htmlFor="new_character_name">NAME</StyledLabel>
                   <br></br>
-                  <input 
+                  <StyledTextInput 
                       style={{width: "80%"}} 
                       id="new_character_name" 
                       type="text" 
@@ -69,17 +70,19 @@ class NewCharacter extends React.Component {
                       value={ this.state.name /* for controlled form input status */ } />
                       <br></br>
                       <br></br>
-                  <label  htmlFor="new_character_description">DESCRIPTION</label>
+                  <StyledLabel  htmlFor="new_character_description">DESCRIPTION</StyledLabel>
                   <br></br>
-                  <textarea  
+                  <StyledTextArea  
                       style={{width: "80%", height: "300px"}}
                       id="new_character_description" 
                       onChange={ this.onChange } 
                       name="description" 
                       value={ this.state.description } />
                       <br></br><br></br>
-                  <input type="submit" />
-              </form>
+                      <StyledSubmit 
+                    type="submit" 
+                    value="✓"
+                    />              </form>
               </section>}
       }
 

@@ -42,7 +42,7 @@ class StoryDetail extends React.Component{
     
     render(){
         return(
-        <StyledStoryDetail style={{textAlign: "center", marginTop: "10%"}}>
+        <StyledStoryDetail style={{textAlign: "center"}}>
             <div style={{ width: "95%", borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
             <h2>{this.props.currentStory.title}</h2>
             <StyledNavLink activeClassName="active" to="/stories/edit" >✎   </StyledNavLink>

@@ -4,6 +4,7 @@ import { set_plot } from '../redux/actions'
 import { Redirect } from 'react-router'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
 
 
 class NewPlot extends React.Component {
@@ -62,10 +63,9 @@ class NewPlot extends React.Component {
               <br></br>
               <form onSubmit={ this.newPlotSubmitted }>
                   <br></br>
-                  <label  htmlFor="new_plot_name">NAME</label>
+                  <StyledLabel  htmlFor="new_plot_name">NAME</StyledLabel>
                   <br></br>
-                  <input 
-                      style={{width: "80%"}} 
+                  <StyledTextInput 
                       id="new_plot_name" 
                       type="text" 
                       onChange={ this.onChange /* for controlled form input status */ } 
@@ -73,17 +73,19 @@ class NewPlot extends React.Component {
                       value={ this.state.name /* for controlled form input status */ } />
                       <br></br>
                       <br></br>
-                  <label  htmlFor="new_plot_summary">SUMMARY</label>
+                  <StyledLabel  htmlFor="new_plot_summary">SUMMARY</StyledLabel>
                   <br></br>
-                  <textarea  
+                  <StyledTextArea   
                       style={{width: "80%", height: "300px"}}
                       id="new_plot_summary" 
                       onChange={ this.onChange } 
                       name="summary" 
                       value={ this.state.summary } />
                       <br></br><br></br>
-                  <input type="submit" />
-              </form>
+                      <StyledSubmit 
+                    type="submit" 
+                    value="✓"
+                    />              </form>
               </section>}
       }
 

@@ -4,6 +4,7 @@ import { update_plot_note, set_current_plot_note, update_plot } from '../redux/a
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
+import { StyledTextArea, StyledSubmit, StyledLabel } from '../assets/StyledComponents'
 
 
 class EditPlotNote extends React.Component{
@@ -54,17 +55,19 @@ onChange = event => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.editPlotNoteSubmitted }>
           <br></br>
-      <label  htmlFor="edit_plot_note">NOTE</label>
+      <StyledLabel  htmlFor="edit_plot_note">NOTE</StyledLabel>
       <br></br>
-      <textarea  
+      <StyledTextArea  
           style={{width: "80%", height: "300px"}}
           id="edit_plot_note" 
           onChange={ this.onChange } 
           name="text" 
           value={ this.state.text } />
           <br></br><br></br>
-      <input type="submit" />
-  </form>
+          <StyledSubmit 
+                    type="submit" 
+                    value="✓"
+                    />  </form>
     } else{
       return < Redirect to={`/stories/${this.props.currentStory.id}`} />
     }

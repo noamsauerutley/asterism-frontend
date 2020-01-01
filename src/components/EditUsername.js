@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { set_username } from '../redux/actions'
-import { StyledSubmit } from '../assets/StyledComponents'
+import { StyledSubmit, StyledLabel, StyledTextInput} from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -45,24 +45,15 @@ class EditUsername extends React.Component{
         return(
             <div>
                 <form onSubmit={this.handleChangeUsername}>
-                <label style={{fontFamily: "Didot", color: `${colors.black}`}}>Change Username</label>
+                <StyledLabel >Change Username</StyledLabel>
                 <br></br>
-                <input
-                style={{
-                    width: "50%",
-                    borderStyle: "dotted",
-                    borderWidth: "1px",
-                    borderColor: "lightGrey",
-                    fontFamily: "Didot",
-                    fontSize: "14px",
-                    color: `${colors.black}`,
-                    textAlign: "center"
-                }}
-                type="text"
-                autoComplete="new-username"
-                onChange={ this.onChange /* for controlled form input status */ } 
-                name="username" 
-                value={ this.state.username /* for controlled form input status */ } 
+                <StyledTextInput
+                    style={{width: "50%"}}
+                    type="text"
+                    autoComplete="new-username"
+                    onChange={ this.onChange /* for controlled form input status */ } 
+                    name="username" 
+                    value={ this.state.username /* for controlled form input status */ } 
                 />
                 <br></br>
                 <StyledSubmit 

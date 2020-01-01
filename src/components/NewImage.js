@@ -2,9 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_image, update_character } from '../redux/actions'
 import { Redirect } from 'react-router'
-import { StyledButton, StyledSubmit } from '../assets/StyledComponents'
+import { StyledButton, StyledSubmit, StyledLabel } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
+import { StyledTextArea } from '../assets/StyledComponents'
 
 class NewImage extends React.Component {
     constructor(props){
@@ -92,9 +93,9 @@ class NewImage extends React.Component {
                           }>＋</StyledButton>
                       <br></br>
                       <br></br>
-                  <label  htmlFor="new_image_note">NOTE</label>
+                  <StyledLabel  htmlFor="new_image_note">NOTE</StyledLabel>
                   <br></br>
-                  <textarea  
+                  <StyledTextArea  
                       style={{width: "80%", height: "300px"}}
                       id="new_image_note" 
                       onChange={ this.onChange } 

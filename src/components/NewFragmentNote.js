@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_fragment_note, update_fragment } from '../redux/actions'
 import { Redirect } from 'react-router'
+import { StyledTextArea, StyledSubmit, StyledLabel } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -61,17 +62,19 @@ class NewFragmentNote extends React.Component {
               <br></br>
               <form onSubmit={ this.newFragmentNoteSubmitted }>
                   <br></br>
-                  <label  htmlFor="new_fragment_note">NOTE</label>
+                  <StyledLabel  htmlFor="new_fragment_note">NOTE</StyledLabel>
                   <br></br>
-                  <textarea  
+                  <StyledTextArea  
                       style={{width: "80%", height: "300px"}}
                       id="new_fragment_note" 
                       onChange={ this.onChange } 
                       name="text" 
                       value={ this.state.text } />
                       <br></br><br></br>
-                  <input type="submit" />
-              </form>
+                      <StyledSubmit 
+                    type="submit" 
+                    value="✓"
+                    />              </form>
               </section>}
       }
 

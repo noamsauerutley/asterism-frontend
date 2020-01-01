@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StyledSubmit } from '../assets/StyledComponents'
+import { StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
 import { colors } from '../assets/colors'
 
 
@@ -23,18 +23,10 @@ class EditPassword extends React.Component{
     render(){
         return(
             <form onSubmit={this.handleChangePassword}>
-              <label style={{fontFamily: "Didot", color: `${colors.black}`}}>Change Password</label>
+              <StyledLabel style={{fontFamily: "Didot", color: `${colors.black}`}}>Change Password</StyledLabel>
          <br></br>  
-        <input
-          style={{
-            width: "50%",
-            borderStyle: "dotted",
-            borderWidth: "1px",
-            borderColor: "lightGrey",
-            fontFamily: "Didot",
-            color: `${colors.black}`,
-            textAlign: "center"
-        }}
+        <StyledTextInput
+          style={{width: "50%"}}
           type="password"
           value={this.state.password}
           onChange={this.onChange}

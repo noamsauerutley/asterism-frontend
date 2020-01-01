@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledNavLink} from '../assets/StyledComponents'
+import { StyledNavLink, StyledUl, StyledLabel } from '../assets/StyledComponents'
 import { connect } from "react-redux"
 import { set_current_fragment } from '../redux/actions' 
 import FragmentNoteCard from './FragmentNoteCard'
@@ -11,7 +11,7 @@ const StyledFragmentLi = styled.li`
     font-family: "Times New Roman";
     white-space: pre-wrap;
     list-style: none;
-    border: dashed 1px;
+    border: dotted 1px;
     border-color: ${colors.black};
     margin: 5px;
     display: block;
@@ -23,12 +23,6 @@ const StyledFragmentLi = styled.li`
     outline-offset: -10px;
 `
 
-const StyledUl =  styled.ul`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-`
 
 const StyledFragmentDiv = styled.div`
     height: 300px;
@@ -58,7 +52,7 @@ class FragmentCard extends React.Component {
             <p
             style={{whiteSpace: "pre-wrap"}}
             >{this.props.fragment.text}</p>
-            <label>NOTES</label><br></br>
+            <StyledLabel>NOTES</StyledLabel><br></br>
             <StyledNavLink activeClassName="active" to={`/fragment_notes/new`} style={{marginTop: "20px", fontSize: "18px", fontWeight: "bold"}} onClick={this.handleOnClick}>＋</StyledNavLink>
             <StyledUl>{!!this.props.fragment.fragment_notes ? this.props.fragment.fragment_notes.map(fragment_note => < FragmentNoteCard fragment_note={fragment_note} fragment={this.props.fragment}/>) : "You haven't added any notes to this fragment."}</StyledUl>
             </StyledFragmentDiv>
