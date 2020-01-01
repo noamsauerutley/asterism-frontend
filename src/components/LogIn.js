@@ -5,6 +5,19 @@ import { set_content, set_account_data } from '../redux/actions'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
+const StyledButton = styled.button`
+  background: transparent;
+  font-family: Didot;
+  color: ${colors.black};
+  font-size: 16px;
+`
+
+const StyledInput = styled.input`
+  background: transparent;
+  font-family: Didot;
+  color: ${colors.black};
+  font-size: 16px;
+`
 
 
 class LogIn extends React.Component {
@@ -134,7 +147,7 @@ render(){
         ? 
         <section>
           <h2 >Log In</h2>
-          <button onClick={ () => this.setState({ logIn: false }) }>Switch to Sign Up</button>
+          <StyledButton onClick={ () => this.setState({ logIn: false }) }>Sign Up</StyledButton>
           <br></br>
           <form onSubmit={ this.logInSubmitted }>
             <br></br>
@@ -161,7 +174,7 @@ render(){
         :
         <section>
           <h2>Sign Up</h2>
-          <button onClick={ () => this.setState({ logIn: true }) }>Switch to Log In</button>
+          <StyledButton onClick={ () => this.setState({ logIn: true }) }>Log In</StyledButton>
           <br></br>
           <form onSubmit={ this.signUpSubmitted }>
           <br></br>
@@ -181,7 +194,7 @@ render(){
                     name="password" 
                     value={ this.state.password } />
                     <br></br><br></br>
-            <label  htmlFor="sign_up_email">email</label>
+            <label  htmlFor="sign_up_email">Email</label>
             <br></br>
             <input  id="sign_up_email" 
                     type="text" 
@@ -189,18 +202,18 @@ render(){
                     name="email" 
                     value={ this.state.email } />
                     <br></br> <br></br>
-            <label  htmlFor="sign_up_image_url">Image URL</label>
-            <br></br>
+            {/* <label  htmlFor="sign_up_image_url">Image URL</label> */}
+            {/* <br></br> */}
             {/* <input  id="sign_up_image_url" 
                     type="text" 
                     onChange={ this.onChange } 
                     name="image_url" 
                     value={ this.state.image_url } /> */}
-<button onClick={(event) => {
+<StyledButton onClick={(event) => {
                           event.preventDefault() 
                           this.showWidget(this.widget)}
-                          }>ADD IMAGE</button>                    <br></br><br></br>
-                    <label  htmlFor="sign_up_bio">bio</label>
+                          }>Profile Picture</StyledButton>                    <br></br><br></br>
+                    <label  htmlFor="sign_up_bio">About Me</label>
             <br></br>
             <input  id="sign_up_bio" 
                     type="text" 
@@ -208,7 +221,7 @@ render(){
                     name="bio" 
                     value={ this.state.bio } />
                     <br></br><br></br>
-                    <input type="submit" />
+                    <StyledInput type="submit" />
           </form>
         </section>
       }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { StyledNavLink } from '../assets/StyledComponents'
 import {set_current_scene, set_current_plot } from '../redux/actions'  
 import DeleteScene from './DeleteScene'
 import styled from 'styled-components'
@@ -18,7 +18,7 @@ class SceneCard extends React.Component{
             <li style={{listStyle: "none"}} onClick={this.setCurrentScene}>
                 <h5>{this.props.scene.name}</h5>
                 <p>{this.props.scene.summary}</p>
-                <NavLink to="/scenes/edit" style={{color: "black", textDecoration: "none"}} >✎   </NavLink>
+                <StyledNavLink activeClassName="active" to="/scenes/edit" >✎   </StyledNavLink>
                 < DeleteScene scene={this.props.scene}/>
             </li>
         )

@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { StyledNavLink } from '../assets/StyledComponents'
 import StoryCard from '../components/StoryCard'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
 const StyledStoriesContainer = styled.div`
 font-family: "Didot";
+color: ${colors.black};
 `
 
 const StoriesContainer = (props) => {
@@ -15,7 +16,7 @@ const StoriesContainer = (props) => {
  
          <StyledStoriesContainer style={{textAlign: "Center"}}>
             <h1 >MY LIBRARY:</h1>
-            <NavLink to="/stories/new" style={{marginTop: "20px", color: "black", textDecorationColor: "black", fontSize: "24px"}}>NEW STORY</NavLink>
+            <StyledNavLink activeClassName="active" to="/stories/new" style={{marginTop: "20px", textDecoration: "none", fontWeight: "bold", fontSize: "24px"}}>＋</StyledNavLink>
             <ul style={{
           width: "100%",
           display: "flex",

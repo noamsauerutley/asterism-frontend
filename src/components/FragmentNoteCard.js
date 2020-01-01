@@ -2,7 +2,7 @@ import React from 'react'
 import DeleteFragmentNote from './DeleteFragmentNote'
 import { set_current_fragment_note, set_current_fragment } from '../redux/actions'
 import { connect } from 'react-redux'
-import { NavLink} from 'react-router-dom'
+import { StyledNavLink} from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -22,7 +22,7 @@ class FragmentNoteCard extends React.Component{
     render(){
         return <StyledFragmentNoteCard onClick={this.setCurrentFragmentNote}>
             <p>{this.props.fragment_note.text}</p>
-            <NavLink to="/fragment_notes/edit" style={{color: "black", textDecoration: "none"}} >✎    </NavLink>
+            <StyledNavLink activeClassName="active" to="/fragment_notes/edit" >✎   </StyledNavLink>
             < DeleteFragmentNote fragment_note={this.props.fragment_note} fragment={this.props.fragment}/>
     </StyledFragmentNoteCard>
     }

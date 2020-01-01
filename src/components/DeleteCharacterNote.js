@@ -1,20 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink} from 'react-router-dom'
+import { StyledNavLink} from '../assets/StyledComponents'
 import { delete_character_note, update_character } from '../redux/actions'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
-const StyledDeleteCharacterNote = styled(NavLink)`
-    background-color: Transparent;
-    color: black;
-    style: none;
-    font-family: Didot;
-    font-size; 18px;
-    text-decoration: none;
-    margin-top: 10px;
+// const StyledDeleteCharacterNote = styled(NavLink)`
+//     background-color: Transparent;
+//     color: black;
+//     style: none;
+//     font-family: Didot;
+//     font-size; 18px;
+//     text-decoration: none;
+//     margin-top: 10px;
 
-`
+// `
 
 class DeleteCharacterNote extends React.Component{
 
@@ -36,7 +36,7 @@ class DeleteCharacterNote extends React.Component{
 
     render(){
         return(
-            <StyledDeleteCharacterNote to={`/stories/${this.props.currentStory.id}`} onClick={this.delete} >✕</StyledDeleteCharacterNote>
+            <StyledNavLink activeClassName="active" to={`/stories/${this.props.currentStory.id}`} onClick={this.delete} >✕</StyledNavLink>
         )}
 }
 

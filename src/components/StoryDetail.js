@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink} from 'react-router-dom'
+import { StyledNavLink} from '../assets/StyledComponents'
 import PlotCard from './PlotCard'
 import CharacterCard from './CharacterCard'
 import DeleteStory from './DeleteStory'
@@ -43,22 +43,22 @@ class StoryDetail extends React.Component{
     render(){
         return(
         <StyledStoryDetail style={{textAlign: "center", marginTop: "10%"}}>
-            <NavLink to="/stories/edit" style={{color: "black", textDecoration: "none"}}>✎   </NavLink>
+            <StyledNavLink activeClassName="active" to="/stories/edit" >✎   </StyledNavLink>
+            < DeleteStory story={this.props.currentStory} />
             <div style={{ borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
             {/* <label style={{fontWeight: "bold"}}>TITLE: </label> */}
             <h2>{this.props.currentStory.title}</h2>
             {/* <label style={{fontWeight: "bold"}}>SUMMARY:</label> */}
             <p >{this.props.currentStory.summary}</p>
-            < DeleteStory story={this.props.currentStory} />
             </div>
             <div style={{ borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
                 <h4>PLOT ARCS:</h4>
-                    <NavLink to={`/plots/new`} style={{marginTop: "20px", color: "black", textDecoration: "none", fontSize:"20px"}}>＋</NavLink><br></br>
+                    <StyledNavLink activeClassName="active" to={`/plots/new`} style={{marginTop: "20px", color: "black", textDecoration: "none", fontSize:"20px"}}>＋</StyledNavLink><br></br>
                     {this.storyPlots()}<br></br>
             </div>
             <div>
             <h3>CHARACTERS:</h3>
-                <NavLink to={`/characters/new`} style={{marginTop: "20px", color: "black", textDecoration: "none", fontSize:"20px"}}>＋</NavLink><br></br>
+                <StyledNavLink activeClassName="active" to={`/characters/new`} style={{marginTop: "20px", color: "black", textDecoration: "none", fontSize:"20px"}}>＋</StyledNavLink><br></br>
                 {this.storyCharacters()} <br></br>
             </div>
         </StyledStoryDetail>

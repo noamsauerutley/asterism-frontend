@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { update_email } from '../redux/actions'
+import { StyledSubmit } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -43,11 +44,17 @@ class EditEmail extends React.Component{
         return(
             <div>
                 <form onSubmit={this.handleChangeEmail}>
+                <label style={{fontFamily: "Didot", color: `${colors.black}`}}>Change Email</label>
                 <br></br>
                 <input
                 style={{
                     width: "150px",
-                    borderColor: "Transparent"
+                    borderStyle: "solid",
+                    borderWidth: "1px",
+                    borderColor: "lightGrey",
+                    fontFamily: "Didot",
+                    color: `${colors.black}`,
+                    textAlign: "center"
                 }}
                 type="text"
                 autoComplete="new-email"
@@ -56,17 +63,9 @@ class EditEmail extends React.Component{
                 value={ this.state.email /* for controlled form input status */ } 
                 />
                 <br></br>
-                <input 
+                <StyledSubmit 
                 type="submit" 
-                value="Change Email"
-                style={{
-                    background: "Transparent",
-                    borderColor: "Transparent",
-                    width: "150px",
-                    fontFamily: "Didot",
-                    fontSize: "16px",
-                    margin: "8px"
-                }}
+                value="✓"
                 />
             </form> 
           </div> 

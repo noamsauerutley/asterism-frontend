@@ -35,8 +35,10 @@ width: 92vw;
 heigh: 100vh;
 bottom: 0px;
 border: 1px double;
+border-color: ${colors.black};
 outline: 2px solid;
 outline-offset: -10px;
+outline-color: ${colors.black};
 text-align: center;
 margin: 15px 15px 15px 15px;
 padding: 20px;
@@ -93,7 +95,7 @@ class MainContainer extends React.Component{
                     </Route>
 
                     <Route exact path="/stories/:id" >
-                        < StoryDetail />}
+                        < StoryDetail />
                     </Route>
 
                     <Route exact path="/plots/new" >

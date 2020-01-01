@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { StyledNavLink } from '../assets/StyledComponents'
 import { connect } from 'react-redux'
 import DeleteCharacterNote from './DeleteCharacterNote'
 import { set_current_character_note, set_current_character } from '../redux/actions'
@@ -21,7 +21,7 @@ class CharacterNoteCard extends React.Component{
       return(
       <StyledCharacterNoteCard  onClick={this.setCurrentCharacter}>
          <li style={{listStyle: "none"}}>{this.props.character_note.text}</li>
-         <NavLink to="/character_notes/edit" style={{color: `${colors.black}`, textDecoration: "none"}} onClick={this.setCurrentCharacterNote}>✎   </NavLink>
+         <StyledNavLink activeClassName="active" to="/character_notes/edit" onClick={this.setCurrentCharacterNote}>✎   </StyledNavLink>
          < DeleteCharacterNote character_note={this.props.character_note}/>
       </StyledCharacterNoteCard>
    )

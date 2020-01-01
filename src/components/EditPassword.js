@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { StyledSubmit } from '../assets/StyledComponents'
 import { colors } from '../assets/colors'
 
 
@@ -22,11 +23,17 @@ class EditPassword extends React.Component{
     render(){
         return(
             <form onSubmit={this.handleChangePassword}>
+              <label style={{fontFamily: "Didot", color: `${colors.black}`}}>Change Password</label>
          <br></br>  
         <input
           style={{
             width: "150px",
-            borderColor: "Transparent"
+            borderStyle: "solid",
+            borderWidth: "1px",
+            borderColor: "lightGrey",
+            fontFamily: "Didot",
+            color: `${colors.black}`,
+            textAlign: "center"
         }}
           type="password"
           value={this.state.password}
@@ -35,17 +42,10 @@ class EditPassword extends React.Component{
           autoComplete="new-password"
         />
         <br></br>
-        <input 
+        <StyledSubmit 
         type="submit"  
-        value="Change Password"
-        style={{
-          background: "Transparent",
-          borderColor: "Transparent",
-          width: "150px",
-          fontFamily: "Didot",
-          fontSize: "16px",
-          margin: "8px"
-      }}/>
+        value="✓"
+        />
       </form>
         )
     }

@@ -6,6 +6,7 @@ import { colors } from '../assets/colors'
 
 const StyledLogin = styled.section`
 font-family: "Didot";
+color: ${colors.black};
 `
 
 const LoginContainer = (props) => {

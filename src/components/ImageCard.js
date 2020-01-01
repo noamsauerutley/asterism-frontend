@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import DeleteImage from './DeleteImage'
 import { set_current_character, set_current_image } from '../redux/actions'
-import { NavLink } from 'react-router-dom'
+import { StyledNavLink } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -20,6 +20,8 @@ outline-offset: -10px;
 text-align: center;
 margin: 15px 15px 15px 15px;
 padding: 20px;
+opacity: .9;
+}
 `
 
 
@@ -38,7 +40,7 @@ class ImageCard extends React.Component {
         </div>
         <p>{this.props.image.note}</p>
         <div  onClick={this.setCurrentCharacter}>
-            <NavLink to="/images/edit" style={{color: "black", textDecoration: "none"}} onClick={this.setCurrentImage}>✎   </NavLink>
+            <StyledNavLink activeClassName="active" to="/images/edit" onClick={this.setCurrentImage}>✎   </StyledNavLink>
             < DeleteImage image={this.props.image}/>
         </div>
     </StyledImageCard>

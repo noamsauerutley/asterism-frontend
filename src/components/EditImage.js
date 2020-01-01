@@ -2,10 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_image, set_current_image, update_character} from '../redux/actions'
 import { Redirect } from 'react-router-dom'
+import { StyledButton } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
-
+const StyledSubmitInput = styled.input`
+background: Transparent
+    border-color: lightGrey;
+    font-family: Didot;
+    font-size: 16px;
+    margin: 40px;
+    color: \`${colors.black}\`
+`
 class EditImage extends React.Component{
   
   state = {
@@ -13,6 +21,10 @@ class EditImage extends React.Component{
     note: this.props.currentImage.note,
     redirectBoolean: false,
     errors: []
+}
+
+showWidget = (widget) => {
+  widget.open()
 }
 
 editImageSubmitted = async (event) => {
@@ -53,31 +65,44 @@ onChange = event => {
     })
   }
 
+  imageUpload = () => {
+    if(!this.widget){
+        this.widget = window.cloudinary.createUploadWidget({
+            cloudName: "noamesu",
+            uploadPreset: "storyboard",
+            sources: ['local', 'url']
+        }, (error, result) => {
+            if(result.event ==="success"){
+                this.setState({
+                    image_url: result.info.secure_url
+                })
+                console.log(this.state)
+            }   
+        }) 
+    }
+  }
+
   conditionalRender = () => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.editImageSubmitted }>
-      <br></br>
-      <label  htmlFor="edit_image_url">URL</label>
-      <br></br>
-      <input 
-          style={{width: "80%"}} 
-          id="edit_image_url" 
-          type="text" 
-          onChange={ this.onChange /* for controlled form input status */ } 
-          name="image_url" 
-          value={ this.state.image_url /* for controlled form input status */ } />
+          {this.imageUpload()}
+          < StyledButton 
+            style={{fontSize: "18px", border: "1px", marginTop: "10px", borderColor: "lightGrey"}}
+            onClick={(event) => {
+              event.preventDefault() 
+              this.showWidget(this.widget)}
+            }>New Image</ StyledButton>    
           <br></br>
-          <br></br>
-      <label  htmlFor="edit_image_note">NOTE</label>
+      <label  htmlFor="edit_image_note" style={{fontFamily: "Didot", color: `${colors.black}`}}>EDIT NOTE:</label>
       <br></br>
       <textarea  
-          style={{width: "80%", height: "300px"}}
+          style={{width: "80%", height: "300px", borderColor: "lightGrey", resize: "none"}}
           id="edit_image_note" 
           onChange={ this.onChange } 
           name="note" 
           value={ this.state.note } />
           <br></br><br></br>
-      <input type="submit" />
+      <StyledSubmitInput type="submit" value="SAVE IMAGE"/>
   </form>
     } else{
       return < Redirect to={`/stories/${this.props.currentStory.id}`} />

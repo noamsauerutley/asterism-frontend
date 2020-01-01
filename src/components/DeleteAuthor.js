@@ -1,16 +1,8 @@
   
 import React from 'react';
+import { StyledButton } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
-
-const StyledDeleteAuthor = styled.button`
-    margin-top: 10px;
-    background: Transparent;
-    border: Transparent;
-    font-family: Didot;
-    font-size: 18px;
-    color: black;
-`
 
 class DeleteAuthor extends React.Component{
 
@@ -26,7 +18,7 @@ class DeleteAuthor extends React.Component{
 
     render(){
         return(
-            <StyledDeleteAuthor aria-label="Delete Account" onClick={this.delete}>Delete</StyledDeleteAuthor>
+            <StyledButton aria-label="Delete Account" onClick={this.delete} style={{ marginTop: "10px", fontSize: "18px"}}>Delete Account</StyledButton>
         )
     }
 }

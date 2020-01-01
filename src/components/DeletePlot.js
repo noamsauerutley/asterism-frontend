@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink} from 'react-router-dom'
+import { StyledNavLink} from '../assets/StyledComponents'
 import { delete_plot } from '../redux/actions'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
@@ -24,7 +24,7 @@ class DeletePlot extends React.Component{
 
     render(){
         return(
-            <NavLink to={`/stories/${this.props.plot.story_id}`} onClick={this.delete} style={{color: "black", textDecoration: "none"}}>✕</NavLink>
+            <StyledNavLink activeClassName="active" to={`/stories/${this.props.plot.story_id}`} onClick={this.delete} >✕</StyledNavLink>
         )}
 }
 

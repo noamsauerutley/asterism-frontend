@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { StyledNavLink } from '../assets/StyledComponents'
 import {set_current_plot_note, set_current_plot} from '../redux/actions'  
 import DeletePlotNote from './DeletePlotNote'
 import styled from 'styled-components'
@@ -17,7 +17,7 @@ class PlotNoteCard extends React.Component {
 
       return <li style={{listStyle: "none"}} onClick={this.setCurrentPlotNote}>
          {this.props.plot_note.text}<br></br>
-         <NavLink to="/plot_notes/edit" style={{color: "black", textDecoration: "none"}} >✎   </NavLink>
+         <StyledNavLink activeClassName="active" to="/plot_notes/edit" >✎   </StyledNavLink>
          < DeletePlotNote plot_note={this.props.plot_note}/><br></br>
          </li>
    }

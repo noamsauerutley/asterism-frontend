@@ -2,15 +2,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { update_bio } from '../redux/actions'
+import { StyledSubmit } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
 
 const StyledEditBioTextarea = styled.textarea`
+    text-align: center;
+    font-family: Didot;
     width: 150px;
-    border-color: Transparent;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightGrey;
     resize: none;
-    overflowY: scroll;
+    overflow-y: scroll;
+    white-space: pre-wrap;
+    color: ${colors.black}
 `
 
 class EditBio extends React.Component{
@@ -49,26 +56,19 @@ class EditBio extends React.Component{
     render(){
         return(
                 <form onSubmit={this.handleChangeBio}>
-                <br></br>
-                <StyledEditBioTextarea
-                autoComplete="new-bio"
-                onChange={ this.onChange /* for controlled form input status */ } 
-                name="bio" 
-                value={ this.state.bio /* for controlled form input status */ } 
-                />
-                <br></br>
-                <input 
-                type="submit" 
-                value="Edit Bio"
-                style={{
-                    background: "Transparent",
-                    borderColor: "Transparent",
-                    width: "150px",
-                    fontFamily: "Didot",
-                    fontSize: "16px",
-                    margin: "8px"
-                }}
-                />
+                    <label style={{fontFamily: "Didot", color: `${colors.black}`}}>Change Bio</label>
+                    <br></br>
+                    <StyledEditBioTextarea
+                    autoComplete="new-bio"
+                    onChange={ this.onChange /* for controlled form input status */ } 
+                    name="bio" 
+                    value={ this.state.bio /* for controlled form input status */ } 
+                    />
+                    <br></br>
+                    <StyledSubmit 
+                    type="submit" 
+                    value="✓"
+                    />
             </form> 
         )
     }

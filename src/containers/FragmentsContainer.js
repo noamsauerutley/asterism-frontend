@@ -1,13 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { StyledNavLink } from '../assets/StyledComponents'
 import FragmentCard from '../components/FragmentCard'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
 
 const StyledFragmentsContainer = styled.div`
+  width: 95%;
   font-family: "Didot";
+  color: ${colors.black};
 `
 
 const StyledFragmentsUl = styled.ul`
@@ -16,6 +18,8 @@ const StyledFragmentsUl = styled.ul`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  text-align: center;
+  color: ${colors.black};
 `
 
 
@@ -23,9 +27,9 @@ class FragmentsContainer extends React.Component{
     
     render(){
    return ( 
-      <StyledFragmentsContainer style={{textAlign: "Center"}}>
+      <StyledFragmentsContainer >
         <h1>MY FRAGMENTS</h1>
-        <NavLink to="/fragments/new" style={{marginTop: "20px", color: "black", textDecorationColor: "black", fontSize: "24px"}}>NEW FRAGMENT</NavLink>
+        <StyledNavLink activeClassName="active" to="/fragments/new" style={{marginTop: "20px", fontWeight: "bold", fontSize: "24px"}}>＋</StyledNavLink>
          <div style={{textAlign: "center"}}>
         <StyledFragmentsUl>
         {!!this.props.fragments.length ? this.props.fragments.map(fragment => <FragmentCard fragment={fragment} />) : "You haven't added any fragments yet!"}

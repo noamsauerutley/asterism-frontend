@@ -6,8 +6,9 @@ font-family: "Didot";
 text-align: center;
 justify: space-around;
 white-space: pre-wrap;
-margin-top: 10%
-height: 60vh
+margin-top: 10%;
+height: 60vh;
+color: ${colors.black}
 `
 
 const About = (props) => {

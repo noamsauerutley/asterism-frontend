@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink} from 'react-router-dom'
+import { StyledNavLink} from '../assets/StyledComponents'
 import { connect } from "react-redux"
 import { set_current_fragment } from '../redux/actions' 
 import FragmentNoteCard from './FragmentNoteCard'
@@ -49,10 +49,10 @@ class FragmentCard extends React.Component {
             <p
             style={{whiteSpace: "pre-wrap"}}
             >{this.props.fragment.text}</p>
-            <NavLink to={`/fragments/edit`} style={{color: "black", textDecoration: "none"}} onClick={this.handleOnClick}>✎    </NavLink>
+            <StyledNavLink activeClassName="active" to={`/fragments/edit`} onClick={this.handleOnClick}>✎    </StyledNavLink>
             < DeleteFragment /><br></br><br></br>
             <label>NOTES</label><br></br>
-            <NavLink to={`/fragment_notes/new`} style={{marginTop: "20px", color: "black", textDecoration: "none"}} onClick={this.handleOnClick}>＋</NavLink>
+            <StyledNavLink activeClassName="active" to={`/fragment_notes/new`} style={{marginTop: "20px", fontSize: "18px", fontWeight: "bold"}} onClick={this.handleOnClick}>＋</StyledNavLink>
             <ul>{!!this.props.fragment.fragment_notes ? this.props.fragment.fragment_notes.map(fragment_note => < FragmentNoteCard fragment_note={fragment_note} fragment={this.props.fragment}/>) : "You haven't added any notes to this fragment."}</ul>
             </StyledFragmentDiv>
         </StyledFragmentLi>
