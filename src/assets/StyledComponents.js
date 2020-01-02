@@ -48,7 +48,7 @@ export const StyledSubmit = styled.input`
     margin: 40px;
     color: ${colors.black};
 
-    transition: color.7s;
+    transition: color .7s ease-in-out;
 
 
     &:hover{
@@ -64,7 +64,7 @@ export const StyledSubmit = styled.input`
 
 export const StyledNoteCard = styled.li`
 margin: 5px;
-width: 40%;
+width: 35%;
 height: 200px;
 word-break: break-all;
 white-space: pre-wrap;

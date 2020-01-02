@@ -15,7 +15,7 @@ const StyledFragmentLi = styled.li`
     border-color: ${colors.black};
     margin: 5px;
     display: block;
-    width: 425px;
+    width: 500px;
     height: auto;
     padding: 20px;
     outline: 2px solid;

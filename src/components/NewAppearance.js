@@ -7,8 +7,28 @@ import { colors } from '../assets/colors'
 import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
 
 const StyledSelect = styled.select`
+  margin: 0 auto;
+  width: 40%;
+  height: 40px;
   font-family: Didot;
-`
+  display: block;
+  font-size: 18px;
+  color: ${colors.black};
+  background: Transparent;
+  border: 1px solid;
+  border-color: silver;
+  box-sizing: border-box;
+	border-radius: 0;
+  transition: color .7s ease-in-out, border-color .7s ease-in-out;
+
+  &:hover{
+    border-color: ${colors.lightGreen}
+  }
+
+  &:focus{
+    color: ${colors.lightGreen};
+  }
+  `
 
 class NewAppearance extends React.Component{
 
@@ -59,11 +79,12 @@ class NewAppearance extends React.Component{
         if(this.state.redirectBoolean === true){
            return <Redirect to={`/stories/${this.props.currentStory.id}`} />} 
            else {
-           return <section style={{textAlign: "center"}}>
-              <h2 >ADD CHARACTER</h2>
+           return <section style={{textAlign: "center", marginTop: "5%", height: "65vh"}} >
+              <StyledLabel style={{marginTop:"25px", fontSize: "18px"}}>Add Character</StyledLabel>
               <br></br>
-              <form onSubmit={ this.newCharacterSubmitted }>
+              <form onSubmit={ this.newCharacterSubmitted } style={{margin: "50px"}}>
                 <StyledSelect 
+                activeClassName="active"
                 onChange={ this.onChange /* for controlled form input status */ } 
                 name="character_name"
                 value={ this.state.character_name  /* for controlled form input status */ }

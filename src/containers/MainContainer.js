@@ -30,6 +30,8 @@ import NewPlotNote from '../components/NewPlotNote'
 import EditPlotNote from '../components/EditPlotNote'
 import NewAppearance from '../components/NewAppearance'
 import About from "../components/About"
+import NoMatch from '../components/NoMatch'
+import ErrorBoundary from './ErrorBoundary'
 
 const StyledMainContainer = styled.div`
 z-index: 2;
@@ -68,6 +70,7 @@ class MainContainer extends React.Component{
     }
 
     render(){return(
+        <ErrorBoundary>
         <StyledMainContainer>
         <Router>
         <NavBar />
@@ -175,9 +178,13 @@ class MainContainer extends React.Component{
                     <Route exact path='/'> 
                         {this.isUser()}
                     </Route>
+
+                    <Route component={NoMatch} />
+
                 </Switch>
             </Router>
         </StyledMainContainer>
+        </ErrorBoundary>
     )}
 }
 
