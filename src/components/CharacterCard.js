@@ -50,7 +50,7 @@ class CharacterCard extends React.Component{
 
     render(){
         return <StyledCharacterCard onClick={this.setCurrentCharacter}>
-            <h5>{this.props.character.name}</h5>
+            <h3>{this.props.character.name}</h3>
             <StyledNavLink activeClassName="active" to="/characters/edit" >✎   </StyledNavLink>
             <StyledNavLink activeClassName="active" to={`/stories/${this.props.character.story_id}`} onClick={this.delete}>✕</StyledNavLink><br></br>
             <p>{this.props.character.description}</p><br></br>

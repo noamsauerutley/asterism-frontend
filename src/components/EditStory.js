@@ -4,7 +4,7 @@ import { update_story } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
-import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
 
 
 class EditStory extends React.Component{
@@ -56,8 +56,9 @@ onChange = event => {
   conditionalRender = () => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.editStorySubmitted }>
+        <StyledHeader>Edit Story:</StyledHeader>
       <br></br>
-      <StyledLabel  htmlFor="new_story_title">TITLE</StyledLabel>
+      <StyledLabel  htmlFor="new_story_title">Title</StyledLabel>
       <br></br>
       <StyledTextInput
           id="new_story_title" 
@@ -67,7 +68,7 @@ onChange = event => {
           value={ this.state.title /* for controlled form input status */ } />
           <br></br>
           <br></br>
-      <StyledLabel  htmlFor="new_story_summary">SUMMARY</StyledLabel>
+      <StyledLabel  htmlFor="new_story_summary">Summary</StyledLabel>
       <br></br>
       <StyledTextArea  
           style={{width: "80%", height: "300px"}}

@@ -4,7 +4,7 @@ import { set_character } from '../redux/actions'
 import { Redirect } from 'react-router'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
-import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
 
 
 class NewCharacter extends React.Component {
@@ -55,11 +55,11 @@ class NewCharacter extends React.Component {
            return <Redirect to={`/stories/${this.props.currentStory.id}`} />} 
            else {
            return <section style={{textAlign: "center"}}>
-              <h2 >ADD CHARACTER</h2>
+              <StyledHeader>Add Character</StyledHeader>
               <br></br>
               <form onSubmit={ this.newCharacterSubmitted }>
                   <br></br>
-                  <StyledLabel  htmlFor="new_character_name">NAME</StyledLabel>
+                  <StyledLabel  htmlFor="new_character_name">Name</StyledLabel>
                   <br></br>
                   <StyledTextInput 
                       style={{width: "80%"}} 
@@ -70,7 +70,7 @@ class NewCharacter extends React.Component {
                       value={ this.state.name /* for controlled form input status */ } />
                       <br></br>
                       <br></br>
-                  <StyledLabel  htmlFor="new_character_description">DESCRIPTION</StyledLabel>
+                  <StyledLabel  htmlFor="new_character_description">Description</StyledLabel>
                   <br></br>
                   <StyledTextArea  
                       style={{width: "80%", height: "300px"}}

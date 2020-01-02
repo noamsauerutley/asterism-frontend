@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { update_bio } from '../redux/actions'
-import { StyledSubmit, StyledTextArea, StyledLabel } from '../assets/StyledComponents'
+import { StyledSubmit, StyledTextArea, StyledLabel, StyledHeader } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -43,7 +43,7 @@ class EditBio extends React.Component{
     render(){
         return(
                 <form onSubmit={this.handleChangeBio}>
-                    <StyledLabel style={{fontFamily: "Didot", color: `${colors.black}`}}>Change Bio</StyledLabel>
+                    <StyledHeader>Change Bio</StyledHeader>
                     <br></br>
                     <StyledTextArea
                     style={{height: "200px", width: "60%"}}

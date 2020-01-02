@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_image, set_current_image, update_character} from '../redux/actions'
 import { Redirect } from 'react-router-dom'
-import { StyledButton, StyledSubmit, StyledTextArea, StyledLabel } from '../assets/StyledComponents'
+import { StyledButton, StyledSubmit, StyledTextArea, StyledLabel, StyledHeader } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -78,15 +78,16 @@ onChange = event => {
   conditionalRender = () => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.editImageSubmitted }>
+        <StyledHeader>Edit Character Image:</StyledHeader>
           {this.imageUpload()}
           < StyledButton 
-            style={{fontSize: "18px", border: "1px", marginTop: "10px", borderColor: "lightGrey"}}
+            style={{fontSize: "18px", fontWeight: "bold", border: "1px", marginTop: "10px", borderColor: "lightGrey"}}
             onClick={(event) => {
               event.preventDefault() 
               this.showWidget(this.widget)}
             }>＋</ StyledButton>    
           <br></br>
-      <StyledLabel  htmlFor="edit_image_note" style={{fontFamily: "Didot", color: `${colors.black}`}}>EDIT NOTE:</StyledLabel>
+      <StyledLabel  htmlFor="edit_image_note" style={{fontFamily: "Didot", color: `${colors.black}`}}>Image Note</StyledLabel>
       <br></br>
       <StyledTextArea  
           style={{fontFamily: "Didot", width: "80%", height: "300px", borderColor: "lightGrey", resize: "none"}}

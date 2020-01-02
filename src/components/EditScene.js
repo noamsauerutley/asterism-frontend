@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_scene, set_current_scene, update_plot } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
-import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -56,8 +56,9 @@ onChange = event => {
   conditionalRender = () => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.editSceneSubmitted }>
+        <StyledHeader>Edit Scene: </StyledHeader>
       <br></br>
-      <StyledLabel  htmlFor="edit_scene_name">NAME</StyledLabel>
+      <StyledLabel  htmlFor="edit_scene_name">Name</StyledLabel>
       <br></br>
       <StyledTextInput
           id="edit_scene_name" 
@@ -67,7 +68,7 @@ onChange = event => {
           value={ this.state.name /* for controlled form input status */ } />
           <br></br>
           <br></br>
-      <StyledLabel  htmlFor="edit_scene_summary">SUMMARY</StyledLabel>
+      <StyledLabel  htmlFor="edit_scene_summary">Summary</StyledLabel>
       <br></br>
       <StyledTextArea  
           style={{width: "80%", height: "300px"}}

@@ -35,7 +35,7 @@ class ImageCard extends React.Component {
     render(){
     return(
     <StyledImageCard>
-        <div style={{width:"100%", overflowX: "hidden", textAlign: "center", margin: "0 auto"}}>
+        <div style={{width:"100%", overflowX: "hidden", overflowY: "scroll", textAlign: "center", margin: "0 auto"}}>
         <img src={this.props.image.image_url} alt={`character #${this.props.image.character_id} image`} style={{height: "250px", width: "auto"}}/>
         </div>
         <p>{this.props.image.note}</p>

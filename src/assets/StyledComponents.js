@@ -66,7 +66,6 @@ export const StyledNoteCard = styled.li`
 margin: 5px;
 width: 35%;
 height: 200px;
-word-break: break-all;
 white-space: pre-wrap;
 padding: 15px;
 overflow: hidden;
@@ -114,4 +113,10 @@ export const StyledTextArea = styled.textarea`
 export const StyledLabel = styled.label`
     font-family: Didot;
     font-color: ${colors.black}
+`
+
+export const StyledHeader = styled.h3`
+  font-family: Didot;
+  color: ${colors.black};
+  margin-top: 5%;
 `

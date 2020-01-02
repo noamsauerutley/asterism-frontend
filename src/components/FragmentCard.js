@@ -48,7 +48,7 @@ class FragmentCard extends React.Component {
             <StyledFragmentDiv>
             <h3>{this.props.fragment.title}</h3>
             <StyledNavLink activeClassName="active" to={`/fragments/edit`} onClick={this.handleOnClick}>✎    </StyledNavLink>
-            < DeleteFragment />
+            < DeleteFragment fragment={this.props.fragment}/>
             <p
             style={{whiteSpace: "pre-wrap"}}
             >{this.props.fragment.text}</p>

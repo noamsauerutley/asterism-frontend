@@ -4,7 +4,7 @@ import { update_fragment_note, set_current_fragment_note, update_fragment} from 
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
-import { StyledTextArea, StyledSubmit, StyledLabel } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledHeader } from '../assets/StyledComponents'
 
 
 class EditFragmentNote extends React.Component{
@@ -56,8 +56,9 @@ onChange = event => {
   conditionalRender = () => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.editFragmentNoteSubmitted }>
+        <StyledHeader>Edit Fragment Note:</StyledHeader>
           <br></br>
-      <StyledLabel  htmlFor="edit_fragment_note">NOTE</StyledLabel>
+      <StyledLabel  htmlFor="edit_fragment_note">Text</StyledLabel>
       <br></br>
       <StyledTextArea  
           style={{width: "80%", height: "300px"}}

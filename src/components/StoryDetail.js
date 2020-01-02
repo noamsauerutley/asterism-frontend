@@ -47,7 +47,7 @@ class StoryDetail extends React.Component{
             <h2>{this.props.currentStory.title}</h2>
             <StyledNavLink activeClassName="active" to="/stories/edit" >✎   </StyledNavLink>
             < DeleteStory story={this.props.currentStory} />
-            <p >{this.props.currentStory.summary}</p>
+            <p style={{whiteSpace: "pre-wrap"}}>{this.props.currentStory.summary}</p>
             </div>
             <div style={{ width: "95%", borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
                 <h4>PLOT ARCS:</h4>

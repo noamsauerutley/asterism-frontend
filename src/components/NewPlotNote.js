@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_plot_note, set_current_plot_note, update_plot } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
-import { StyledTextArea, StyledSubmit, StyledLabel } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledHeader } from '../assets/StyledComponents'
 
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
@@ -55,8 +55,9 @@ onChange = event => {
   conditionalRender = () => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.newPlotNoteSubmitted }>
+        <StyledHeader>New Plot Note:</StyledHeader>
           <br></br>
-      <StyledLabel  htmlFor="new_plot_note">NOTE</StyledLabel>
+      <StyledLabel  htmlFor="new_plot_note">Text</StyledLabel>
       <br></br>
       <StyledTextArea  
           style={{width: "80%", height: "300px"}}

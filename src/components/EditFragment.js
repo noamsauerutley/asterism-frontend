@@ -4,7 +4,7 @@ import { update_fragment } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
-import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
 
 
 class EditFragment extends React.Component{
@@ -56,8 +56,9 @@ onChange = event => {
   conditionalRender = () => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.editFragmentSubmitted }>
+        <StyledHeader>Edit Fragment:</StyledHeader>
       <br></br>
-      <StyledLabel  htmlFor="edit_fragment_title">TITLE</StyledLabel>
+      <StyledLabel  htmlFor="edit_fragment_title">Title</StyledLabel>
       <br></br>
       <StyledTextInput
           id="edit_fragment_title" 
@@ -67,7 +68,7 @@ onChange = event => {
           value={ this.state.title /* for controlled form input status */ } />
           <br></br>
           <br></br>
-      <StyledLabel  htmlFor="edit_fragment_text">TEXT</StyledLabel>
+      <StyledLabel  htmlFor="edit_fragment_text">Text</StyledLabel>
       <br></br>
       <StyledTextArea  
           style={{width: "80%", height: "300px"}}
@@ -107,4 +108,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditFragment)
+export default connect(mapStateToProps, mapDispatchToProps)(EditFragment) 

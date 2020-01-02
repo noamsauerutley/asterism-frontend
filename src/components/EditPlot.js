@@ -4,7 +4,7 @@ import { update_plot, set_current_plot } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
-import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
 
 
 class EditPlot extends React.Component{
@@ -60,8 +60,9 @@ onChange = event => {
   conditionalRender = () => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.editPlotSubmitted }>
+        <StyledHeader>Edit Plot Arc:</StyledHeader>
       <br></br>
-      <StyledLabel  htmlFor="edit_plot_name">NAME</StyledLabel>
+      <StyledLabel  htmlFor="edit_plot_name">Name</StyledLabel>
       <br></br>
       <StyledTextInput
           id="edit_plot_name" 
@@ -71,7 +72,7 @@ onChange = event => {
           value={ this.state.name /* for controlled form input status */ } />
           <br></br>
           <br></br>
-      <StyledLabel  htmlFor="edit_plot_summary">SUMMARY</StyledLabel>
+      <StyledLabel  htmlFor="edit_plot_summary">Summary</StyledLabel>
       <br></br>
       <StyledTextArea  
           style={{width: "80%", height: "300px"}}

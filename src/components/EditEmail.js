@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { update_email } from '../redux/actions'
-import { StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
+import { StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -44,7 +44,7 @@ class EditEmail extends React.Component{
         return(
             <div>
                 <form onSubmit={this.handleChangeEmail}>
-                <StyledLabel style={{fontFamily: "Didot", color: `${colors.black}`}}>Change Email</StyledLabel>
+                <StyledHeader>Change Email</StyledHeader>
                 <br></br>
                 <StyledTextInput
                 style={{width: "50%"}}

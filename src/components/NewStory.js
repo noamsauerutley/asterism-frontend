@@ -4,7 +4,7 @@ import { set_story } from '../redux/actions'
 import { Redirect } from 'react-router'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
-import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
 
 
 
@@ -60,11 +60,11 @@ class NewStory extends React.Component {
            else {
              console.log(this.state)
            return <section style={{textAlign: "center"}}>
-              <h2 >NEW STORY</h2>
+              <StyledHeader >New Story:</StyledHeader>
               <br></br>
               <form onSubmit={ this.newStorySubmitted }>
                   <br></br>
-                  <StyledLabel  htmlFor="new_story_title">TITLE</StyledLabel>
+                  <StyledLabel  htmlFor="new_story_title">Title</StyledLabel>
                   <br></br>
                   <StyledTextInput 
                       id="new_story_title" 
@@ -74,7 +74,7 @@ class NewStory extends React.Component {
                       value={ this.state.title /* for controlled form input status */ } />
                       <br></br>
                       <br></br>
-                  <StyledLabel  htmlFor="new_story_summary">SUMMARY</StyledLabel>
+                  <StyledLabel  htmlFor="new_story_summary">Summary</StyledLabel>
                   <br></br>
                   <StyledTextArea  
                       style={{width: "80%", height: "300px"}}

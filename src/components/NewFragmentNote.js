@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_fragment_note, update_fragment } from '../redux/actions'
 import { Redirect } from 'react-router'
-import { StyledTextArea, StyledSubmit, StyledLabel } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledHeader } from '../assets/StyledComponents'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -58,11 +58,11 @@ class NewFragmentNote extends React.Component {
            else {
              console.log(this.state)
            return <section style={{textAlign: "center"}}>
-              <h2 >NEW NOTE</h2>
+              <StyledHeader >New Note:</StyledHeader>
               <br></br>
               <form onSubmit={ this.newFragmentNoteSubmitted }>
                   <br></br>
-                  <StyledLabel  htmlFor="new_fragment_note">NOTE</StyledLabel>
+                  <StyledLabel  htmlFor="new_fragment_note">Text</StyledLabel>
                   <br></br>
                   <StyledTextArea  
                       style={{width: "80%", height: "300px"}}

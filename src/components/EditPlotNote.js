@@ -4,7 +4,7 @@ import { update_plot_note, set_current_plot_note, update_plot } from '../redux/a
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
-import { StyledTextArea, StyledSubmit, StyledLabel } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledHeader } from '../assets/StyledComponents'
 
 
 class EditPlotNote extends React.Component{
@@ -54,8 +54,9 @@ onChange = event => {
   conditionalRender = () => {
     if(this.state.redirectBoolean===false){
       return <form onSubmit={ this.editPlotNoteSubmitted }>
+        <StyledHeader>Edit Plot Arc Note:</StyledHeader>
           <br></br>
-      <StyledLabel  htmlFor="edit_plot_note">NOTE</StyledLabel>
+      <StyledLabel  htmlFor="edit_plot_note">Text</StyledLabel>
       <br></br>
       <StyledTextArea  
           style={{width: "80%", height: "300px"}}

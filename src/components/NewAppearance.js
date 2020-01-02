@@ -4,7 +4,7 @@ import { set_appearance, update_scene, update_plot, update_story} from '../redux
 import { Redirect } from 'react-router'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
-import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
 
 const StyledSelect = styled.select`
   margin: 0 auto;
@@ -80,7 +80,7 @@ class NewAppearance extends React.Component{
            return <Redirect to={`/stories/${this.props.currentStory.id}`} />} 
            else {
            return <section style={{textAlign: "center", marginTop: "5%", height: "65vh"}} >
-              <StyledLabel style={{marginTop:"25px", fontSize: "18px"}}>Add Character</StyledLabel>
+              <StyledHeader style={{marginTop:"25px", fontSize: "18px"}}>Add Character</StyledHeader>
               <br></br>
               <form onSubmit={ this.newCharacterSubmitted } style={{margin: "50px"}}>
                 <StyledSelect 

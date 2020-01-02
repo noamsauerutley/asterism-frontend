@@ -4,7 +4,7 @@ import { set_character_note, update_character } from '../redux/actions'
 import { Redirect } from 'react-router'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
-import { StyledTextArea, StyledSubmit, StyledLabel } from '../assets/StyledComponents'
+import { StyledTextArea, StyledSubmit, StyledLabel, StyledHeader } from '../assets/StyledComponents'
 
 
 class NewCharacterNote extends React.Component {
@@ -58,11 +58,11 @@ class NewCharacterNote extends React.Component {
            else {
              console.log(this.state)
            return <section style={{textAlign: "center"}}>
-              <h2 >NEW CHARACTER NOTE</h2>
+              <StyledHeader >New Character Note:</StyledHeader>
               <br></br>
               <form onSubmit={ this.newCharacterNoteSubmitted }>
                   <br></br>
-                  <StyledLabel  htmlFor="new_character_note">NOTE</StyledLabel>
+                  <StyledLabel  htmlFor="new_character_note">Text</StyledLabel>
                   <br></br>
                   <StyledTextArea  
                       style={{width: "80%", height: "300px"}}
