@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { StyledNavLink} from '../assets/StyledComponents'
-import { delete_scene, update_plot } from '../redux/actions'
+import { delete_scene, update_plot, update_story } from '../redux/actions'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -18,6 +18,7 @@ class DeleteScene extends React.Component {
         })
         this.props.delete_scene(this.props.scene.id)
         this.props.update_plot(this.props.currentPlot) 
+        this.props.update_story(this.props.currentStory)
     } 
 
     render(){
@@ -41,6 +42,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         update_plot: (currentPlot) => {
             dispatch(update_plot(currentPlot))
+        },
+        update_story: (currentStory) => {
+            dispatch(update_story(currentStory))
         }
     }
 }

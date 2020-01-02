@@ -1,11 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { set_appearance, update_scene} from '../redux/actions'
+import { set_appearance, update_scene, update_plot, update_story} from '../redux/actions'
 import { Redirect } from 'react-router'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
 
+const StyledSelect = styled.select`
+  font-family: Didot;
+`
 
 class NewAppearance extends React.Component{
 
@@ -17,8 +20,6 @@ class NewAppearance extends React.Component{
     
     newCharacterSubmitted = async (event) => {
         event.preventDefault()
-        console.log(this.props.currentScene)
-        console.log(this.state)
         let rawAppearance = await fetch ('http://localhost:3000/appearances', 
         {
             method: "POST",
@@ -38,6 +39,9 @@ class NewAppearance extends React.Component{
             })
           } else {
         this.props.set_appearance(appearance)
+        console.log(appearance)
+        this.props.update_scene(this.props.currentScene)
+        this.props.update_plot(this.props.currentPlot)
         this.props.update_story(this.props.currentStory)
         this.setState({
           redirectBoolean: true
@@ -59,14 +63,14 @@ class NewAppearance extends React.Component{
               <h2 >ADD CHARACTER</h2>
               <br></br>
               <form onSubmit={ this.newCharacterSubmitted }>
-                <select 
+                <StyledSelect 
                 onChange={ this.onChange /* for controlled form input status */ } 
                 name="character_name"
                 value={ this.state.character_name  /* for controlled form input status */ }
                 >
                   <option>Select Character:</option>
                 {this.props.currentStory.characters.map (character => <option>{character.name}</option>)}
-                </select>
+                </StyledSelect>
                       <StyledSubmit 
                     type="submit" 
                     value="✓"
@@ -85,8 +89,14 @@ class NewAppearance extends React.Component{
 const mapDispatchToProps = (dispatch) => {
     return {
         update_scene: (scene) => {
-            dispatch(update_scene(scene))
-        },
+          dispatch(update_scene(scene))
+      },
+      update_plot: (plot) => {
+        dispatch(update_plot(plot))
+    }, 
+      update_story: (story) => {
+        dispatch(update_story(story))
+    },
         set_appearance: (appearance) => {
             dispatch(set_appearance(appearance))
         }

@@ -2,7 +2,7 @@ import React from 'react'
 import CharacterNoteCard from './CharacterNoteCard'
 import ImageCard from './ImageCard'
 import { connect } from 'react-redux'
-import { set_current_character, delete_character } from '../redux/actions'
+import { set_current_character, delete_character, update_story } from '../redux/actions'
 import { StyledNavLink, StyledLabel, StyledUl} from '../assets/StyledComponents'
 import { colors } from '../assets/colors'
 import styled from 'styled-components'
@@ -23,14 +23,15 @@ class CharacterCard extends React.Component{
 
 
      delete = async () => {
-        this.props.delete_character(this.props.character.id)
-        await fetch(`http://localhost:3000/characters/${this.props.character.id}`, {
-            method: 'DELETE',
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": localStorage.token
-            }
-        })
+         await fetch(`http://localhost:3000/characters/${this.props.character.id}`, {
+             method: 'DELETE',
+             headers: {
+                 "Content-Type": "application/json",
+                 "Authorization": localStorage.token
+                }
+            })
+            this.props.delete_character(this.props.character.id)
+            this.props.update_story(this.props.curentStory)
         console.log(this.props.character.id)
         console.log(this.props.character, "deleted!")
     } 
@@ -46,7 +47,7 @@ class CharacterCard extends React.Component{
             <StyledUl>
                 {!!this.props.character.images ? this.props.character.images.map(image => <ImageCard image={image} />) : ""}</StyledUl>
                 <StyledLabel>NOTES:</StyledLabel><br></br>
-                <StyledNavLink activeClassName="active" to={`/character_notes/new`} style={{marginTop: "20px", fontSize: "20px", fontWeight: "bold"}} onClick={this.setCurrentCharacter}>＋</StyledNavLink>
+                <StyledNavLink activeClassName="active" to={`/character_notes/new`} style={{marginTop: "20px", fontSize: "20px"}} onClick={this.setCurrentCharacter}>＋</StyledNavLink>
             <StyledUl>{!!this.props.character.character_notes ? this.props.character.character_notes.map(character_note => < CharacterNoteCard character_note={character_note}/>) : "You haven't added any notes to this character."}</StyledUl>
 
         </StyledCharacterCard>
@@ -59,6 +60,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         set_current_character: currentCharacter => {
             dispatch(set_current_character(currentCharacter))
+        },
+        update_story: currentStory => {
+            dispatch(update_story(currentStory))
         }
     }
 }

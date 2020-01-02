@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { StyledNavLink, StyledNoteCard, StyledLabel, StyledUl } from '../assets/StyledComponents'
 import {set_current_scene, set_current_plot } from '../redux/actions'  
 import DeleteScene from './DeleteScene'
+import DeleteAppearance from './DeleteAppearance'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
@@ -22,7 +23,12 @@ class SceneCard extends React.Component{
                 <p>{this.props.scene.summary}</p>
                 <StyledLabel>Appearances</StyledLabel><br></br>
                 <StyledNavLink activeClassName="active" to={`/appearances/new`} style={{marginTop: "20px", fontSize: "20px"}} >＋</StyledNavLink><br></br>
-                {(!!this.props.scene.characters && !!this.props.scene.characters.length) ? <StyledUl>{this.props.scene.characters.map(character => <li style={{listStyle: "none"}}>{character.name}</li>)}</StyledUl> : "None"}
+                {(!!this.props.scene.characters && !!this.props.scene.characters.length) ? <StyledUl>{this.props.scene.characters.map(character => 
+                    <li style={{listStyle: "none"}}>
+                        {character.name}
+                        < DeleteAppearance character_id={character.id} scene_id={this.props.scene.id}/>
+                        </li>)}
+                </StyledUl> : "None"}
             </StyledNoteCard>
         )
     }

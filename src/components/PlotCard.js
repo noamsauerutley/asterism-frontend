@@ -17,7 +17,7 @@ class PlotCard extends React.Component{
 
     render(){
         return <li style={{listStyle: "none"}}>
-    <div style={{border: "dotted", borderWidth: "1px", width: "px", height: "500px", margin: "40px",  overflow: "hidden", overflowY: "scroll"}}>
+    <div style={{border: "dotted", borderWidth: "1px", width: "500px", height: "500px", margin: "40px",  overflow: "hidden", overflowY: "scroll"}}>
         <h5>{this.props.plot.name}</h5>
         <StyledNavLink activeClassName="active" to="/plots/edit" onClick={this.setCurrentPlot}>✎   </StyledNavLink>
         < DeletePlot plot={this.props.plot}/>

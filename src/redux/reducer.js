@@ -1,10 +1,11 @@
-import { LOGIN, LOGOUT, LOAD, SET_CONTENT, SET_ACCOUNT_DATA, SET_USERNAME, UPDATE_PROFILE_PICTURE, UPDATE_EMAIL, UPDATE_BIO, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE, SET_CHARACTER_NOTE, UPDATE_CHARACTER_NOTE, DELETE_CHARACTER_NOTE, SET_CURRENT_CHARACTER_NOTE, SET_FRAGMENT_NOTE, UPDATE_FRAGMENT_NOTE, DELETE_FRAGMENT_NOTE, SET_CURRENT_FRAGMENT_NOTE, SET_SCENE, UPDATE_SCENE, DELETE_SCENE, SET_CURRENT_SCENE, SET_PLOT_NOTE, UPDATE_PLOT_NOTE, DELETE_PLOT_NOTE, SET_CURRENT_PLOT_NOTE, SET_APPEARANCE} from './actionTypes'
+import { LOGIN, LOGOUT, LOAD, SET_CONTENT, SET_ACCOUNT_DATA, SET_USERNAME, UPDATE_PROFILE_PICTURE, UPDATE_EMAIL, UPDATE_BIO, SET_STORY, UPDATE_STORY, DELETE_STORY, SET_CURRENT_STORY, SET_FRAGMENT, UPDATE_FRAGMENT, SET_CURRENT_FRAGMENT, DELETE_FRAGMENT, SET_PLOT, UPDATE_PLOT, DELETE_PLOT, SET_CURRENT_PLOT, SET_CHARACTER, SET_CURRENT_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER, SET_IMAGE, UPDATE_IMAGE, DELETE_IMAGE, SET_CURRENT_IMAGE, SET_CHARACTER_NOTE, UPDATE_CHARACTER_NOTE, DELETE_CHARACTER_NOTE, SET_CURRENT_CHARACTER_NOTE, SET_FRAGMENT_NOTE, UPDATE_FRAGMENT_NOTE, DELETE_FRAGMENT_NOTE, SET_CURRENT_FRAGMENT_NOTE, SET_SCENE, UPDATE_SCENE, DELETE_SCENE, SET_CURRENT_SCENE, SET_PLOT_NOTE, UPDATE_PLOT_NOTE, DELETE_PLOT_NOTE, SET_CURRENT_PLOT_NOTE, SET_APPEARANCE, DELETE_APPEARANCE} from './actionTypes'
 
 const initialState = {
     token: "",
     user_id: "",
     stories: [],
     fragments: [],
+    appearances: [],
     username: "",
     email: "",
     image_url: "",
@@ -262,13 +263,24 @@ export const reducer = (state = initialState, action) => {
         case SET_CURRENT_PLOT_NOTE:
             return {...state, currentPlotNote: action.payload} 
         case SET_APPEARANCE:
+            const newAppearanceCharacter = state.currentStory.characters.find(character => character.id === action.payload.character_id)
             return {
                 ...state, 
                 currentScene: {
                     ...state.currentScene,
-                    characters:[action.payload, ...state.currentScene.characters]
-                }
+                    characters:[...state.currentScene.characters, newAppearanceCharacter]
+                },
+                appearances: [...state.appearances, action.payload]
             }
+            case DELETE_APPEARANCE:
+                return{
+                    ...state,
+                    currentScene: {
+                        ...state.currentScene,
+                        characters: [...state.currentScene.characters.filter(character => character.id !== action.payload.character_id)]
+                    },
+                    appearances: [...state.appearances.filter(appearance => appearance.id !== action.payload.id)]
+                    }
         default: 
             return state
     }
