@@ -14,7 +14,7 @@ class EditBio extends React.Component{
     }
 
     editBio = async (newBio) => {
-        let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
+        let rawData = await fetch(`https://asterism-api.herokuapp.com/authors/${localStorage.user_id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

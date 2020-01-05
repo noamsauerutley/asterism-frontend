@@ -20,7 +20,7 @@ class EditPlot extends React.Component{
 
 editPlotSubmitted = async (event) => {
     event.preventDefault()
-    let rawEditedPlot = await fetch (`http://localhost:3000/plots/${this.props.currentPlot.id}`, 
+    let rawEditedPlot = await fetch (`https://asterism-api.herokuapp.com/plots/${this.props.currentPlot.id}`, 
       {
           method: "PATCH",
           headers: {

@@ -15,7 +15,7 @@ class DeleteAppearance extends React.Component {
         console.log(this.props.scene_id)
         console.log(this.props.appearances)
         console.log(this.appearance)
-        await fetch(`http://localhost:3000/appearances/${this.appearance.id}`, {
+        await fetch(`https://asterism-api.herokuapp.com/appearances/${this.appearance.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",

@@ -20,7 +20,7 @@ class EditCharacter extends React.Component{
 
 editCharacterSubmitted = async (event) => {
     event.preventDefault()
-    let rawEditedCharacter = await fetch (`http://localhost:3000/characters/${this.props.currentCharacter.id}`, 
+    let rawEditedCharacter = await fetch (`https://asterism-api.herokuapp.com/characters/${this.props.currentCharacter.id}`, 
       {
           method: "PATCH",
           headers: {

@@ -18,7 +18,7 @@ class EditScene extends React.Component{
 
 editSceneSubmitted = async (event) => {
     event.preventDefault()
-    let rawEditedScene = await fetch (`http://localhost:3000/scenes/${this.props.currentScene.id}`, 
+    let rawEditedScene = await fetch (`https://asterism-api.herokuapp.com/scenes/${this.props.currentScene.id}`, 
       {
           method: "PATCH",
           headers: {

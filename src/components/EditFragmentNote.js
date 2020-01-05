@@ -17,7 +17,7 @@ class EditFragmentNote extends React.Component{
 
 editFragmentNoteSubmitted = async (event) => {
     event.preventDefault()
-    let rawEditedFragmentNote = await fetch (`http://localhost:3000/fragment_notes/${this.props.currentFragmentNote.id}`, 
+    let rawEditedFragmentNote = await fetch (`https://asterism-api.herokuapp.com/fragment_notes/${this.props.currentFragmentNote.id}`, 
       {
           method: "PATCH",
           headers: {

@@ -40,7 +40,7 @@ class NewAppearance extends React.Component{
     
     newCharacterSubmitted = async (event) => {
         event.preventDefault()
-        let rawAppearance = await fetch ('http://localhost:3000/appearances', 
+        let rawAppearance = await fetch ('https://asterism-api.herokuapp.com/appearances', 
         {
             method: "POST",
             headers: {

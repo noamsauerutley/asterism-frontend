@@ -18,7 +18,7 @@ class NewFragment extends React.Component {
     
     newFragmentSubmitted = async (event) => {
         event.preventDefault()
-        let rawFragment = await fetch ('http://localhost:3000/fragments', 
+        let rawFragment = await fetch ('https://asterism-api.herokuapp.com/fragments', 
         {
             method: "POST",
             headers: {

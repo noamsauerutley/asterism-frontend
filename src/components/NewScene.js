@@ -18,7 +18,7 @@ class NewScene extends React.Component{
 
 newSceneSubmitted = async (event) => {
     event.preventDefault()
-    let rawScene = await fetch (`http://localhost:3000/scenes`, 
+    let rawScene = await fetch (`https://asterism-api.herokuapp.com/scenes`, 
       {
           method: "POST",
           headers: {

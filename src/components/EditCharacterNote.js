@@ -17,7 +17,7 @@ class EditCharacterNote extends React.Component{
 
 editCharacterNoteSubmitted = async (event) => {
     event.preventDefault()
-    let rawEditedCharacterNote = await fetch (`http://localhost:3000/character_notes/${this.props.currentCharacterNote.id}`, 
+    let rawEditedCharacterNote = await fetch (`https://asterism-api.herokuapp.com/character_notes/${this.props.currentCharacterNote.id}`, 
       {
           method: "PATCH",
           headers: {

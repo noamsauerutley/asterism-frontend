@@ -22,7 +22,7 @@ showWidget = (widget) => {
 
 editImageSubmitted = async (event) => {
     event.preventDefault()
-    let rawEditedImage = await fetch (`http://localhost:3000/images/${this.props.currentImage.id}`, 
+    let rawEditedImage = await fetch (`https://asterism-api.herokuapp.com/images/${this.props.currentImage.id}`, 
       {
           method: "PATCH",
           headers: {

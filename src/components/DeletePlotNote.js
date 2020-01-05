@@ -9,7 +9,7 @@ import { colors } from '../assets/colors'
 class DeletePlotNote extends React.Component {
 
     delete = async () => {
-        await fetch(`http://localhost:3000/plot_notes/${this.props.plot_note.id}`, {
+        await fetch(`https://asterism-api.herokuapp.com/plot_notes/${this.props.plot_note.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",

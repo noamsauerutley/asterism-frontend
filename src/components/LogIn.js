@@ -49,7 +49,7 @@ class LogIn extends React.Component {
   }
   
   getUserData = async () => {
-    let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
+    let rawData = await fetch(`https://asterism-api.herokuapp.com/authors/${localStorage.user_id}`, {
       method: "GET",
       headers: {
         "Authorization": localStorage.token,
@@ -63,7 +63,7 @@ class LogIn extends React.Component {
   
   logInSubmitted = async (event) => {
     event.preventDefault()
-    let rawData = await fetch("http://localhost:3000/login", {
+    let rawData = await fetch("https://asterism-api.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -89,7 +89,7 @@ class LogIn extends React.Component {
   signUpSubmitted = async (event) => {
     event.preventDefault() 
     
-    let rawData = await fetch("http://localhost:3000/authors", {
+    let rawData = await fetch("https://asterism-api.herokuapp.com/authors", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -21,7 +21,7 @@ class DeleteCharacterNote extends React.Component{
     currentId = !!this.props.character_note.id ? this.props.character_note.id : 0
 
     delete = async () => {
-        await fetch(`http://localhost:3000/character_notes/${this.currentId}`, {
+        await fetch(`https://asterism-api.herokuapp.com/character_notes/${this.currentId}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",

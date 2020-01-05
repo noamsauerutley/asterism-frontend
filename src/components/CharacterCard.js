@@ -23,7 +23,7 @@ class CharacterCard extends React.Component{
 
 
      delete = async () => {
-         await fetch(`http://localhost:3000/characters/${this.props.character.id}`, {
+         await fetch(`https://asterism-api.herokuapp.com/characters/${this.props.character.id}`, {
              method: 'DELETE',
              headers: {
                  "Content-Type": "application/json",
