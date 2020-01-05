@@ -18,6 +18,7 @@ const StyledInput = styled.input`
   font-family: Didot;
   color: ${colors.black};
   font-size: 16px;
+  width: 40%;
 `
 
 
