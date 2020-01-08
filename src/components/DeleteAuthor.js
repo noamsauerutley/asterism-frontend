@@ -7,7 +7,7 @@ import { colors } from '../assets/colors'
 class DeleteAuthor extends React.Component{
 
     delete = async () => {
-        await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
+        await fetch(`https://asterism-api.herokuapp.com/authors/${localStorage.user_id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",

@@ -18,7 +18,7 @@ class NewPlotNote extends React.Component{
 
 newPlotNoteSubmitted = async (event) => {
     event.preventDefault()
-    let rawPlotNote = await fetch (`http://localhost:3000/plot_notes`, 
+    let rawPlotNote = await fetch (`https://asterism-api.herokuapp.com/plot_notes`, 
       {
           method: "POST",
           headers: {

@@ -23,7 +23,7 @@ class NewImage extends React.Component {
     newImageSubmitted = async (event) => {
         console.log('submitting form...');
         event.preventDefault()
-        let rawImage = await fetch ('http://localhost:3000/images', 
+        let rawImage = await fetch ('https://asterism-api.herokuapp.com/images', 
             {
                 method: "POST",
                 headers: {

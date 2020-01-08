@@ -18,7 +18,7 @@ class NewCharacter extends React.Component {
     
     newCharacterSubmitted = async (event) => {
         event.preventDefault()
-        let rawCharacter = await fetch ('http://localhost:3000/characters', 
+        let rawCharacter = await fetch ('https://asterism-api.herokuapp.com/characters', 
         {
             method: "POST",
             headers: {

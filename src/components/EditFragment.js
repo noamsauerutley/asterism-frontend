@@ -20,7 +20,7 @@ class EditFragment extends React.Component{
 
 editFragmentSubmitted = async (event) => {
     event.preventDefault()
-    let rawEditedFragment = await fetch (`http://localhost:3000/fragments/${this.fragment.id}`, 
+    let rawEditedFragment = await fetch (`https://asterism-api.herokuapp.com/fragments/${this.fragment.id}`, 
       {
           method: "PATCH",
           headers: {

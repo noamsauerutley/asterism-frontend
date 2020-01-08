@@ -17,7 +17,7 @@ class EditPlotNote extends React.Component{
 
 editPlotNoteSubmitted = async (event) => {
     event.preventDefault()
-    let rawEditedPlotNote = await fetch (`http://localhost:3000/plot_notes/${this.props.currentPlotNote.id}`, 
+    let rawEditedPlotNote = await fetch (`https://asterism-api.herokuapp.com/plot_notes/${this.props.currentPlotNote.id}`, 
       {
           method: "PATCH",
           headers: {

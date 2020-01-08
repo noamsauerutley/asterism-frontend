@@ -13,7 +13,7 @@ class DeleteStory extends React.Component{
 
     delete = async () => {
         this.props.delete_story(this.currentId)
-        await fetch(`http://localhost:3000/stories/${this.story.id}`, {
+        await fetch(`https://asterism-api.herokuapp.com/stories/${this.story.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",

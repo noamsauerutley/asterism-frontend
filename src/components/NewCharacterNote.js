@@ -17,7 +17,7 @@ class NewCharacterNote extends React.Component {
 
     newCharacterNoteSubmitted = async (event) => {
         event.preventDefault()
-        let rawCharacterNote = await fetch ('http://localhost:3000/character_notes', 
+        let rawCharacterNote = await fetch ('https://asterism-api.herokuapp.com/character_notes', 
         {
             method: "POST",
             headers: {

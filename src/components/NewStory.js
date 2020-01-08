@@ -19,7 +19,7 @@ class NewStory extends React.Component {
     
     newStorySubmitted = async (event) => {
         event.preventDefault()
-        let rawStory = await fetch ('http://localhost:3000/stories', 
+        let rawStory = await fetch ('https://asterism-api.herokuapp.com/stories', 
         {
             method: "POST",
             headers: {

@@ -9,7 +9,7 @@ import { colors } from '../assets/colors'
 class DeleteScene extends React.Component {
 
     delete = async () => {
-        await fetch(`http://localhost:3000/scenes/${this.props.scene.id}`, {
+        await fetch(`https://asterism-api.herokuapp.com/scenes/${this.props.scene.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",

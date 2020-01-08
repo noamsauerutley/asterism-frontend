@@ -20,7 +20,7 @@ class EditStory extends React.Component{
 
 editStorySubmitted = async (event) => {
     event.preventDefault()
-    let rawEditedStory = await fetch (`http://localhost:3000/stories/${this.story.id}`, 
+    let rawEditedStory = await fetch (`https://asterism-api.herokuapp.com/stories/${this.story.id}`, 
       {
           method: "PATCH",
           headers: {

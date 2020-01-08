@@ -9,7 +9,7 @@ class DeleteFragment extends React.Component {
 
     delete = async () => {
         this.props.delete_fragment(this.props.fragment.id)
-        await fetch(`http://localhost:3000/fragments/${this.props.fragment.id}`, {
+        await fetch(`https://asterism-api.herokuapp.com/fragments/${this.props.fragment.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",

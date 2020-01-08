@@ -10,7 +10,7 @@ class DeleteImage extends React.Component {
     currentId = !!this.props.image.id ? this.props.image.id : 0
 
     delete = async () => {
-        await fetch(`http://localhost:3000/images/${this.currentId}`, {
+        await fetch(`https://asterism-api.herokuapp.com/images/${this.currentId}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",

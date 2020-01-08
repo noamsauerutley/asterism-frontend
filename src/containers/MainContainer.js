@@ -57,7 +57,7 @@ class MainContainer extends React.Component{
 
     componentDidMount = async () => {
         if (!!localStorage.user_id) {
-        let rawData = await fetch(`http://localhost:3000/authors/${localStorage.user_id}`, {
+        let rawData = await fetch(`https://asterism-api.herokuapp.com/authors/${localStorage.user_id}`, {
             method: "GET",
             headers: {
               "Authorization": localStorage.token,

@@ -9,7 +9,7 @@ class DeleteFragmentNote extends React.Component{
     currentId = this.props.fragment_note.id
 
     delete = async () => {
-        await fetch(`http://localhost:3000/fragment_notes/${this.currentId}`, {
+        await fetch(`https://asterism-api.herokuapp.com/fragment_notes/${this.currentId}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
