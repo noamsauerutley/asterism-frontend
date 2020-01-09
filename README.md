@@ -56,7 +56,8 @@
 <p>Reach out to me at one of the following places!</p>
 
 <ul>
-<li>Medium at <a href="http://medium.com/@noamsauerutley" rel="nofollow"><code>@noamsauerutley</code></a></li>
+  <li>Twitter at <a href="http://twitter.com/thevoidbutcozy" rel="nofollow"><code>@thevoidbutcozy</code></a></li>
+  <li>Medium at <a href="http://medium.com/@noamsauerutley" rel="nofollow"><code>@noamsauerutley</code></a></li>
 </ul>
 
 <hr></hr>
