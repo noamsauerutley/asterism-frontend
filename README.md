@@ -4,9 +4,9 @@
 <blockquote>
 <p>Asterism is a  project management word-processing program and outliner designed for writers. Asterism provides a management system for documents, notes and metadata. This allows the user to organize notes, concepts, research and deeply nested documents for easy access and reference.</p>
 </blockquote>
-<div style="width:100%;height:0;padding-bottom:52%;position:relative;"><iframe src="https://giphy.com/embed/SU8rq6aG2DaR1ZDJuO" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/SU8rq6aG2DaR1ZDJuO">via GIPHY</a></p>
-<div style="width:100%;height:0;padding-bottom:52%;position:relative;"><iframe src="https://giphy.com/embed/mEPG6keANkYJE7rjFa" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/mEPG6keANkYJE7rjFa">via GIPHY</a></p>
-<div style="width:100%;height:0;padding-bottom:53%;position:relative;"><iframe src="https://giphy.com/embed/RiJiq7JynrEz1IRImb" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/RiJiq7JynrEz1IRImb">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:52%;position:relative;"><p><a href="https://giphy.com/gifs/SU8rq6aG2DaR1ZDJuO"><img src="https://giphy.com/embed/SU8rq6aG2DaR1ZDJuO" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen/></a></p></div>
+<div style="width:100%;height:0;padding-bottom:52%;position:relative;"><p><a href="https://giphy.com/gifs/mEPG6keANkYJE7rjFa"><img src="https://giphy.com/embed/mEPG6keANkYJE7rjFa" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen/></a></p></div>
+<div style="width:100%;height:0;padding-bottom:53%;position:relative;"><p><a href="https://giphy.com/gifs/RiJiq7JynrEz1IRImb"><img src="https://giphy.com/embed/RiJiq7JynrEz1IRImb" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen/></a></p></div>
 
 <hr></hr>
   <h3><a href="https://asterism-for-writers.herokuapp.com/" >Check it out on Heroku!</a></h3>
