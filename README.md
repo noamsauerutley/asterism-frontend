@@ -6,6 +6,15 @@
 </blockquote>
 <hr></hr>
 
+<p><strong>Built With:</strong></p>
+
+<ul>
+  <li>React.js</li>
+  <li>Redux</li>
+  <li>Cloudinary</li>
+  <li>styled-components</li>
+</ul>
+<hr></hr>
 <blockquote>
   <div>
   <p>View demo as <a href="https://imgur.com/a/Ppn5m6z">GIF on Imgur</a> or <a href="https://youtu.be/ZnPgA0S8aCs">video on Youtube</a></p>
@@ -16,15 +25,6 @@
   <h3><a href="https://asterism-for-writers.herokuapp.com/" >Check it out on Heroku!</a></h3>
 <hr></hr>
 
-<p><strong>Built With:</strong></p>
-
-<ul>
-  <li>React.js</li>
-  <li>Redux</li>
-  <li>Cloudinary</li>
-  <li>styled-components</li>
-</ul>
-<hr></hr>
 
 <blockquote>
 <div display="flex" flex-direction="row" flex-wrap="wrap" text-align="center" justify-content="space-around">
