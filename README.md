@@ -17,8 +17,6 @@
   <div>
   <p>View demo as <a href="https://imgur.com/a/Ppn5m6z">GIF on Imgur</a> or <a href="https://youtu.be/ZnPgA0S8aCs">video on Youtube</a></p>
 </div>  
-<hr></hr>
-
 
 <div display="flex" flex-direction="row" flex-wrap="wrap" text-align="center" justify-content="space-around">
     <img src="https://i.imgur.com/4AVBsRc.png" alt="Asterism home page"/>
