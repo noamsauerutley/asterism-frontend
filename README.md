@@ -15,7 +15,7 @@
 
 <blockquote>
 <div display="flex" flex-direction="row" flex-wrap="wrap" text-align="center" justify-content="space-around">
-    <img src="https://i.imgur.com/4AVBsRc.png" alt="Asterism home page" width="300px"/>
+    <img src="https://i.imgur.com/4AVBsRc.png" alt="Asterism home page" width="500px"/>
     <img src="https://i.imgur.com/ZnAXgpk.png" alt="Asterism fragments page"/>
     <img src="https://i.imgur.com/h2jPkgi.png" alt="Asterism stories page"/>
     <img src="https://i.imgur.com/rK7Ysdh.png" alt="Asterism story detail page: summary"/>
