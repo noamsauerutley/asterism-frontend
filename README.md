@@ -4,7 +4,9 @@
 <blockquote>
 <p>Asterism is a  project management word-processing program and outliner designed for writers. Asterism provides a management system for documents, notes and metadata. This allows the user to organize notes, concepts, research and deeply nested documents for easy access and reference.</p>
 </blockquote>
-<div><p><a href="https://giphy.com/gifs/SU8rq6aG2DaR1ZDJuO"><img src="https://media.giphy.com/media/SU8rq6aG2DaR1ZDJuO/giphy.gif" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen/></a></p></div>
+<div>
+[![Asterism video demo](https://img.youtube.com/vi/OIRcDPUM_XU/0.jpg)](http://www.youtube.com/watch?v=OIRcDPUM_XU)
+</div>
 
 <hr></hr>
   <h3><a href="https://asterism-for-writers.herokuapp.com/" >Check it out on Heroku!</a></h3>
