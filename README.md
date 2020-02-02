@@ -6,6 +6,9 @@
 
 <p> See the backend <a href="https://github.com/noamsauerutley/asterism-api">here</a>.</p>
 
+<hr></hr>
+
+
 <p><strong>Built With:</strong></p>
 <ul>
   <li>React.js</li>
