@@ -19,7 +19,7 @@
 <hr></hr>
   <h3><a href="https://asterism-for-writers.herokuapp.com/" >Check it out on Heroku!</a></h3>
   <p> <b>Username:</b> <i>demo</i> <br>
-  <b>Password:</b> samplepasswordforasterism
+  <b>Password:</b> <i>samplepasswordforasterism</i>
   </p>
   
   <hr></hr>
