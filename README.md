@@ -18,6 +18,10 @@
 </ul>
 <hr></hr>
   <h3><a href="https://asterism-for-writers.herokuapp.com/" >Check it out on Heroku!</a></h3>
+  <p> Username: demo 
+    Password: samplepasswordforasterism
+  </p>
+  
   <hr></hr>
   <div>
   <p>View demo as <a href="https://imgur.com/a/Ppn5m6z">GIF on Imgur</a> or <a href="https://youtu.be/ZnPgA0S8aCs">video on Youtube</a></p>
