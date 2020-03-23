@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { StyledNavLink} from '../assets/StyledComponents'
+import { StyledNavLink, StyledLabel, StyledUl} from '../assets/StyledComponents'
 import PlotCard from './PlotCard'
 import CharacterCard from './CharacterCard'
 import StoryNoteCard from './StoryNoteCard'
