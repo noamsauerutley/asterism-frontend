@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { StyledNavLink} from '../assets/StyledComponents'
 import PlotCard from './PlotCard'
 import CharacterCard from './CharacterCard'
+import StoryNoteCard from './StoryNoteCard'
 import DeleteStory from './DeleteStory'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
@@ -49,6 +50,11 @@ class StoryDetail extends React.Component{
             < DeleteStory story={this.props.currentStory} />
             <p style={{whiteSpace: "pre-wrap"}}>{this.props.currentStory.summary}</p>
             </div>
+
+            <StyledLabel>NOTES</StyledLabel><br></br>
+            <StyledNavLink activeClassName="active" to={`/story_notes/new`} style={{marginTop: "20px", fontSize: "18px", fontWeight: "bold"}} onClick={this.handleOnClick}>＋</StyledNavLink>
+            <StyledUl>{!!this.props.story.story_notes ? this.props.story.story_notes.map(story_note => < StoryNoteCard story_note={story_note} story={this.props.story}/>) : "You haven't added any notes to this story."}</StyledUl>
+
             <div style={{ width: "95%", borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
                 <h4>PLOT ARCS:</h4>
                     <StyledNavLink activeClassName="active" to={`/plots/new`} style={{marginTop: "20px", fontSize:"20px"}}>＋</StyledNavLink><br></br>
