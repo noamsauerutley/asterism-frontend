@@ -53,7 +53,7 @@ class StoryDetail extends React.Component{
 
             <StyledLabel>NOTES</StyledLabel><br></br>
             <StyledNavLink activeClassName="active" to={`/story_notes/new`} style={{marginTop: "20px", fontSize: "18px", fontWeight: "bold"}} onClick={this.handleOnClick}>＋</StyledNavLink>
-            <StyledUl>{!!this.props.story.story_notes ? this.props.story.story_notes.map(story_note => < StoryNoteCard story_note={story_note} story={this.props.story}/>) : "You haven't added any notes to this story."}</StyledUl>
+            <StyledUl>{!!this.props.currentStory.story_notes ? this.props.currentStory.story_notes.map(story_note => < StoryNoteCard story_note={story_note} story={this.props.currentStory}/>) : "You haven't added any notes to this story."}</StyledUl>
 
             <div style={{ width: "95%", borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
                 <h4>PLOT ARCS:</h4>
