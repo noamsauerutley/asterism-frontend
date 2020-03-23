@@ -45,19 +45,19 @@ class StoryDetail extends React.Component{
         return(
         <StyledStoryDetail style={{textAlign: "center"}}>
             <div style={{ width: "95%", borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
-            <h2>{this.props.currentStory.title}</h2>
-            <StyledNavLink activeClassName="active" to="/stories/edit" >✎   </StyledNavLink>
-            < DeleteStory story={this.props.currentStory} />
-            <p style={{whiteSpace: "pre-wrap"}}>{this.props.currentStory.summary}</p>
+                <h2>{this.props.currentStory.title}</h2>
+                <StyledNavLink activeClassName="active" to="/stories/edit" >✎   </StyledNavLink>
+                <DeleteStory story={this.props.currentStory} />
+                <p style={{whiteSpace: "pre-wrap"}}>{this.props.currentStory.summary}</p>
             </div>
-
-            <StyledLabel>NOTES</StyledLabel><br></br>
-            <StyledNavLink activeClassName="active" to={`/story_notes/new`} style={{marginTop: "20px", fontSize: "18px", fontWeight: "bold"}} onClick={this.handleOnClick}>＋</StyledNavLink>
-            <StyledUl>{!!this.props.currentStory.story_notes ? this.props.currentStory.story_notes.map(story_note => < StoryNoteCard story_note={story_note} story={this.props.currentStory}/>) : "You haven't added any notes to this story."}</StyledUl>
-
+            <div style={{ width: "95%", borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
+                <StyledLabel>NOTES</StyledLabel><br></br>
+                <StyledNavLink activeClassName="active" to={`/story_notes/new`} style={{marginTop: "20px", fontSize: "18px", fontWeight: "bold"}} onClick={this.handleOnClick}>＋</StyledNavLink>
+                <StyledUl>{!!this.props.currentStory.story_notes ? this.props.currentStory.story_notes.map(story_note => < StoryNoteCard story_note={story_note} story={this.props.currentStory}/>) : "You haven't added any notes to this story."}</StyledUl>
+            </div>
             <div style={{ width: "95%", borderBottom: "solid", borderWidth: "1px", padding: "25px"}}>
                 <h4>PLOT ARCS:</h4>
-                    <StyledNavLink activeClassName="active" to={`/plots/new`} style={{marginTop: "20px", fontSize:"20px"}}>＋</StyledNavLink><br></br>
+                <StyledNavLink activeClassName="active" to={`/plots/new`} style={{marginTop: "20px", fontSize:"20px"}}>＋</StyledNavLink><br></br>
                     {this.storyPlots()}<br></br>
             </div>
             <div>
