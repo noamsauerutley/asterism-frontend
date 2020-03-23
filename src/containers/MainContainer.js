@@ -29,6 +29,7 @@ import EditScene from '../components/EditScene'
 import NewPlotNote from '../components/NewPlotNote'
 import EditPlotNote from '../components/EditPlotNote'
 import NewAppearance from '../components/NewAppearance'
+import NewStoryNote from '../components/NewStoryNote'
 import About from "../components/About"
 import NoMatch from '../components/NoMatch'
 import ErrorBoundary from './ErrorBoundary'
@@ -161,6 +162,10 @@ class MainContainer extends React.Component{
 
                     <Route exact path="/appearances/new" >
                         <NewAppearance />
+                    </Route>
+
+                    <Route exact path="/story_notes/new">
+                        < NewStoryNote />
                     </Route>
 
                     <Route path="/login" >
