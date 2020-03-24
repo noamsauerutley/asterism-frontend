@@ -168,6 +168,10 @@ class MainContainer extends React.Component{
                         < NewStoryNote />
                     </Route>
 
+                    <Route exact path="/story_notes/edit">
+                        < EditStoryNote />
+                    </Route>
+
                     <Route path="/login" >
                         {!!this.props.token ? <Redirect to="/stories"/> : <LoginContainer />}
                     </Route>
