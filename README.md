@@ -20,7 +20,7 @@
   <h3><a href="https://asterism-for-writers.herokuapp.com/" >Check it out on Heroku!</a></h3>
   <p> <b>Username:</b> <i>demo</i> <br>
   <b>Password:</b> <i>samplepasswordforasterism</i>
-  N.B. I recently reset the pg database for this app as I needed to integrate some additional features. A rebuilt demo account for your perusal will be back online soon! :)
+ <br> N.B. I recently reset the pg database for this app as I needed to integrate some additional features. A rebuilt demo account for your perusal will be back online soon! :)
   </p>
   
   <hr></hr>
