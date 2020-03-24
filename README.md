@@ -4,7 +4,7 @@
 <p>Asterism is a  project management word-processing program and outliner designed for writers. Asterism provides a management system for documents, notes and metadata. This allows the user to organize notes, concepts, research and deeply nested documents for easy access and reference.</p>
 <hr></hr>
 
-<p> See the Back-End <a href="https://github.com/noamsauerutley/asterism-api">here</a>.</p>
+<p> See the back-end repo <a href="https://github.com/noamsauerutley/asterism-api">here</a>.</p>
 
 <hr></hr>
 
