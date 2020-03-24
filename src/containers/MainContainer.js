@@ -28,6 +28,7 @@ import NewPlotNote from '../components/NewPlotNote'
 import EditPlotNote from '../components/EditPlotNote'
 import NewAppearance from '../components/NewAppearance'
 import NewStoryNote from '../components/NewStoryNote'
+import EditStoryNote from '../components/EditStoryNote'
 import About from "../components/About"
 import NoMatch from '../components/NoMatch'
 import ErrorBoundary from './ErrorBoundary'
