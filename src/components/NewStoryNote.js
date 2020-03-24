@@ -54,7 +54,7 @@ class NewStoryNote extends React.Component {
       renderOrRedirect = () => {
         if(this.state.redirectBoolean === true){
           console.log(this.state)
-           return <Redirect to='/storys' />} 
+           return <Redirect to='/stories' />} 
            else {
              console.log(this.state)
            return <section style={{textAlign: "center"}}>
