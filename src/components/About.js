@@ -1,5 +1,5 @@
 import React from 'react'
-import StyledParagraph from '../assets/StyledComponents'
+import { StyledParagraph }from '../assets/StyledComponents'
 
 const About = (props) => {
     return(
