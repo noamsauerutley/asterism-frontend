@@ -1,14 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { StyledNavLink } from '../assets/StyledComponents'
+import { StyledNavLink, StyledStoriesContainer } from '../assets/StyledComponents'
 import StoryCard from '../components/StoryCard'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
-const StyledStoriesContainer = styled.div`
-font-family: "Didot";
-color: ${colors.black};
-`
 
 const StoriesContainer = (props) => {
   

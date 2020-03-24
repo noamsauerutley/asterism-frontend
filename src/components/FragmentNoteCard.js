@@ -2,14 +2,7 @@ import React from 'react'
 import DeleteFragmentNote from './DeleteFragmentNote'
 import { set_current_fragment_note, set_current_fragment } from '../redux/actions'
 import { connect } from 'react-redux'
-import { StyledNavLink, StyledNoteCard} from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
-const StyledDiv = styled.div`
-    width: 100%;
-    height: 100%;
-`
+import { StyledDiv, StyledNavLink, StyledNoteCard} from '../assets/StyledComponents'
 
 class FragmentNoteCard extends React.Component{
 

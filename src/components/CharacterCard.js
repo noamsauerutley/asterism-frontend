@@ -3,17 +3,7 @@ import CharacterNoteCard from './CharacterNoteCard'
 import ImageCard from './ImageCard'
 import { connect } from 'react-redux'
 import { set_current_character, delete_character, delete_appearance, update_story, update_plot, update_scene } from '../redux/actions'
-import { StyledNavLink, StyledLabel, StyledUl} from '../assets/StyledComponents'
-import { colors } from '../assets/colors'
-import styled from 'styled-components'
-
-const StyledCharacterCard = styled.li`
-    list-style: none;
-    white-space: pre-wrap;
-    margin: 0 auto;
-    color: ${colors.black};
-    text-decoration: none;
-`
+import { StyledNavLink, StyledLabel, StyledUl, StyledCharacterCard} from '../assets/StyledComponents'
 
 class CharacterCard extends React.Component{
 

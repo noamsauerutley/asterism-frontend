@@ -1,8 +1,6 @@
   
 import React from 'react';
 import { StyledButton } from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
 
 class DeleteAuthor extends React.Component{
 

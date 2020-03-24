@@ -2,25 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { login } from '../redux/actions'
 import { set_content, set_account_data } from '../redux/actions'
-import { StyledLabel, StyledTextInput } from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
-const StyledButton = styled.button`
-  background: transparent;
-  font-family: Didot;
-  color: ${colors.black};
-  font-size: 16px;
-`
-
-const StyledInput = styled.input`
-  background: transparent;
-  font-family: Didot;
-  color: ${colors.black};
-  font-size: 16px;
-  width: 40%;
-`
-
+import { StyledButton, StyledInput, StyledLabel, StyledTextInput } from '../assets/StyledComponents'
 
 class LogIn extends React.Component {
 

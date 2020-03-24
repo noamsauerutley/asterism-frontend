@@ -6,42 +6,9 @@ import EditUsername from '../components/EditUsername'
 import EditEmail from '../components/EditEmail'
 import EditBio from '../components/EditBio'
 import EditPassword from '../components/EditPassword'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
-
-const StyledAccountContainer = styled.div`
-font-family: "Didot";
-color: ${colors.black};
-text-align: center;
-justify: space-around;
-`
-
-const StyledProfilePicture = styled.img`
-width: 100%;
-margin-bottom: 10px;
-`
-
-const StyledProfilePictureContainer = styled.div`
-margin: 0 auto;
-text-align: center;
-width: 250px;
-height: 300px;
-overflow-x: hidden;
-overflow-y: hidden;
-margin-top: 5%;
-border: 1px double;
-outline: 2px solid;
-outline-offset: -10px;
-text-align: center;
-padding: 20px;
-opacity: .9;
-
-`
-
+import { StyledAccountContainer, StyledProfilePicture, StyledProfilePictureContainer } from '../assets/StyledComponents'
  
 class AccountContainer extends React.Component {
-
 
    render(){
       return ( 

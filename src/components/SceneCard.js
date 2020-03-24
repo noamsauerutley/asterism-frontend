@@ -4,9 +4,6 @@ import { StyledNavLink, StyledNoteCard, StyledLabel, StyledUl } from '../assets/
 import {set_current_scene, set_current_plot } from '../redux/actions'  
 import DeleteScene from './DeleteScene'
 import DeleteAppearance from './DeleteAppearance'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
 
 class SceneCard extends React.Component{
 

@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import { StyledNavLink, StyledNoteCard } from '../assets/StyledComponents'
 import {set_current_story_note, set_current_story} from '../redux/actions'  
 import DeleteStoryNote from './DeleteStoryNote'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
 
 class StoryNoteCard extends React.Component {
 

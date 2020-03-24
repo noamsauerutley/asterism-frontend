@@ -1,27 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { StyledNavLink } from '../assets/StyledComponents'
+import { StyledNavLink, StyledFragmentsContainer, StyledFragmentsUl } from '../assets/StyledComponents'
 import FragmentCard from '../components/FragmentCard'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
-
-const StyledFragmentsContainer = styled.div`
-  width: 95%;
-  font-family: "Didot";
-  color: ${colors.black};
-`
-
-const StyledFragmentsUl = styled.ul`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  text-align: center;
-  color: ${colors.black};
-`
-
 
 class FragmentsContainer extends React.Component{
     

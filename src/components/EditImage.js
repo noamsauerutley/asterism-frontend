@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { update_image, set_current_image, update_character} from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 import { StyledButton, StyledSubmit, StyledTextArea, StyledLabel, StyledHeader } from '../assets/StyledComponents'
-import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
 

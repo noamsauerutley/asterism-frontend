@@ -2,10 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_plot, set_current_plot } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
 import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
-
 
 class EditPlot extends React.Component{
   

@@ -4,10 +4,6 @@ import { set_plot_note, set_current_plot_note, update_plot } from '../redux/acti
 import { Redirect } from 'react-router-dom'
 import { StyledTextArea, StyledSubmit, StyledLabel, StyledHeader } from '../assets/StyledComponents'
 
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
-
 class NewPlotNote extends React.Component{
   
   state = {

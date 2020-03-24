@@ -2,8 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_profile_picture } from '../redux/actions'
 import { StyledButton, StyledSubmit } from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
 
 class EditProfilePicture extends React.Component{
 

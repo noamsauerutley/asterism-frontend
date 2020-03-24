@@ -2,33 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { set_appearance, update_scene, update_plot, update_story} from '../redux/actions'
 import { Redirect } from 'react-router'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
-
-const StyledSelect = styled.select`
-  margin: 0 auto;
-  width: 40%;
-  height: 40px;
-  font-family: Didot;
-  display: block;
-  font-size: 18px;
-  color: ${colors.black};
-  background: Transparent;
-  border: 1px solid;
-  border-color: silver;
-  box-sizing: border-box;
-	border-radius: 0;
-  transition: color .7s ease-in-out, border-color .7s ease-in-out;
-
-  &:hover{
-    border-color: ${colors.lightGreen}
-  }
-
-  &:focus{
-    color: ${colors.lightGreen};
-  }
-  `
+import { StyledSelect, StyledSubmit, StyledHeader } from '../assets/StyledComponents'
 
 class NewAppearance extends React.Component{
 

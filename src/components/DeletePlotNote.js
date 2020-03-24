@@ -5,7 +5,6 @@ import { delete_plot_note, update_plot } from '../redux/actions'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
-
 class DeletePlotNote extends React.Component {
 
     delete = async () => {

@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import { set_scene, set_current_scene, update_plot } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
 
 class NewScene extends React.Component{
   

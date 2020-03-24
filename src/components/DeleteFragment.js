@@ -2,8 +2,6 @@ import React from 'react'
 import { connect } from "react-redux"
 import { delete_fragment } from '../redux/actions'
 import { StyledButton } from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
 
 class DeleteFragment extends React.Component {
 

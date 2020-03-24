@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import { set_fragment_note, update_fragment } from '../redux/actions'
 import { Redirect } from 'react-router'
 import { StyledTextArea, StyledSubmit, StyledLabel, StyledHeader } from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
 
 class NewFragmentNote extends React.Component {
 

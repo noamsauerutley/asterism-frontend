@@ -1,14 +1,8 @@
 import React from 'react'
-import { StyledNavLink, StyledNoteCard } from '../assets/StyledComponents'
+import { StyledNavLink, StyledNoteCard, StyledCharacterNoteCard } from '../assets/StyledComponents'
 import { connect } from 'react-redux'
 import DeleteCharacterNote from './DeleteCharacterNote'
 import { set_current_character_note, set_current_character } from '../redux/actions'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
-const StyledCharacterNoteCard = styled.div`
-white-space: pre-wrap;
-`
 
 class CharacterNoteCard extends React.Component{
    setCurrentCharacterNote = () => {

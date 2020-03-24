@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { set_image, update_character } from '../redux/actions'
 import { Redirect } from 'react-router'
 import { StyledButton, StyledSubmit, StyledLabel, StyledHeader } from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
 import { StyledTextArea } from '../assets/StyledComponents'
 
 class NewImage extends React.Component {

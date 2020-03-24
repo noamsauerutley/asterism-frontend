@@ -2,9 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { StyledNavLink} from '../assets/StyledComponents'
 import { delete_plot } from '../redux/actions'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
 
 class DeletePlot extends React.Component{
 

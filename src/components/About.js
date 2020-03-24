@@ -1,15 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-const StyledParagraph = styled.p`
-font-family: "Didot";
-text-align: center;
-justify: space-around;
-white-space: pre-wrap;
-margin-top: 10%;
-height: 60vh;
-color: ${colors.black}
-`
+import StyledParagraph from '../assets/StyledComponents'
 
 const About = (props) => {
     return(

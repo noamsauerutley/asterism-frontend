@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import { update_character_note, set_current_character_note, update_character} from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 import { StyledSubmit, StyledTextArea, StyledLabel, StyledHeader } from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
 
 class EditCharacterNote extends React.Component{
   

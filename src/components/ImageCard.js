@@ -2,28 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import DeleteImage from './DeleteImage'
 import { set_current_character, set_current_image } from '../redux/actions'
-import { StyledNavLink } from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
-
-const StyledImageCard = styled.li`
-text-align: center;
-height: 325px;
-width: 300px;
-overflow-x: hidden;
-overflow-y: hidden;
-list-style: none;
-border: 1px double;
-outline: 2px solid;
-outline-offset: -10px;
-text-align: center;
-margin: 15px 15px 15px 15px;
-padding: 20px;
-opacity: .9;
-}
-`
-
+import { StyledNavLink, StyledImageCard } from '../assets/StyledComponents'
 
 class ImageCard extends React.Component {
     setCurrentCharacter = () => {

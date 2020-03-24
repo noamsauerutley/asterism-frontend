@@ -2,8 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_story } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
 import { StyledTextArea, StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
 
 

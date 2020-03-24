@@ -1,17 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { StyledNavLink, StyledLabel, StyledUl} from '../assets/StyledComponents'
+import { StyledNavLink, StyledLabel, StyledUl, StyledStoryDetail} from '../assets/StyledComponents'
 import PlotCard from './PlotCard'
 import CharacterCard from './CharacterCard'
 import StoryNoteCard from './StoryNoteCard'
 import DeleteStory from './DeleteStory'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
-
-const StyledStoryDetail = styled.div`
-font-family: "Didot";
-`
 
 class StoryDetail extends React.Component{
 

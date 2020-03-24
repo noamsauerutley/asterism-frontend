@@ -5,9 +5,6 @@ import SceneCard from './SceneCard'
 import { set_current_plot } from '../redux/actions'
 import { connect } from 'react-redux'
 import { StyledNavLink, StyledUl, StyledLabel } from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
 
 class PlotCard extends React.Component{
 

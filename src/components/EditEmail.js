@@ -2,10 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { update_email } from '../redux/actions'
-import { StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
+import { StyledSubmit, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
 
 class EditEmail extends React.Component{
 

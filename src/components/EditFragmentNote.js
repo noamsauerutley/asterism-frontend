@@ -2,8 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_fragment_note, set_current_fragment_note, update_fragment} from '../redux/actions'
 import { Redirect } from 'react-router-dom'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
 import { StyledTextArea, StyledSubmit, StyledLabel, StyledHeader } from '../assets/StyledComponents'
 
 

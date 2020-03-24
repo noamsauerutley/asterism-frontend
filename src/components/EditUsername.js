@@ -1,11 +1,7 @@
-
 import React from 'react'
 import { connect } from 'react-redux'
 import { set_username } from '../redux/actions'
 import { StyledSubmit, StyledLabel, StyledTextInput, StyledHeader} from '../assets/StyledComponents'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-
 
 class EditUsername extends React.Component{
 

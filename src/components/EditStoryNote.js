@@ -2,10 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update_story_note, set_current_story_note, update_story} from '../redux/actions'
 import { Redirect } from 'react-router-dom'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
 import { StyledTextArea, StyledSubmit, StyledLabel, StyledHeader } from '../assets/StyledComponents'
-
 
 class EditStoryNote extends React.Component{
   

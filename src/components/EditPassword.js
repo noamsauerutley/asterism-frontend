@@ -1,8 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
-import { StyledSubmit, StyledLabel, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
+import { StyledSubmit, StyledTextInput, StyledHeader } from '../assets/StyledComponents'
 import { colors } from '../assets/colors'
-
 
 class EditPassword extends React.Component{
 

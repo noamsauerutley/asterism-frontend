@@ -5,17 +5,6 @@ import { delete_character_note, update_character } from '../redux/actions'
 import styled from 'styled-components'
 import { colors } from '../assets/colors'
 
-// const StyledDeleteCharacterNote = styled(NavLink)`
-//     background-color: Transparent;
-//     color: black;
-//     style: none;
-//     font-family: Didot;
-//     font-size; 18px;
-//     text-decoration: none;
-//     margin-top: 10px;
-
-// `
-
 class DeleteCharacterNote extends React.Component{
 
     currentId = !!this.props.character_note.id ? this.props.character_note.id : 0

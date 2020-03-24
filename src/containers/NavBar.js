@@ -1,32 +1,7 @@
 import React from 'react'
-import { StyledNavLink } from '../assets/StyledComponents'
+import { StyledNav, StyledNavLink } from '../assets/StyledComponents'
 import { connect } from 'react-redux'
 import { logout } from '../redux/actions'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
-import logo from '../assets/logo32.png'
-
-const StyledNav = styled.nav `
-    z-index: 1;
-    background: white;
-    width: 100%;
-    margin: 0 auto;
-    font-family: Didot;
-    color: ${colors.black};
-    position: -webkit-sticky; 
-    position: sticky;
-    top: 0; 
-    border-bottom: solid; 
-    border-width: 1px;
-    border-color: ${colors.border};
-    padding-bottom: 25px; 
-    text-align: Center; 
-    font-size: 20px; 
-    margin-top: 3%; 
-    display: flex; 
-    justify-content: space-around;
-    text-decoration: none;
-`
 
 const NavBar = (props) => {
 

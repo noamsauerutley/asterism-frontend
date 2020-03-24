@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { StyledNavLink} from '../assets/StyledComponents'
 import { delete_fragment_note, update_fragment } from '../redux/actions'
-import { colors } from '../assets/colors'
 
 class DeleteFragmentNote extends React.Component{
 

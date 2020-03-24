@@ -1,8 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
 import { set_content, set_account_data } from '../redux/actions'
 import NavBar from './NavBar'
 import LoginContainer from './LoginContainer'
@@ -33,21 +31,7 @@ import NewStoryNote from '../components/NewStoryNote'
 import About from "../components/About"
 import NoMatch from '../components/NoMatch'
 import ErrorBoundary from './ErrorBoundary'
-
-const StyledMainContainer = styled.div`
-z-index: 2;
-width: 92vw;
-heigh: 100vh;
-bottom: 0px;
-border: 1px double;
-border-color: ${colors.black};
-outline: 2px solid;
-outline-offset: -10px;
-outline-color: ${colors.black};
-text-align: center;
-margin: 15px 15px 15px 15px;
-padding: 20px;
-`
+import { StyledMainContainer } from '../assets/StyledComponents'
 
 
 class MainContainer extends React.Component{

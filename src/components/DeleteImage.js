@@ -2,8 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { StyledNavLink} from '../assets/StyledComponents'
 import { delete_image, update_character } from '../redux/actions'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
 
 class DeleteImage extends React.Component {
 
