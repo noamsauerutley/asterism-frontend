@@ -23,7 +23,7 @@ class DeleteStoryNote extends React.Component{
 
     render(){
         return(
-            <StyledNavLink activeClassName="active" to='/stories' onClick={this.delete}>✕</StyledNavLink>
+            <StyledNavLink activeClassName="active" to='/stories/' onClick={this.delete}>✕</StyledNavLink>
         )}
 }
 
