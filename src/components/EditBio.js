@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { update_bio } from '../redux/actions'
-import { StyledSubmit, StyledTextArea, StyledLabel, StyledHeader } from '../assets/StyledComponents'
+import { StyledSubmit, StyledTextArea, StyledHeader } from '../assets/StyledComponents'
 
 class EditBio extends React.Component{
 

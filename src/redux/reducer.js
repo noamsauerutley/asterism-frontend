@@ -18,7 +18,6 @@ const initialState = {
     currentImage: {},
     currentCharacterNote: {},
     currentFragmentNote: {},
-    currentPlot: {},
     currentScene: {},
     currentPlotNote: {},
     currentStoryNote: {}

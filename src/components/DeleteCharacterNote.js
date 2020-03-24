@@ -2,8 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { StyledNavLink} from '../assets/StyledComponents'
 import { delete_character_note, update_character } from '../redux/actions'
-import styled from 'styled-components'
-import { colors } from '../assets/colors'
 
 class DeleteCharacterNote extends React.Component{
 

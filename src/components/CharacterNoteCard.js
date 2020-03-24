@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledNavLink, StyledNoteCard, StyledCharacterNoteCard } from '../assets/StyledComponents'
+import { StyledNavLink, StyledNoteCard } from '../assets/StyledComponents'
 import { connect } from 'react-redux'
 import DeleteCharacterNote from './DeleteCharacterNote'
 import { set_current_character_note, set_current_character } from '../redux/actions'

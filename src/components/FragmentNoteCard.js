@@ -2,7 +2,7 @@ import React from 'react'
 import DeleteFragmentNote from './DeleteFragmentNote'
 import { set_current_fragment_note, set_current_fragment } from '../redux/actions'
 import { connect } from 'react-redux'
-import { StyledDiv, StyledNavLink, StyledNoteCard} from '../assets/StyledComponents'
+import { StyledNavLink, StyledNoteCard} from '../assets/StyledComponents'
 
 class FragmentNoteCard extends React.Component{
 
