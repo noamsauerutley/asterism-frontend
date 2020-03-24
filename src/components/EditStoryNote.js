@@ -102,4 +102,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditFragmentNote)
+export default connect(mapStateToProps, mapDispatchToProps)(EditStoryNote)
