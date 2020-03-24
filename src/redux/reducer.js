@@ -305,7 +305,7 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 currentStory: {
                     ...state.currentStory,
-                    story_notes: [...state.currentStory.story_notes.filter(story_note => story_note.id !== action.payload)]}
+                    story_notes:[action.payload, ...state.currentStory.story_notes]}
                 }
         case SET_CURRENT_STORY_NOTE:
             return {...state, currentStoryNote: action.payload}
