@@ -6,6 +6,7 @@ import EditUsername from '../components/EditUsername'
 import EditEmail from '../components/EditEmail'
 import EditBio from '../components/EditBio'
 import EditPassword from '../components/EditPassword'
+import DownloadStories from '../components/DownloadStories'
 import { StyledAccountContainer, StyledProfilePicture, StyledProfilePictureContainer } from '../assets/StyledComponents'
  
 class AccountContainer extends React.Component {
@@ -23,6 +24,7 @@ class AccountContainer extends React.Component {
             <EditEmail />
             <EditUsername />
             <EditPassword />
+            <DownloadStories />
             <DeleteAuthor />
          </StyledAccountContainer>
     )}

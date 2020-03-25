@@ -16,7 +16,7 @@ class DeleteAuthor extends React.Component{
 
     render(){
         return(
-            <StyledButton aria-label="Delete Account" onClick={this.delete} style={{ marginTop: "10px", fontSize: "18px"}}>Delete Account</StyledButton>
+            <StyledButton aria-label="Delete Account" onClick={this.delete} style={{ margin: "15px", fontSize: "18px"}}>Delete Account</StyledButton>
         )
     }
 }
