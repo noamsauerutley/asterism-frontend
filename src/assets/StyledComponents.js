@@ -34,13 +34,6 @@ transition: color .7s, box-shadow .7s ease-in-out;
 }
 `
 
-// const StyledButton = styled.button`
-//   background: transparent;
-//   font-family: Didot;
-//   color: ${colors.black};
-//   font-size: 16px;
-// `
-
 export const StyledInput = styled.input`
   background: transparent;
   font-family: Didot;
