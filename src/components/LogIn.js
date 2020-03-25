@@ -129,7 +129,7 @@ render(){
         ? 
         <section>
           <h2 >Log In</h2>
-          <StyledButton onClick={ () => this.setState({ logIn: false }) }>Sign Up</StyledButton>
+          <StyledButton onClick={ () => this.setState({ logIn: false }) }>Switch to Sign Up</StyledButton>
           <br></br>
           <form onSubmit={ this.logInSubmitted }>
             <br></br>
@@ -159,7 +159,7 @@ render(){
         :
         <section>
           <h2>Sign Up</h2>
-          <StyledButton onClick={ () => this.setState({ logIn: true }) }>Log In</StyledButton>
+          <StyledButton onClick={ () => this.setState({ logIn: true }) }>Switch to Log In</StyledButton>
           <br></br>
           <form onSubmit={ this.signUpSubmitted }>
           <br></br>
