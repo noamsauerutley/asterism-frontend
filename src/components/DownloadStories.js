@@ -78,7 +78,6 @@ class  DownloadStories extends React.Component {
   }
 
 
-
   download = async () => {
     const element = document.createElement("a")
 
