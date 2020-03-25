@@ -17,8 +17,6 @@ class DeleteImage extends React.Component {
         })
         this.props.delete_image(this.currentId)
         this.props.update_character(this.props.currentCharacter)
-        console.log(this.props.currentCharacter)
-        console.log(this.props.image, "deleted!")
     } 
 
     render(){

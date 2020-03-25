@@ -35,12 +35,10 @@ class NewPlot extends React.Component {
               errors: plot.errors
             })
           } else {
-        console.log(plot)
         this.props.set_plot(plot)
         this.setState({
           redirectBoolean: true
         })
-        console.log(this.state)
           }
     }
 
@@ -52,10 +50,8 @@ class NewPlot extends React.Component {
 
       renderOrRedirect = () => {
         if(this.state.redirectBoolean === true){
-          console.log(this.state)
            return <Redirect to={`/stories/${this.props.currentStory.id}`} />} 
            else {
-             console.log(this.state)
            return <section style={{textAlign: "center"}}>
               <StyledHeader >New Plot Arc</StyledHeader>
               <br></br>

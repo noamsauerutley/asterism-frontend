@@ -17,7 +17,6 @@ class DeleteStoryNote extends React.Component{
         })
         this.props.delete_story_note(this.currentId)
         this.props.update_story(this.props.currentStory)
-        console.log(this.props.story_note, "deleted!")
     } 
 
     render(){

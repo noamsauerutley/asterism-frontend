@@ -17,8 +17,6 @@ class DeleteCharacterNote extends React.Component{
         })
         this.props.delete_character_note(this.currentId)
         this.props.update_character(this.props.currentCharacter)
-        console.log(this.props.currentCharacter)
-        console.log(this.props.image, "deleted!")
     } 
 
     render(){

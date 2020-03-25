@@ -32,13 +32,11 @@ class NewFragmentNote extends React.Component {
               errors: fragmentNote.errors
             })
           } else {
-        console.log(fragmentNote)
         this.props.set_fragment_note(fragmentNote)
         this.props.update_fragment(this.props.currentFragment)
         this.setState({
           redirectBoolean: true
         })
-        console.log(this.state)
           }
     }
 
@@ -50,10 +48,8 @@ class NewFragmentNote extends React.Component {
 
       renderOrRedirect = () => {
         if(this.state.redirectBoolean === true){
-          console.log(this.state)
            return <Redirect to='/fragments' />} 
            else {
-             console.log(this.state)
            return <section style={{textAlign: "center"}}>
               <StyledHeader >New Note:</StyledHeader>
               <br></br>

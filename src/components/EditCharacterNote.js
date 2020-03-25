@@ -33,7 +33,6 @@ editCharacterNoteSubmitted = async (event) => {
         errors: editedCharacterNote.errors
       })
     } else {
-      console.log(editedCharacterNote)
     this.props.update_character_note(editedCharacterNote)
     this.props.set_current_character_note(editedCharacterNote)
     this.props.update_character(this.props.currentCharacter)

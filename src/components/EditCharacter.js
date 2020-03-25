@@ -37,9 +37,6 @@ editCharacterSubmitted = async (event) => {
         errors: editedCharacter.errors
       })
     } else {
-      console.log(this.props.currentStory.characters.filter(character => character.id !== editedCharacter.id))
-      console.log(this.currentCharacter)
-      console.log(editedCharacter)
     this.props.update_character(editedCharacter)
     this.props.set_current_character(editedCharacter)
     this.setState({

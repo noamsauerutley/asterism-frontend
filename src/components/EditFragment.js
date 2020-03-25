@@ -45,7 +45,6 @@ editFragmentSubmitted = async (event) => {
 }
 
 onChange = event => {
-  console.log(this.fragment)
     this.setState({
       [event.target.name]: event.target.value
     })

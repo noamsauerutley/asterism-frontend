@@ -16,7 +16,6 @@ class DeletePlot extends React.Component{
             }
         })
         this.props.delete_plot(this.currentId)
-        console.log(this.props.plot, "deleted!")
     } 
 
     render(){

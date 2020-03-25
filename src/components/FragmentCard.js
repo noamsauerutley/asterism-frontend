@@ -9,7 +9,6 @@ class FragmentCard extends React.Component {
 
 
     handleOnClick = (event) => {
-        console.log(this.props.fragment)
         this.setState({
             updated: true
         })

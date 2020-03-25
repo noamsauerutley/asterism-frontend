@@ -41,7 +41,6 @@ editImageSubmitted = async (event) => {
         errors: editedImage.errors
       })
     } else {
-      console.log(editedImage)
     this.props.update_image(editedImage)
     this.props.set_current_image(editedImage)
     this.props.update_character(this.props.currentCharacter)
@@ -68,7 +67,6 @@ onChange = event => {
                 this.setState({
                     image_url: result.info.secure_url
                 })
-                console.log(this.state)
             }   
         }) 
     }

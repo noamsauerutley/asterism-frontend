@@ -34,12 +34,10 @@ class NewStory extends React.Component {
               errors: story.errors
             })
           } else {
-        console.log(story)
         this.props.set_story(story)
         this.setState({
           redirectBoolean: true
         })
-        console.log(this.state)
           }
     }
 
@@ -51,10 +49,8 @@ class NewStory extends React.Component {
 
       renderOrRedirect = () => {
         if(this.state.redirectBoolean === true){
-          console.log(this.state)
            return <Redirect to="/stories" />} 
            else {
-             console.log(this.state)
            return <section style={{textAlign: "center"}}>
               <StyledHeader >New Story:</StyledHeader>
               <br></br>

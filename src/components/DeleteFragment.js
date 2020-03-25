@@ -14,7 +14,6 @@ class DeleteFragment extends React.Component {
                 "Authorization": localStorage.token
             }
         })
-        console.log("deleted!")
     } 
 
     render(){

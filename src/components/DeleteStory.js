@@ -17,7 +17,6 @@ class DeleteStory extends React.Component{
                 "Authorization": localStorage.token
             }
         })
-        console.log(`story number ${this.currentId} deleted`)
     } 
 
     render(){

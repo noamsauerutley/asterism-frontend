@@ -22,8 +22,6 @@ class CharacterCard extends React.Component{
             })
             this.props.delete_character(this.props.character.id) 
             this.props.update_story(this.props.currentStory)
-        console.log(this.props.character.id)
-        console.log(this.props.character, "deleted!")
     } 
 
     render(){

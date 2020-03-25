@@ -34,8 +34,6 @@ editFragmentNoteSubmitted = async (event) => {
         errors: editedFragmentNote.errors
       })
     } else {
-      console.log(this.props.currentFragment)
-      console.log(editedFragmentNote)
     this.props.update_fragment_note(editedFragmentNote)
     this.props.set_current_fragment_note(editedFragmentNote)
     this.props.update_fragment(this.props.currentFragment)

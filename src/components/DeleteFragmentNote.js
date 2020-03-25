@@ -17,7 +17,6 @@ class DeleteFragmentNote extends React.Component{
         })
         this.props.delete_fragment_note(this.currentId)
         this.props.update_fragment(this.props.currentFragment)
-        console.log(this.props.fragment_note, "deleted!")
     } 
 
     render(){

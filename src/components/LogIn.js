@@ -41,7 +41,6 @@ class LogIn extends React.Component {
     let data = await rawData.json()
     this.props.set_account_data(data)
     this.props.set_content(data)
-    console.log(data)
   }
   
   logInSubmitted = async (event) => {
@@ -109,7 +108,6 @@ class LogIn extends React.Component {
                 this.setState({
                     image_url: result.info.secure_url
                 })
-                console.log(this.state)
             }   
         }) 
     }

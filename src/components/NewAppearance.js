@@ -33,7 +33,6 @@ class NewAppearance extends React.Component{
             })
           } else {
         this.props.set_appearance(appearance)
-        console.log(appearance)
         this.props.update_scene(this.props.currentScene)
         this.props.update_plot(this.props.currentPlot)
         this.props.update_story(this.props.currentStory)

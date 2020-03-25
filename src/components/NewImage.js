@@ -19,7 +19,6 @@ class NewImage extends React.Component {
     }
     
     newImageSubmitted = async (event) => {
-        console.log('submitting form...');
         event.preventDefault()
         let rawImage = await fetch ('https://asterism-api.herokuapp.com/images', 
             {
@@ -40,7 +39,6 @@ class NewImage extends React.Component {
                 errors: image.errors
             })
         } else {
-            console.log(image)
             this.props.set_image(image)
             this.props.update_character(this.props.currentCharacter)
             this.setState({
@@ -53,7 +51,6 @@ class NewImage extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-        console.log(this.state)
     }
     
           showWidget = (widget) => {
@@ -70,7 +67,6 @@ class NewImage extends React.Component {
                     this.setState({
                         image_url: result.info.secure_url
                     })
-                    console.log(this.state)
                 }   
             }) 
         }

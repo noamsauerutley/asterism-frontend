@@ -35,12 +35,10 @@ class NewFragment extends React.Component {
               errors: fragment.errors
             })
           } else {
-        console.log(fragment)
         this.props.set_fragment(fragment)
         this.setState({
           redirectBoolean: true
         })
-        console.log(this.state)
           }
     }
 
@@ -52,10 +50,8 @@ class NewFragment extends React.Component {
 
       renderOrRedirect = () => {
         if(this.state.redirectBoolean === true){
-          console.log(this.state)
            return <Redirect to="/fragments" />} 
            else {
-             console.log(this.state)
            return <section style={{textAlign: "center"}}>
               <StyledHeader >New Fragment:</StyledHeader>
               <br></br>

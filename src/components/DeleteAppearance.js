@@ -8,10 +8,6 @@ class DeleteAppearance extends React.Component {
     appearance = this.props.appearances.find(appearance => (appearance.character_id === this.props.character_id && appearance.scene_id === this.props.scene_id))
 
     delete = async () => {
-        console.log(this.props.character_id)
-        console.log(this.props.scene_id)
-        console.log(this.props.appearances)
-        console.log(this.appearance)
         await fetch(`https://asterism-api.herokuapp.com/appearances/${this.appearance.id}`, {
             method: 'DELETE',
             headers: {
@@ -19,7 +15,6 @@ class DeleteAppearance extends React.Component {
                 "Authorization": localStorage.token
             }
         })
-        console.log(this.appearance)
         this.props.delete_appearance(this.appearance)
         this.props.update_scene(this.props.currentScene)
         this.props.update_plot(this.props.currentPlot) 

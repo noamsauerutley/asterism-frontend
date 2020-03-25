@@ -33,8 +33,6 @@ editStoryNoteSubmitted = async (event) => {
         errors: editedStoryNote.errors
       })
     } else {
-      console.log(this.props.currentStory)
-      console.log(editedStoryNote)
     this.props.update_story_note(editedStoryNote)
     this.props.set_current_story_note(editedStoryNote)
     this.props.update_story(this.props.currentStory)

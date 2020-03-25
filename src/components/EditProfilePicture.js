@@ -26,7 +26,6 @@ class EditProfilePicture extends React.Component{
         })
         let data = await rawData.json()
         this.props.update_profile_picture(data.image_url)
-        console.log(data)
         alert("Your profile picture has been updated.")
     }
 
@@ -52,7 +51,6 @@ class EditProfilePicture extends React.Component{
                     this.setState({
                         image_url: result.info.secure_url
                     })
-                    console.log(this.state)
                 }   
             }) 
         }

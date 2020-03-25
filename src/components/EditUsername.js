@@ -22,7 +22,6 @@ class EditUsername extends React.Component{
         })
         let data = await rawData.json()
         this.props.set_username(data)
-        console.log(data)
         alert("Your username has been updated.")
     }
 

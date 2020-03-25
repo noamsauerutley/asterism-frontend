@@ -37,9 +37,6 @@ editPlotSubmitted = async (event) => {
         errors: editedPlot.errors
       })
     } else {
-      console.log(this.props.currentStory.plots.filter(plot => plot.id !== editedPlot.id))
-      console.log(this.currentPlot)
-      console.log(editedPlot)
     this.props.update_plot(editedPlot)
     this.props.set_current_plot(editedPlot)
     this.setState({

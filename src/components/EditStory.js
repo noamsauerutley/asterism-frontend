@@ -45,7 +45,6 @@ editStorySubmitted = async (event) => {
 }
 
 onChange = event => {
-  console.log(this.story)
     this.setState({
       [event.target.name]: event.target.value
     })

@@ -32,13 +32,11 @@ class NewCharacterNote extends React.Component {
               errors: characterNote.errors
             })
           } else {
-        console.log(characterNote)
         this.props.set_character_note(characterNote)
         this.props.update_character(this.props.currentCharacter)
         this.setState({
           redirectBoolean: true
         })
-        console.log(this.state)
           }
     }
 
@@ -50,10 +48,8 @@ class NewCharacterNote extends React.Component {
 
       renderOrRedirect = () => {
         if(this.state.redirectBoolean === true){
-          console.log(this.state)
            return <Redirect to={`/stories/${this.props.currentCharacter.story_id}`} />} 
            else {
-             console.log(this.state)
            return <section style={{textAlign: "center"}}>
               <StyledHeader >New Character Note:</StyledHeader>
               <br></br>
