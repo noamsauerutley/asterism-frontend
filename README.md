@@ -21,7 +21,7 @@
   <p> <b>Username:</b> <i>demo</i> <br>
   <b>Password:</b> <i>demopassword</i>
   <br><br/> 
-  <strong>N.B. I recently reset the pg database for this app as I needed to integrate some additional features. A rebuilt demo account for your perusal will be back online soon! :)</strong>
+  <strong>N.B. I recently reset the pg database for this app as I needed to integrate some additional features. A populated demo account for your perusal will be back online soon! :)</strong>
   </p>
   
   <hr></hr>
